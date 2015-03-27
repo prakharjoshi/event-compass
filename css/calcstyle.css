@@ -1,0 +1,60 @@
+/*
+	 CSS-Tricks Example
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+*					{ margin: 0; padding: 0; }
+body				{ font: 25px "Arial Black", Arial, Sans-Serif; }
+
+#page-wrap		    { width: 500px; margin: 25px auto; }
+
+h1					{ font-size: 22px; }
+p					{ font: 14px Arial, Sans-Serif; }
+a					{ color: black; text-decoration: none; outline: none; }
+
+#calculator			{ width: 266px; height: 400px; background: url(../images/calc-bg.png) no-repeat;
+	 				  position: relative; display: none; }
+
+#display 			{ background: none; border: none; position: absolute; 
+					  top: 15px; left: 15px; width: 197px; text-align: right;
+				  	  font: 35px "Arial Black", Arial, Sans-Serif; }
+					
+.num-button			{ width: 44px; height: 41px; padding: 3px 0 0 0; text-align: center; 
+	 			      background: url(../images/button-bg.png) no-repeat; 
+					  position: absolute; display: block; }
+.clear-button		{ width: 44px; height: 41px; padding: 3px 0 0 0; text-align: center; 
+	 			      background: url(../images/button-bg.png) no-repeat; 
+					  position: absolute; display: block; }
+.function-button    { width: 44px; height: 41px; padding: 3px 0 0 0; text-align: center; 
+	 			      background: url(../images/function-button-bg.png) no-repeat; 
+					  position: absolute; display: block; }
+.function-button:active,
+.pendingFunction    { background-position: bottom left; }
+					
+.seven				{ top: 86px; left: 15px; }
+.eight				{ top: 86px; left: 66px; }
+.nine				{ top: 86px; left: 118px; }
+
+.four				{ top: 137px; left: 15px; }
+.five				{ top: 137px; left: 66px; }
+.six				{ top: 137px; left: 118px; }
+
+.one				{ top: 188px; left: 15px; }
+.two				{ top: 188px; left: 66px; }
+.three				{ top: 188px; left: 118px; }
+
+.zero				{ top: 237px; left: 15px; }
+.dot				{ top: 237px; left: 66px; }
+.clear				{ top: 237px; left: 118px; }
+
+.add				{ top: 86px; left: 169px; }
+.subtract			{ top: 137px; left: 169px; }
+.multiply			{ top: 188px; left: 169px; }
+.divide				{ top: 237px; left: 169px; }
+
+.equals-button		{ width: 206px; height: 42px; text-align: center; top: 293px; left: 15px;
+	 				  background: url(../images/equals-bg.png) no-repeat; position: absolute; 
+				      display: block; }
+				
+#closer				{ position: absolute; top: -8px; left: -9px; }

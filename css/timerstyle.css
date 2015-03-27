@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+#time {
+    display: inline-block;
+    margin: 0  4px;
+	}
+
+#h,#d,#m,#s {
+    background: #848484;
+    padding: 8px;
+    font-size: 1.2em;
+}
+#outtimer {
+
+    padding: 12px;
+    border-radius: 12px;
+    text-align: center;
+	
+}
+#oudiv{
+top : 100 px;
+}
