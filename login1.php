@@ -7,7 +7,7 @@
               <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li>
-                        <img src="image/logo.jpg" width="60px" height="60px"> 
+                        <img src="image/myimage.jpg" width="60px" height="60px"> 
                   </li>
                 </ul>
             </div>
@@ -50,7 +50,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="panel-footer">Not Registered? <a href="#" class="">Register here</a>
+                <div class="panel-footer">Not Registered? <a href="/signup.php" class="">Register here</a>
                 </div>
             </div>
         </div>
