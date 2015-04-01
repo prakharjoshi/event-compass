@@ -3,57 +3,40 @@
 <div class="page-container">
   
 	<!-- top navbar -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand"  href="/sample_dashbord.php"><span class="glyphicon glyphicon-home"></span>EVENT COMPASS</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="/event_form.php" class="btn">POST An Event</a>
+            </li>
+        </ul>
+            <ul class="nav pull-right">
                 
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                <li>
-                  <img src="../image/logo.jpg" width="60px" height="60px"> 
-                </li>
-                <li>
-                  <a class="page-scroll" href="/main_settings.php">SETTINGS</a>
-                </ul>               
-                
-            </div>
-
-            
-                           
-            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                <li>
-                <button type="button" class="btn btn-info" href="/event_form.php">POST An Event</button>
-                </li>    
-                    <li>
-                        <a class="page-scroll" href="/user_timeline.php">UserName</a>
-                    </li>
-                </ul>  
+            </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/user_settings.php">User Settings</a></li>
-                  <li><a href="#">Logout</a></li>
+                  <li><a href="/main_settings.php">User Settings</a></li>
+                  <li><a href="/logout/">Logout</a></li>
                 </ul>
               </li>
-            </ul>           
-                
-            </div>
-            <!-- /.navbar-collapse -->
+            </ul>
+          </div>
         </div>
-        <div>
-        <!-- /.container -->
-    </nav>
+      </nav>
+
     
       
     <div class="container-fluid">
