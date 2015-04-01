@@ -266,11 +266,15 @@ a:focus {
     padding: 50px 0;
     color: #fff;
     background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
-    background-color: #000;
+    background-color: #FF530D;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.about {
+    background-color: #F2B56B;
 }
 
 #map {

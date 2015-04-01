@@ -95,7 +95,7 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
-        <div class="row">
+        <div class="row" >
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About Event Compass</h2>
                 <p>A platform where we can connect users to their interest and help them follow it. The platform will do so by enabling the user to keep track of the events of his or her interest. The platform will also enable organizers to post and market their events so that it reaches the targeted audience.</p>
@@ -159,7 +159,7 @@
     <script src="js/jquery.easing.min.js"></script>
 
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrGtqRycMrNlLxOKAWWeI_tV7ZPGr4zHo"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>

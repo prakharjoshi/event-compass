@@ -1,69 +1,87 @@
-<?php
-require 'core.inc.php';
+  
+<link href="css/login.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet"> 
 
-if(loggedin())
-{
+    <div class="container">    
+        <div id="signupbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign Up</div>
+                        
+                    </div>     
 
-    echo 'Your settings page';
-}
-else
-{
-    header("Location:index.php");
-}
+                    <div style="padding-top:30px" class="panel-body" >
 
-?>
-</br></br>
-<!DOCTYPE HTML>
-    <html lang="en">
-    <head>
-    <meta charset="utf-8">
-    <title>Event Compass</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/style3.css" rel="stylesheet">
-     <link rel="stylesheet" href="css/demo.css">
-     <link rel="stylesheet" href="css/sky-forms.css">
-   <link href="css/common.css" rel="stylesheet">
-
-    <link href="css/fontello.css" type="text/css" rel="stylesheet">
-    <!--[if lt IE 7]>
-            <link href="css/fontello-ie7.css" type="text/css" rel="stylesheet">
-        <![endif]-->
-    <!-- Google Web fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    
-
-
-<div class="navbar-wrapper">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-                    <h1 class="brand"><a href="#top"  style="text-decoration: none">Event Compass</a></h1>
-                    <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-                    <nav class="pull-right nav-collapse collapse">
-                        <ul id="menu-main" class="nav">
+                        
                             
-                            <li><a title="Rules" href="user_profile.php"><b>Go Back</b></a></li>
-                            <li><a title="Conduct Events" href="logout.php"><b>Logout</b></a></li>
-                            
-                            
-                        </ul>
-                    </nav>
-                </div>
-            <!-- /.container -->
-            </div>
-            <!-- /.navbar-inner -->
-        </div>
-      <!-- /.navbar -->
+                        <form id="signupform" class="form-horizontal" role="form">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">UserName</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                    </div>
+                                </div>                                
+                                  
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="firstname" class="col-md-3 control-label">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname" class="col-md-3 control-label">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
+                                    </div>
+                                </div>
+                                    
+                                
+
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                        <span style="margin-left:8px;">or</span>  
+                                    </div>
+                                </div>
+                                
+                                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+                                    
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
+                                    </div>                                           
+                                        
+                                </div>
+                                
+                                
+                                
+                            </form>    
+
+
+
+                        </div>                     
+                    </div>  
+        </div>    
+                
+         
     </div>
-
-</html>
+    
