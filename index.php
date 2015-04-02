@@ -110,7 +110,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Authentication</h2>
                     <p>You have to first create your account and then login with username and password to get authenticated.</p>
-                    <a href="/login1.php" class="btn btn-default btn-lg">Visit Login/Registration Page</a>
+                    <a href="/login.php" class="btn btn-default btn-lg">Visit Login/Registration Page</a>
                 </div>
             </div>
         </div>

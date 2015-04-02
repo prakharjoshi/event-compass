@@ -54,7 +54,7 @@
                 
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-info">More Events</button>
+                <a href="/more_events.php">More Events</a>
             </div>
             </div>
             </div>
@@ -95,7 +95,7 @@
                 
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-info">More Events</button>
+                <a href="/more_events.php">More Events</a>
             </div>
             </div>
             </div>
@@ -138,7 +138,7 @@
                 
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-info">More Events</button>
+                <a href="/more_events.php">More Events</a>
             </div>
             </div>
 
@@ -181,12 +181,10 @@
                 
             </div>
             <div class="col-md-2">
-                <button type="button" class="btn btn-info">More Events</button>
+                <a href="/more_events.php">More Events</a>
             </div>
             </div>
             </div>
         <hr>
 
      <?php require_once("includes/footer.php") ?>   
-
-</html>
