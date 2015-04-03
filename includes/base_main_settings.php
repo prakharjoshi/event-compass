@@ -1,4 +1,4 @@
-<?php require_once("base.php") ?>
+<?php require_once("includes/base.php") ?>
 
 <link href="../css/fixed_sidebar.css" rel="stylesheet">
 

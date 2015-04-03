@@ -69,7 +69,7 @@
                                         
                                         
                                         <button type="submit" class="btn btn-default">Submit Button</button>
-                                </form>
+                                    </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-11">

@@ -1,25 +1,25 @@
 <?php require_once("includes/base_main_settings.php") ?>
+<div id="main" class="row">
+    <div class="col-md-12">
+        <div class="well-lg panel panel-default" id="toggable_box">
+            <div class="panel-body" >
+            <!--    <p> here comes the navigation bar</p> -->
+                <div role="tabpanel">
 
-<div id="main">
-  <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">INTERESTS SETTINGS</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form role="form">
-                                        <div class="form-group">
-                                        <div class="col-lg-4">
-                                            <label>MUSIC 1</label>
-                                            <div class="checkbox">
+             <!-- Nav tabs -->
+                    
+
+                        <div class="col-md-9 col-sm-6 col-xs-9 personal-info">
+                                <!-- Ticket Info --> 
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP1">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP1" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Interest-1
                                                 </label>
@@ -54,12 +54,22 @@
                                                     <input type="checkbox" value="">Others
                                                 </label>
                                             </div>
-                                            </div>
+                                                
+                                            
                                         </div>
-                                        <div class="form-group">
-                                        <div class="col-lg-4">
-                                            <label>MUSIC</label>
-                                            <div class="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <!-- Project 2-->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP2">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP2" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Interest-1
                                                 </label>
@@ -94,12 +104,21 @@
                                                     <input type="checkbox" value="">Others
                                                 </label>
                                             </div>
-                                            </div>
+                                                
+                                            
                                         </div>
-                                        <div class="form-group">
-                                        <div class="col-lg-4">
-                                            <label>MUSIC</label>
-                                            <div class="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP3">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP3" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Interest-1
                                                 </label>
@@ -134,12 +153,21 @@
                                                     <input type="checkbox" value="">Others
                                                 </label>
                                             </div>
-                                            </div>
+                                                
+                                            
                                         </div>
-                                        <div class="form-group">
-                                        <div class="col-lg-4">
-                                            <label>MUSIC</label>
-                                            <div class="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP4">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP4" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Interest-1
                                                 </label>
@@ -174,12 +202,21 @@
                                                     <input type="checkbox" value="">Others
                                                 </label>
                                             </div>
-                                            </div>
+                                                
+                                            
                                         </div>
-                                        <div class="form-group">
-                                        <div class="col-lg-4">
-                                            <label>MUSIC</label>
-                                            <div class="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP5">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP5" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Interest-1
                                                 </label>
@@ -214,12 +251,21 @@
                                                     <input type="checkbox" value="">Others
                                                 </label>
                                             </div>
-                                            </div>
+                                                
+                                            
                                         </div>
-                                        <div class="form-group">
-                                        <div class="col-lg-4">
-                                            <label>MUSIC</label>
-                                            <div class="checkbox">
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP6">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP6" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Interest-1
                                                 </label>
@@ -254,32 +300,130 @@
                                                     <input type="checkbox" value="">Others
                                                 </label>
                                             </div>
-                                            </div>
+                                                
+                                            
                                         </div>
-                                      <button type="submit" class="btn btn-default">Submit Button</button>
-                                </form>
-                                </div>
-                                <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-12">
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP7">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP7" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-1
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-2
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-3
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-4
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-5
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-6
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Others
+                                                </label>
+                                            </div>
+                                                
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP8">Interest - 1</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseP8" class="panel-collapse collapse out">
+                                            <div class="panel-body">
+                                                <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-1
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-2
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-3
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-4
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-5
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Interest-6
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="">Others
+                                                </label>
+                                            </div>
+                                                
+                                            
+                                        </div>
+                                        </div>
+                                    </div>
                                     
                                 </div>
-                                <!-- /.col-lg-6 (nested) -->
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+                            
 
+                      
+                        
+
+
+
+                        
+
+
+             <!--Comments tab-->
+                        
+
+                </div>
+
+            
+        </div>
     </div>
-  
+  </div>
 </div>
-</body>
 <?php require_once("includes/footer.php") ?>
-</html>
+<!--/container-->

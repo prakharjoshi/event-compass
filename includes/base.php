@@ -29,8 +29,8 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
+<nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -40,28 +40,27 @@
             </button>
             <a class="navbar-brand"  href="/main_dashbord.php"><span class="glyphicon glyphicon-home"></span>EVENT COMPASS</a>
           </div>
-          <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-left">
             <li>
-                <a href="/event_form.php" class="btn">POST An Event</a>
+                <a href="/event_form.php">POST An Event</a>
             </li>
         </ul>
-            <ul class="nav pull-right">
-                
+        
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/main_settings_page.php">User Settings</a></li>
+              <li><a href="/logout.php">Logout</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/main_settings_page.php">User Settings</a></li>
-                  <li><a href="/logout.php">Logout</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
 
 
 
@@ -72,5 +71,5 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-    </div>
+    
 </body>

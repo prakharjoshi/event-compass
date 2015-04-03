@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>EVENT COMPASS</title>
+    <title>Event Compass</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -62,12 +62,12 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Authetication</a>
-                    </li>
+                    </li>                    
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+            <li>
+            <a href="login.php" class="btn btn-default btn-lg">Sign In</a>
                     </li>
                 </ul>
             </div>
@@ -82,8 +82,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">EVENT COMPASS</h1>
-                        <p class="intro-text">An online platform for connecting people<br>with events of their interest</p>
+                        <h1 class="brand-heading">Event Compass</h1>
+                        <p class="intro-text">You've got the interest<br>We'll bring you the events</p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -98,20 +98,7 @@
         <div class="row" >
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About Event Compass</h2>
-                <p>A platform where we can connect users to their interest and help them follow it. The platform will do so by enabling the user to keep track of the events of his or her interest. The platform will also enable organizers to post and market their events so that it reaches the targeted audience.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Authentication</h2>
-                    <p>You have to first create your account and then login with username and password to get authenticated.</p>
-                    <a href="/login.php" class="btn btn-default btn-lg">Visit Login/Registration Page</a>
-                </div>
+                <p>A platform where we can connect users to their interest and help them follow it. The platform will do so by enabling the user to keep track of the events of his or her interest. The platform will also enable organizers to post and promote their events so that it reaches the targeted audience.</p>
             </div>
         </div>
     </section>
@@ -122,17 +109,17 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Contact</h2>
                 <p>Feel free to email us to provide some feedback on our product, give us suggestions for new changes, or to just say hello!</p>
-                <p><a href="mailto:prakhar126@gmail.com">prakhar126@gmail.com</a>
+                <p><a href="mailto:eventcompass22@gmail.com">eventcompass22@gmail.com</a>
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        <a href="https://twitter.com/eventcompass22" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                     </li>
                     <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        <a href="https://github.com/prakharjoshi/event-compass" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                     </li>
                     <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                        <a href="https://plus.google.com/u/0/107984560752107119293/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
             </div>
@@ -145,7 +132,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p>Copyright &copy; Event Compass 2015</p>
         </div>
     </footer>
 
