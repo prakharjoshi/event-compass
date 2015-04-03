@@ -1,6 +1,6 @@
 <?php require_once("includes/base.php") ?>
 
-
+<body>
     <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -109,5 +109,3 @@
   
 </body>
 <?php require_once("includes/footer.php") ?>
-
-</html>

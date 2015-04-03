@@ -111,9 +111,22 @@
 					    </div>
 
 					    <div class="row">
+					    	<form role="form">
 					    	<div class="col-md-3 "><strong>Your Rating</strong></div>
-					    	<div class="col-md-9 "> Drop down</div>
+					    	<div class="col-md-9">
+					    		            <select >
+                                                <option>1.0</option>
+                                                <option>2.0</option>
+                                                <option>3.0</option>
+                                                <option>4.0</option>
+                                                <option>5.0</option>
+                                            </select>
+                            </div>
 					    </div>
+					    	<div class="col-sm-offset-9 col-sm-9">
+                                                <button type="button" class="btn btn-link">Submit</button>
+                           	</div>
+					    </form>
 					</div>
 				    	
 					    <div role="tabpanel" class="tab-pane fade" id="tickets">
