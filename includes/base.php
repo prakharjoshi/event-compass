@@ -1,3 +1,4 @@
+<!--<?php session_start();?>-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>EVENT COMPASS</title>
+    <title>Event Compass</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +30,8 @@
 <body>
 
     <!-- Navigation -->
-<nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
+    <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -38,29 +39,32 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand"  href="/main_dashbord.php"><span class="glyphicon glyphicon-home"></span>EVENT COMPASS</a>
+            <a class="navbar-brand"  href="/main_dashbord.php"><span class="glyphicon glyphicon-home"></span> Event Compass</a>
           </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-left">
+        <?php 
+                    $username = $_SESSION['currentuser']; ?>
             <li>
-                <a href="/event_form.php">POST An Event</a>
+                <a class="navbar-brand"  href="event_form.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-globe"></span> Post Event</a>
             </li>
         </ul>
-        
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="/main_settings_page.php">User Settings</a></li>
-              <li><a href="/logout.php">Logout</a></li>
+            <ul class="nav pull-right">
+                
             </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                   <li><a href="main_settings_page.php?user=<?php echo $username ?>">User Settings</a></li>
+                  <li><a href="logout.php">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
 
 
@@ -71,5 +75,5 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
-    
+    </div>
 </body>

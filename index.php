@@ -129,13 +129,6 @@
     <!-- Map Section -->
     <div id="map"></div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Event Compass 2015</p>
-        </div>
-    </footer>
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -152,6 +145,5 @@
     <script src="js/grayscale.js"></script>
 
 </body>
-
-</html>
 <?php require("includes/footer.php") ?>
+</html>

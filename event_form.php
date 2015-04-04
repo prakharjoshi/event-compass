@@ -29,7 +29,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label><h3>Event Date</h3></label>
-                                                <input class="form-control" type="datetime-local">
+                                                <input class="form-control" type="date">
                                             </div>
                                         </div>
                                         <div class="form-group">

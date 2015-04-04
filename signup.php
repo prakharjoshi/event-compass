@@ -1,3 +1,10 @@
+<?php
+session_start();
+?>
+<?php require_once("includes/functions.php") ?>
+<?php require_once("includes/connection.php") ?>
+<?php require_once("backend/signupbackend.php") ?>
+
 <link href="css/login.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet"> 
 <link href="css/bootstrap-social.css" rel="stylesheet">
@@ -11,7 +18,7 @@
                     </div>     
 
                     <div style="padding-top:30px" class="panel-body" >                            
-                        <form role="form" class="form-horizontal" role="form">
+                        <form role="form" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                                 
                                 <div id="signupalert" style="display:none" class="alert alert-danger">
                                     <p>Error:</p>
@@ -57,7 +64,7 @@
                                 <div class="form-group last">
                                     <div class="col-sm-offset-8 col-sm-9">
                                         <button type="button" class="btn btn-link">Cancel</button>
-                                        <button type="submit" class="btn btn-success"></i>Sign Up</button>
+                                        <button type="submit" class="btn btn-success" name="submit">Sign Up</button>
                                     </div>
                                 </div>
                                 

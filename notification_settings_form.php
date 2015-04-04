@@ -1,4 +1,11 @@
 <?php require_once("includes/base_main_settings.php") ?>
+<?php require_once("includes/functions.php") ?>
+<?php require_once("includes/connection.php") ?>
+<?php require_once("backend/ifnotlogin.php") ?>
+<?php
+    $username = $_SESSION['currentuser'];
+?>
+<?php require_once("backend/notification_settings_formbackend.php") ?>
 
 <div id="main">
   <div id="page-wrapper">
@@ -15,26 +22,27 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form role="form">
+                                    <form role="form" action="notification_settings_form.php?user=<?php echo $username;?>" method="post">
                                         <div class="form-group">
                                             <label>Modes of Notification</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Email
+                                                    <input type="checkbox" value="email" name="email">Email
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Text Message
+                                                    <input type="checkbox" value="text" name="text">Text Message
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">None
+                                                    <input type="checkbox" value="text" name="none">None
                                                 </label>
                                             </div>
                                         </div>
-                                      <button type="submit" class="btn btn-default">Submit Button</button>
+                                      <button type="submit" class="btn btn-default" name="submit" value="submit">Submit Button</button>
+                                      
                                 </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

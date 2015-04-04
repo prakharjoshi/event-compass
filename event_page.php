@@ -124,7 +124,7 @@
                             </div>
 					    </div>
 					    	<div class="col-sm-offset-9 col-sm-9">
-                                                <button type="button" class="btn btn-link">Submit</button>
+                                                <button type="button" class="btn btn-success">Submit</button>
                            	</div>
 					    </form>
 					</div>
@@ -137,10 +137,10 @@
 				      				<div class="panel panel-default">
 				            			<div class="panel-heading">
 				                			<h4 class="panel-title">
-				                    		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP1">Tickets types</a>
+				                    		
 				                			</h4>
 				            			</div>
-				            			<div id="collapseP1" class="panel-collapse collapse out">
+				            			
 				                			<div class="panel-body">
 				                				<table class="table table-hover">
 									              <thead>
@@ -148,30 +148,25 @@
 									                  <th>Ticket Type</th>
 									                  <th>Available Tickets</th>
 									                  <th>Price</th>
+									                  <th></th>
+									                  <th></th> 
 									                </tr>
 									              </thead>
 									            <tbody>
+									            	<tr>
+									                  <th>Ticket Type</th>
+									                  <th>Available Tickets</th>
+									                  <th>Price</th>
+									                  <th><input></input></th>
+									                  <th><button type="button" class="btn btn-success">Buy</button></th> 
+									                </tr>
 												      
 												        
     											</tbody>
     										</table>
 				          						
 				        					
-				            			</div>
-				            			</div>
-				       				</div>
-
-				       				<!-- Project 2-->
-				       				<div class="panel panel-default">
-				            			<div class="panel-heading">
-				                			<h4 class="panel-title">
-				                    		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP2">Buy Tickets</a>
-				                			</h4>
-				            			</div>
-				            			<div id="collapseP2" class="panel-collapse collapse out">
-				                			<div class="panel-body">
-				                				<h1>Future Aspect:P</h1>				                  
-				        					</div>
+				            			
 				            			</div>
 				       				</div>
 				       			</div>
