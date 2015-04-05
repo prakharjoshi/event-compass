@@ -70,7 +70,7 @@
       <div class="col-md-12">
         <h3 class="text-center">Options</h3>
         <ul class="nav nav-pills nav-stacked text-center">
-          <li><a href="films.php">Film & Entertainment</a></li>
+         <li><a href="films.php">Film & Entertainment</a></li>
           <li><a href="hobbies.php">Hobbies & Special-Interest</a></li>
           <li><a href="music.php">Music</a></li>
            <li><a href="visualarts.php">Visual Arts</a></li>
@@ -102,7 +102,7 @@
         $query_run=mysql_query($query);
         //echo mysql_num_rows($query_run);
         
-         for ($i = 0; $i <mysql_num_rows($query_run) ; $i++) 
+         for ($i = 1; $i <mysql_num_rows($query_run) ; $i++) 
         {
           
             
@@ -117,7 +117,7 @@
             
             <div class="col-lg-3 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3><?php echo $Ev_name ?>
+                <h3><?php echo $Ev_name ?>;
                    <!-- <small><?php echo $Sub_id ?></small>-->
                 </h3>
                 <p><?php echo $Ev_description ?></p>
