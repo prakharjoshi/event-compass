@@ -3068,6 +3068,9 @@ fieldset[disabled] .btn-default.active {
   background-color: #337ab7;
   border-color: #2e6da4;
 }
+.btn-custom-1{
+  border-color: #fff;
+}
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus,
@@ -4459,7 +4462,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-link:hover {
-  color: #333;
+  color: #fff;
 }
 .navbar-default .btn-link {
   color: #777;

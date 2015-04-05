@@ -13,7 +13,7 @@ session_start();
               <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li>
-                        <img src="image/myimage.jpg" width="60px" height="60px"> 
+                        <img src="image/logo-7.jpg" width="60px" height="60px"> 
                   </li>
                 </ul>
             </div>

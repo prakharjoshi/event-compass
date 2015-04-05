@@ -40,31 +40,27 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 <h2 class="page-header">Category - 1</h2>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="row">
@@ -72,7 +68,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 
             </div>
             <div class="col-md-2">
-                <a href="/more_events.php">More Events</a>
+               <a href="/more_events.php" ><button type="submit" class="btn btn-success" name="submit">More Events</button></a>
             </div>
             </div>
             </div>
@@ -81,31 +77,27 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 <h2 class="page-header">Category - 1</h2>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="row">
@@ -113,7 +105,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 
             </div>
             <div class="col-md-2">
-                <a href="/more_events.php">More Events</a>
+                <a href="/more_events.php" ><button type="submit" class="btn btn-success" name="submit">More Events</button></a>
             </div>
             </div>
             </div>
@@ -123,31 +115,27 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 <h2 class="page-header">Category - 1</h2>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             </div>
@@ -156,7 +144,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 
             </div>
             <div class="col-md-2">
-                <a href="/more_events.php">More Events</a>
+                <a href="/more_events.php" ><button type="submit" class="btn btn-success" name="submit">More Events</button></a>
             </div>
             </div>
 
@@ -165,31 +153,27 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 <h2 class="page-header">Category - 1</h2>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                <h3>Event Name
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
-                </h3>
                 <p>Short description</p>
             </div>
             </div>
@@ -199,7 +183,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 
             </div>
             <div class="col-md-2">
-                <a href="/more_events.php">More Events</a>
+                <a href="/more_events.php" ><button type="submit" class="btn btn-success" name="submit">More Events</button></a>
             </div>
             </div>
             </div>

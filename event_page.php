@@ -32,17 +32,6 @@
 			<div class="panel-body" >
 			<!--	<p> here comes the navigation bar</p> -->
 				<div role="tabpanel">
-
-             <!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-
-						<li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
-					    <li role="presentation"><a href="#tickets" aria-controls="projects" role="tab" data-toggle="tab">Tickets</a></li>
-					    
-					   
-					</ul>
-
-					  <!-- Tab panes -->
 					<div class="tab-content">
 						<!--About tab-->
 					    <div role="tabpanel" class="tab-pane active" id="about">
@@ -127,11 +116,13 @@
                                                 <button type="button" class="btn btn-success">Submit</button>
                            	</div>
 					    </form>
+
+					    <div class="col-md-2 col-md-offset-4">
+               				<button type="submit" id="attend_btn" class="btn btn-success" name="submit">Attend Event</button>
+            			</div>
 					</div>
 				    	
 					    <div role="tabpanel" class="tab-pane fade" id="tickets">
-
-							
 							<div class="col-md-10 col-sm-6 col-xs-12 personal-info">
 				      			<!-- Ticket Info --> 
 				      				<div class="panel panel-default">
@@ -192,4 +183,7 @@
 </div>
 <!--/container-->
 </body>
+<script>
+
+</script>
 <?php require_once("includes/footer.php") ?>   

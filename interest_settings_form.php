@@ -9,6 +9,12 @@
 <?php require_once("backend/interest_settings_form_backend.php") ?>
 
 <div id="main" class="row">
+    <div class="row">
+                <div class="col-lg-11">
+                    <h1 class="page-header text-center">Interest Settings</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
  <form role="form" action="interest_settings_form.php?user=<?php echo $username;?>" method="post">
     <div class="col-md-12">
         <div class="well-lg panel panel-default" id="toggable_box">

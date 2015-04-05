@@ -45,22 +45,29 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-left">
         <?php 
-                    $username = $_SESSION['currentuser']; ?>
-            <li>
-                <a class="navbar-brand"  href="event_form.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-globe"></span> Post Event</a>
-            </li>
+                    $username = $_SESSION['currentuser']; 
+        ?>
+            
         </ul>
             <ul class="nav pull-right">
                 
             </ul>
             <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="navbar-link"  href="browse_event.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-globe"></span> Browse Events</a>
+              </li>
+              
+              <li>
+                <a class="navbar-link"  href="event_form.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-plus"></span> Post Event</a>
+              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                   <li><a href="main_settings_page.php?user=<?php echo $username ?>">User Settings</a></li>
-                  <li><a href="logout.php">Logout</a></li>
+                   <li><a href="user_profile_view.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-cog"></span> User Settings</a></li>
+                  <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>
               </li>
+
             </ul>
           </div>
         </div>
