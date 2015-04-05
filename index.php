@@ -99,6 +99,9 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About Event Compass</h2>
                 <p>A platform where we can connect users to their interest and help them follow it. The platform will do so by enabling the user to keep track of the events of his or her interest. The platform will also enable organizers to post and promote their events so that it reaches the targeted audience.</p>
+                <a href="#contact" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
             </div>
         </div>
     </section>

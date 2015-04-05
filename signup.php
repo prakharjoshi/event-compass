@@ -5,13 +5,14 @@ session_start();
 <?php require_once("includes/connection.php") ?>
 <?php require_once("backend/signupbackend.php") ?>
 
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/login.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet"> 
 <link href="css/bootstrap-social.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <div class="container">    
-        <div id="signupbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div id="signupbox" style="margin-top:25px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title">Sign Up</div>
@@ -61,23 +62,25 @@ session_start();
                                     </div>
                                 </div>
                                    
-                                <div class="form-group last">
+                                <div class="form-group ">
                                     <div class="col-sm-offset-8 col-sm-9">
                                         <button type="button" class="btn btn-link">Cancel</button>
-                                        <button type="submit" class="btn btn-success" name="submit">Sign Up</button>
+                                        <button type="submit" class="btn btn-primary" name="submit">Sign Up</button>
                                     </div>
                                 </div>
-                                
-                                <div style="border-top: 1px ; padding-top:20px"  class="form-group">                                   
-                                    <div class="col-md-offset-3 col-md-6">
-                                        <a class="btn btn-block btn-social btn-facebook">
-                                            <i class="fa fa-facebook"></i> Sign in with Facebook
-                                        </a>
-                                        
-                                        <a class="btn btn-block btn-social btn-google-plus">
-                                            <i class="fa fa-google-plus"></i> Sign in with Google+
-                                        </a>                            
-                                    </div>                                     
+                                <div class="panel-footer"><strong class="">Sign In with Facebook or Google+
+                               
+                                    <div style="border-top: 1px ; padding-top:20px" class="form-group">                                   
+                                        <div class="col-md-offset-3 col-md-6">
+                                            <a class="btn btn-block btn-social btn-facebook">
+                                                <i class="fa fa-facebook"></i> Facebook
+                                            </a>
+                                            
+                                            <a class="btn btn-block btn-social btn-google-plus">
+                                                <i class="fa fa-google-plus"></i> Google+
+                                            </a>                            
+                                        </div>    
+                                    </div>     </div>                             
                                 </div>
                         </form>    
                         </div>                     

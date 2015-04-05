@@ -40,25 +40,25 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
                 <h2 class="page-header">Category - 1</h2>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="img/.jpg" alt=""></a>
                 <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="img/23.png" alt=""></a>
                 <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="img/41.png" alt=""></a>
                 <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
                 <p>Short description</p>
             </div>
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""></a>
+                <a href="/event_page.php"><img class="img-circle img-responsive img-center" src="img/.png" alt=""></a>
                 <a href="/event_page.php"><h3>Event Name</h3></a>
                     <small>Type</small>
                 <p>Short description</p>

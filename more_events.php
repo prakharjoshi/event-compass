@@ -1,4 +1,11 @@
 <?php require_once("includes/base.php") ?>
+<?php require_once("includes/functions.php") ?>
+<?php require_once("includes/connection.php") ?>
+<?php require_once("backend/ifnotlogin.php") ?>
+<?php
+    $username = $_SESSION['currentuser'];
+?>
+
 
 
     <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">

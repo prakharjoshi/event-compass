@@ -12,7 +12,11 @@
     {
         $id = $_GET['id'];
     }
-    if (isset($_POST['submit']))
+    if(isset($_POST['submit1']))
+    {
+        redirect_to("event_page.php?user=$username&id=$id");
+    }
+    elseif (isset($_POST['submit']))
     {
         //echo $id;
         $uploadDir = 'img/';
@@ -24,34 +28,22 @@
         $ext = pathinfo($image_name, PATHINFO_EXTENSION);
         //echo $ext;
         //echo type($ext);
-        echo $image_name;
-        echo $image_tmp_name;
-        if($ext == "jpg")
+        if($ext == "pdf")
         {
-            $filePath = $uploadDir . $id . '.jpg';
+            $filePath = $uploadDir . $id . '.pdf';
         }
-        if($ext == "png")
-        {
-            $filePath = $uploadDir . $id . '.png';
-        }
-        if($ext == "jpeg")
-        {
-            $filePath = $uploadDir . $id . '.jpeg';
-        }
-        
         $result = move_uploaded_file($image_tmp_name, $filePath);
         if (!$result) 
         {
             echo "Error uploading file";
             exit;
         }
-        
-        $query = mysql_query("UPDATE Event SET Ev_photo = '$filePath' WHERE Ev_id = '$id'"); 
+        echo "hello world";
+        $query = mysql_query("UPDATE Event SET Ev_mou = '$filePath' WHERE Ev_id = '$id'"); 
         if(!$query)
         {
             echo mysql_error();
         }
-        redirect_to("event_form3.php?user=$username&id=$id");
     }
 ?>
     <div id="page-wrapper">
@@ -66,18 +58,18 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-center">
-                            <h3>Upload Cover Picture for your event</h3>
+                            <h3>Upload MOU document for your event</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row col-md-offset-1">
                                 <div class="col-lg-12">
-                                    <form enctype="multipart/form-data" role="form" method="post" action="event_form2.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
+                                    <form enctype="multipart/form-data" role="form" method="post" action="event_form3.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
                                         <div class="form-group">
-                                            <label><h3>Cover Photo</h3></label>
+                                            <label><h3>MOU</h3></label>
                                             <input type="file" name="image">          
                                         <br>
                                         <button type="submit" class="btn btn-" name="submit" value="submit">Proceed to next step</button>
-                                        <button type="submit" class="btn btn-" name="submit" value="submit1">Skip</button>
+                                        <button type="submit" class="btn btn-" name="submit1" value="submit1">Skip</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

@@ -1,23 +1,58 @@
 <?php require_once("includes/base.php") ?>
     
-
+<head>
+		<script src="code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.countdown.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:600,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/countdown.demo.css" type="text/css">
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        
+</head>	
 <body>
 
+				
 <div class="container">
 	<br>
 	<br>
+				<div align="center">
+				<?php
+				$year = '2015';
+				$month = '04';
+				$day = '12';
+				$time1 = '14:00';
+				$result = $year."-".$month."-".$day."T".$time1.":00+0100";
+				//echo $result;
+				?>
+				<!--
+				<time>2015-04-17T14:00:00+0100</time>
+				-->
+				<time><?php echo $result; ?></time>
+				</div>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<script src="js/jquery.countdown.js"></script>
+			<script>
+			window.jQuery(function ($) {
+				"use strict";
+
+				$('time').countDown({
+					with_separators: false
+				});
+			});
+			</script>
+		
 
   <div class="row" id="static_profile_box">
     <div class="col-md-10 col-md-offset-1" >
       <div class="well-lg panel panel-default" id="profile_box">
         <div class="panel-body" >
-          <div class="row">
+			 <div class="row">
             
             <h1> Insert Event Poster </h1>
-           
+
+            <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submit">Attend Event</button>
             
           </div>
-          <!--/row-->
+			<!-- row -- >
         </div>
         <!--/panel-body-->
       </div>
@@ -104,22 +139,14 @@
 					    	<div class="col-md-3 "><strong>Your Rating</strong></div>
 					    	<div class="col-md-9">
 					    		            <select >
-                                                <option>1.0</option>
-                                                <option>2.0</option>
-                                                <option>3.0</option>
-                                                <option>4.0</option>
-                                                <option>5.0</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
                                             </select>
+                                            <button type="button" class="btn btn-primary col-md-offset-1">Submit</button>
                             </div>
-					    </div>
-					    	<div class="col-sm-offset-9 col-sm-9">
-                                                <button type="button" class="btn btn-success">Submit</button>
-                           	</div>
-					    </form>
-
-					    <div class="col-md-2 col-md-offset-4">
-               				<button type="submit" id="attend_btn" class="btn btn-success" name="submit">Attend Event</button>
-            			</div>
 					</div>
 				    	
 					    <div role="tabpanel" class="tab-pane fade" id="tickets">
@@ -131,7 +158,6 @@
 				                    		
 				                			</h4>
 				            			</div>
-				            			
 				                			<div class="panel-body">
 				                				<table class="table table-hover">
 									              <thead>

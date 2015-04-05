@@ -1,7 +1,8 @@
 /* CSS used here will be applied after bootstrap.css */
 
 body { 
- background: url('/image/logo-7.jpg') no-repeat center center fixed; 
+ background: #08359A url("../image/logo-9.jpg") no-repeat fixed center;
+ /*background-color: #08359A;*/
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
@@ -11,7 +12,7 @@ body {
 .panel-default {
  opacity: 0.9;
  margin-top:30px;
- background-color: #05000D;
+ background-color: #FCFFF5;
 }
 .form-group.last {
  margin-bottom:0px;
