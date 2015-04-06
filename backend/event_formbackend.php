@@ -1,6 +1,6 @@
 <?php
     //echo $username;
-    if (isset($_POST['submit'])) 
+    if ($_POST['submit']) 
     {
         if(empty($_POST['eventname']) || empty($_POST['eventlocation']) || empty($_POST['date']) || empty($_POST['time']) || empty($_POST['description']) || empty($_POST['optionsRadios']) || empty($_POST['category']))
         {
@@ -58,7 +58,7 @@
             $query4 = mysql_query("SELECT * FROM Event WHERE Ev_name = '$eventname'");
             if(!$query4)
             {
-                echo mysql_error();
+            	echo mysql_error();
             }
             $row4 = mysql_fetch_array($query4);
             $idew = $row4['Ev_id'];
@@ -67,4 +67,3 @@
         }
     }
 ?>
-

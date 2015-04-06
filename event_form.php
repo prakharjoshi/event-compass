@@ -2,6 +2,7 @@
     ob_start();
     session_start();
 ?>
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
 <?php require_once("includes/base.php") ?>
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
@@ -39,16 +40,10 @@
                                             <p class="help-block">Location of your event.</p>
                                         </div>
                                         <div class="form-group">
-                                            <label><h3>Event Date</h3></label>
-                                                <input class="form-control" placeholder="DD / MM / YYYY" name="date">
+                                            <label><h3>Event Date and Time</h3></label>
+                                                <input type="text" id="datetimepicker_dark" />
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label><h3>Event Time</h3></label>
-                                                <input class="form-control" placeholder="HH : MM" name="time">
-                                            </div>
-                                        </div>
-
                                         <div class="form-group">
                                             <label><h3>Short Description</h3></label>
                                             <textarea class="form-control" rows="3" name="description"></textarea>
@@ -67,27 +62,39 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        
-                                        <div class="form-group">
-                                            <label><h3>Category of Event</h3></label>
-                                            <select class="form-control" name="category[]">
-                                                <option>Classical Music</option>
-                                                <option>Rock Music</option>
-                                                <option>Coding Contest</option>
-                                                <option>Classical Dance</option>
-                                                <option>Hiphop Dance</option>
-                                            </select>
-                                        </div>
+                                        <script type="text/javascript">
+                                            if(#optionsRadios1)
+                                        </script>
+
                                         <div class="form-group">
                                             <label><h3>Type of Event</h3></label>
                                             <select class="form-control" name="type[]">
-                                                <option>Competition</option>
-                                                <option>Conecert</option>
-                                                <option>type3</option>
-                                                <option>type4</option>
-                                                <option>type5</option>
+                                                <option>Concert or Performance</option>
+                                                <option>Festival, Fair or Exhibition</option>
+                                                <option>Game or Competition</option>
+                                                <option>Party or Social Gathering</option>
+                                                <option>Rsace or Tournament</option>
+                                                <option>Other</option>
                                             </select>
                                         </div>
+                                        
+                                        <div class="form-group">
+                                            <label><h3>Category of Event</h3></label>
+                                            <select class="form-control" id="category" name="category">                                
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label><h3>Sub-Category of Event</h3></label>
+                                            <select class="form-control" id="sub-category" name="sub-category">
+                                                
+                                            </select>
+                                        </div>
+
+                                        <script language="javascript">
+                                            populateCategory("category", "sub-category");
+                                        </script>
+                                        
                                         <div class="form-group">
                                         <button type="submit" class="btn btn-" name="submit" value="submit">Proceed To Next Step</button>
                                         </div>
@@ -111,7 +118,8 @@
 
     </div>
     <!-- /#wrapper -->
-
+    <script src="./jquery.datetimepicker.js"></script>
+    
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -124,12 +132,138 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
-    
-
-    
+<script type= "text/javascript" src = "js/categories.js"></script>    
 
     
 </body>
+
+<script src="js/jquery.js"></script>
+        <script src="js/jquery.datetimepicker.js"></script>
+        <script>
+        $('#datetimepicker').datetimepicker({
+        dayOfWeekStart : 1,
+        lang:'en',
+        disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
+        startDate:  '1986/01/05'
+        });
+        $('#datetimepicker').datetimepicker({value:'2015/04/15 05:03',step:10});
+
+        $('.some_class').datetimepicker();
+
+        $('#default_datetimepicker').datetimepicker({
+            formatTime:'H:i',
+            formatDate:'d.m.Y',
+            defaultDate:'8.12.1986', // it's my birthday
+            defaultTime:'10:00',
+            timepickerScrollbar:false
+        });
+
+        $('#datetimepicker10').datetimepicker({
+            step:5,
+            inline:true
+        });
+        $('#datetimepicker_mask').datetimepicker({
+            mask:'9999/19/39 29:59'
+        });
+
+        $('#datetimepicker1').datetimepicker({
+            datepicker:false,
+            format:'H:i',
+            step:5
+        });
+        $('#datetimepicker2').datetimepicker({
+            yearOffset:222,
+            lang:'ch',
+            timepicker:false,
+            format:'d/m/Y',
+            formatDate:'Y/m/d',
+            minDate:'-1970/01/02', // yesterday is minimum date
+            maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+        });
+        $('#datetimepicker3').datetimepicker({
+            inline:true
+        });
+        $('#datetimepicker4').datetimepicker();
+        $('#open').click(function(){
+            $('#datetimepicker4').datetimepicker('show');
+        });
+        $('#close').click(function(){
+            $('#datetimepicker4').datetimepicker('hide');
+        });
+        $('#reset').click(function(){
+            $('#datetimepicker4').datetimepicker('reset');
+        });
+        $('#datetimepicker5').datetimepicker({
+            datepicker:false,
+            allowTimes:['12:00','13:00','15:00','17:00','17:05','17:20','19:00','20:00'],
+            step:5
+        });
+        $('#datetimepicker6').datetimepicker();
+        $('#destroy').click(function(){
+            if( $('#datetimepicker6').data('xdsoft_datetimepicker') ){
+                $('#datetimepicker6').datetimepicker('destroy');
+                this.value = 'create';
+            }else{
+                $('#datetimepicker6').datetimepicker();
+                this.value = 'destroy';
+            }
+        });
+        var logic = function( currentDateTime ){
+            if( currentDateTime.getDay()==6 ){
+                this.setOptions({
+                    minTime:'11:00'
+                });
+            }else
+                this.setOptions({
+                    minTime:'8:00'
+                });
+        };
+        $('#datetimepicker7').datetimepicker({
+            onChangeDateTime:logic,
+            onShow:logic
+        });
+        $('#datetimepicker8').datetimepicker({
+            onGenerate:function( ct ){
+                $(this).find('.xdsoft_date')
+                    .toggleClass('xdsoft_disabled');
+            },
+            minDate:'-1970/01/2',
+            maxDate:'+1970/01/2',
+            timepicker:false
+        });
+        $('#datetimepicker9').datetimepicker({
+            onGenerate:function( ct ){
+                $(this).find('.xdsoft_date.xdsoft_weekend')
+                    .addClass('xdsoft_disabled');
+            },
+            weekends:['01.01.2014','02.01.2014','03.01.2014','04.01.2014','05.01.2014','06.01.2014'],
+            timepicker:false
+        });
+        var dateToDisable = new Date();
+            dateToDisable.setDate(dateToDisable.getDate() + 2);
+        $('#datetimepicker11').datetimepicker({
+            beforeShowDay: function(date) {
+                if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
+                    return [false, ""]
+                }
+
+                return [true, ""];
+            }
+        });
+        $('#datetimepicker12').datetimepicker({
+            beforeShowDay: function(date) {
+                if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
+                    return [true, "custom-date-style"];
+                }
+
+                return [true, ""];
+            }
+        });
+        $('#datetimepicker_dark').datetimepicker({theme:'dark'})
+
+
+        </script>
+
 <?php require_once("includes/footer.php") ?>
 
 </html>

@@ -98,7 +98,7 @@
         
         <!-- Events Row -->
         <?php 
-        $query="SELECT Ev_name, Ev_description,Sub_id FROM Event NATURAL JOIN Subcategory WHERE Cat_id = 1";
+        $query="SELECT Ev_name, Ev_description,Sub_id FROM Event NATURAL JOIN Subcategory WHERE Cat_id = 2";
         $query_run=mysql_query($query);
         //echo mysql_num_rows($query_run);
         
