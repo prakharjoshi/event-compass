@@ -116,7 +116,7 @@
         
             
             <div class="col-lg-3 col-sm-6 text-center">
-                <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+                <img class="img-responsive img-responsive img-center" src="http://placehold.it/200x200" alt="">
                 <h3><?php echo $Ev_name ?>;
                    <!-- <small><?php echo $Sub_id ?></small>-->
                 </h3>

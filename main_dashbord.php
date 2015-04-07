@@ -3,7 +3,7 @@
 <?php require_once("includes/connection.php") ?>
 <?php require_once("backend/ifnotlogin.php") ?>    
 <?php
-//This function will check whether the user is logged in or not. (Security fu)
+//This function will check whether the user is logged in or not. (Security function)
 
 //session_start();
 if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != '')) 
@@ -86,10 +86,39 @@ $mini=min((mysql_num_rows($query_run)),4);
 $query2="SELECT User_address FROM User WHERE User_username = '$username'";
 $query_run2=mysql_query($query2);
 $from=mysql_result($query_run2,0,'User_address');
-$qr = "SELECT Ev_location FROM Event";
-/* !! */
-$to = "Gandhinagar";
-$from = urlencode($from);
+
+$qr = "SELECT * FROM Event";
+$qr2=mysql_query($qr);
+$distance=100000000000000000000000;
+
+for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++) 
+{
+    $to=mysql_result($qr2,$i,'Ev_location');
+    $from = urlencode($from);
+    $to = urlencode($to);
+    $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
+    $data = json_decode($data);
+    $distance1 = 0;
+    //$mini=min((mysql_num_rows($query_run)),4);
+    //for ($i = 0; $i <$mini ; $i++)
+    //{
+
+      foreach($data->rows[0]->elements as $road)
+      {
+        $distance1 += $road->distance->value;
+      }
+      
+
+      if($distance1<$distance)
+      {
+        $distance=$distance1;
+
+      }
+    //}
+
+}
+
+/*$from = urlencode($from);
 $to = urlencode($to);
 $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
 $data = json_decode($data);
@@ -100,7 +129,9 @@ $mini=min((mysql_num_rows($query_run)),4);
       foreach($data->rows[0]->elements as $road) {
     $distance += $road->distance->value;
   }
-}
+}*/
+
+
 echo "Distance: ".$distance." meters";
 
 $query="SELECT * FROM Event where Ev_location ='$from' ";
@@ -109,7 +140,6 @@ $mini=min((mysql_num_rows($query_run)),4);
          for ($i = 0; $i <$mini ; $i++)
         {
           $Ev_id = mysql_result($query_run, $i,'Ev_id');
-            
           $Ev_name=mysql_result($query_run, $i,'Ev_name');
           $Ev_description=mysql_result($query_run, $i,'Ev_description');
           $Sub_id=mysql_result($query_run, $i,'Sub_id');

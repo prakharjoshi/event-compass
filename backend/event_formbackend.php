@@ -11,7 +11,8 @@
             $eventname = $_POST['eventname'];
             $eventlocation = $_POST['eventlocation'];
             $date = $_POST['date'];
-            $time = $_POST['time'];
+            echo $date;
+            //$time = $_POST['time'];
             $desc = $_POST['description'];
             $radio = $_POST['optionsRadios'];
             foreach ($_POST['category'] as $select)

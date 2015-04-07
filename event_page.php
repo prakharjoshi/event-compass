@@ -1,6 +1,45 @@
 <?php require_once("includes/base.php") ?>
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
+<?php 
+	$username = $_SESSION['currentuser'];
+	$query = mysql_query("SELECT * FROM User WHERE User_username = '$username'");
+	if(!$query)
+	{
+		echo mysql_error();
+	}
+	$numrows = mysql_num_rows($query);
+	$row = mysql_fetch_array($query);
+	$email = $row['User_email'];
+?>
+<?php
+	if($_POST['submit'] != null)
+	{
+		require_once("PHPMailer_5.2.4/class.phpmailer.php");
+		$mail = new PHPMailer(); // create a new object
+		$mail->IsSMTP(); // enable SMTP
+		$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+		$mail->SMTPAuth = true; // authentication enabled
+		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+		$mail->Host = "smtp.gmail.com";
+		$mail->Port = 465; // or 587
+		$mail->IsHTML(true);
+		$mail->Username = "eventcompass22@gmail.com";
+		$mail->Password = "eventcom22";
+		$mail->SetFrom("eventcompass22@gmail.com");
+		$mail->Subject = "New Event";
+		$mail->Body = "A new event has been posted which you are following";
+		$mail->AddAddress($email);
+		if(!$mail->Send())
+		{
+		   echo "Mailer Error: " . $mail->ErrorInfo;
+		}
+		else
+		{
+		   //echo "Message has been sent";
+		}
+	}
+?>
 <?php
     $username = $_SESSION['currentuser'];
     $queryx = mysql_query("SELECT * FROM User WHERE User_username = '$username'");
@@ -124,10 +163,10 @@ else{
             </form>
             <?php 
             if(isset($_POST['submit'])){
-            	echo 'hello';
-            	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$Ev_id}','{$User_id}')";
-				$query_run3=mysql_query($query3);
-            }
+             	echo 'hello';
+             	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$Ev_id}','{$User_id}')";
+				 $query_run3=mysql_query($query3);
+             }
             ?>
           </div>
 			<!-- row -- >
