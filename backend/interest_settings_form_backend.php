@@ -24,62 +24,36 @@ if(isset($_POST['submit']))
                 echo mysql_error();
             }
 
-     if(isset($_POST['checkbox2']))
-        {
-
-            $query1="INSERT INTO Interested_in (User_id,Sub_id,Visible,Count)
-                           VALUES ('$user_id','2','0','0')";
-            $query_run2=mysql_query($query1);
-            if(!$query_run2)
-            {
-                echo mysql_error();
-            }
-
-        }
-
-     if(isset($_POST['checkbox1']))
-        {
-
-            $query1="INSERT INTO Interested_in (User_id,Sub_id,Visible,Count)
-                           VALUES ('$user_id','1','0','0')";
-            $query_run2=mysql_query($query1);
-            if(!$query_run2)
-            {
-                echo mysql_error();
-            }
-
-        }
-
-
-     if(isset($_POST['checkbox6']))
-        {
-
-            $query1="INSERT INTO Interested_in (User_id,Sub_id,Visible,Count)
-                           VALUES ('$user_id','6','0','0')";
-            $query_run2=mysql_query($query1);
-            if(!$query_run2)
-            {
-                echo mysql_error();
-            }
-
-        }
-    
-    /*for ($subid = 1; $subid <= 50; $subid++) 
+    $q=mysql_query("SELECT * FROM Subcategory");
+    //print_r($q);
+    $Count=0;
+    while($row = mysql_fetch_array($q)) 
     {
-
-        if(isset($_POST['checkbox'.$subid]))
+        $subid=$row['Sub_id'];
+        if(isset($_POST[$subid]))
         {
-
+            echo $subid;
+            $qc=mysql_query("SELECT * FROM Interested_in2 WHERE User_id = '$user_id' AND Sub_id='$subid'");
+            if(mysql_num_rows($qc)!=0)
+            {
+                $Count=mysql_result($qc,0,'Count');
+            }
             $query1="INSERT INTO Interested_in (User_id,Sub_id,Visible,Count)
-                           VALUES ('$user_id','$subid','0','0')";
+                           VALUES ('$user_id','$subid','0','$Count')";
             $query_run2=mysql_query($query1);
+            if(mysql_num_rows($qc)==0)
+            {              
+            $query2=mysql_query("INSERT INTO Interested_in2 (User_id,Sub_id,Visible,Count)
+                           VALUES ('$user_id','$subid','0','0')");
+            }
+            
             if(!$query_run2)
             {
                 echo mysql_error();
             }
 
         }
-    }*/
+    }
     redirect_to("main_dashbord.php?user=$username");
 }
 ?>

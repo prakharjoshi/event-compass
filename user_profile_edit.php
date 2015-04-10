@@ -65,7 +65,7 @@
                                             <input class="form-control" placeholder="Enter text" name="address">
                                         </div>
 
-                                        <button type="submit" class="btn btn-default" name="submit">Submit Button</button>
+                                        <button type="submit" class="btn btn-primary" name="submit">Submit Button</button>
                                 </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

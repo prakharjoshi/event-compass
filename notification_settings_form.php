@@ -7,6 +7,8 @@
 ?>
 <?php require_once("backend/notification_settings_formbackend.php") ?>
 
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 <div id="main">
   <div id="page-wrapper">
             <div class="row">
@@ -27,21 +29,16 @@
                                             <label>Modes of Notification</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="email" name="email">Email
+                                                    <input type="checkbox" value="email" name="email"><span class="fa fa-envelope"> Email
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="text" name="text">Text Message
-                                                </label>
-                                            </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" value="text" name="none">None
+                                                    <input type="checkbox" value="text" name="text"><span class="fa fa-mobile-phone"> Text Message
                                                 </label>
                                             </div>
                                         </div>
-                                      <button type="submit" class="btn btn-default" name="submit" value="submit">Submit Button</button>
+                                      <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
                                       
                                 </form>
                                 </div>

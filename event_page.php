@@ -13,32 +13,10 @@
 	$email = $row['User_email'];
 ?>
 <?php
-	if($_POST['submit'] != null)
+	/*if($_POST['submit'] != null)
 	{
-		require_once("PHPMailer_5.2.4/class.phpmailer.php");
-		$mail = new PHPMailer(); // create a new object
-		$mail->IsSMTP(); // enable SMTP
-		$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-		$mail->SMTPAuth = true; // authentication enabled
-		$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-		$mail->Host = "smtp.gmail.com";
-		$mail->Port = 465; // or 587
-		$mail->IsHTML(true);
-		$mail->Username = "eventcompass22@gmail.com";
-		$mail->Password = "eventcom22";
-		$mail->SetFrom("eventcompass22@gmail.com");
-		$mail->Subject = "New Event";
-		$mail->Body = "A new event has been posted which you are following";
-		$mail->AddAddress($email);
-		if(!$mail->Send())
-		{
-		   echo "Mailer Error: " . $mail->ErrorInfo;
-		}
-		else
-		{
-		   //echo "Message has been sent";
-		}
-	}
+		
+	}*/
 ?>
 <?php
     $username = $_SESSION['currentuser'];
@@ -53,8 +31,8 @@
 	//echo $User_id;
 ?>
 <?php
-	$Ev_id = $_GET['id'];
-	$query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$Ev_id'");
+	$id = $_GET['id'];
+	$query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
 	if(!$query)
 	{
 		echo mysql_error();
@@ -62,46 +40,59 @@
 	//$numrows = mysql_num_rows($query);
 	$row = mysql_fetch_array($query);
 	$image = $row['Ev_photo'];
-	//$Ev_id = $row['Ev_id'];
+	//$id = $row['Ev_id'];
 	$Ev_location = $row['Ev_location'];
 	$Ev_description = $row['Ev_description'];
 	$Ev_date = $row['Ev_date'];
 	$Ev_time = $row['Ev_time'];
 	//echo $image;
-    /*if(isset($_GET['id']))
+    if(isset($_GET['id']))
     {
         $id = $_GET['id'];
     }
     $id = $_GET['id'];
-$query="SELECT * FROM Event WHERE Ev_id='$id'";
-$query_run=mysql_query($query);
-$Ev_name=mysql_result($query_run, 0,'Ev_name');
-$Ev_location=mysql_result($query_run, 0,'Ev_location');
-$Ev_time=mysql_result($query_run, 0,'Ev_time');
-$Ev_date=mysql_result($query_run, 0,'Ev_date');
-$Ev_description=mysql_result($query_run, 0,'Ev_description');
+	$query="SELECT * FROM Event WHERE Ev_id='$id'";
+	$query_run=mysql_query($query);
+	$Ev_name=mysql_result($query_run, 0,'Ev_name');
+	$Ev_location=mysql_result($query_run, 0,'Ev_location');
+	$Ev_time=mysql_result($query_run, 0,'Ev_time');
+	$Ev_date=mysql_result($query_run, 0,'Ev_date');
+	$Ev_description=mysql_result($query_run, 0,'Ev_description');
 
 
-$query2="SELECT User_id FROM User WHERE User_username='$username'";
-$query_run2=mysql_query($query2);
-$User_id=mysql_result($query_run2,0,'User_id');
-$quer2="SELECT Sub_id FROM Event WHERE Ev_id='$id'";
-$quer_run2=mysql_query($quer2);
-$Sub_id=mysql_result($quer_run2,0,'Sub_id');
+	$query2="SELECT User_id FROM User WHERE User_username='$username'";
+	$query_run2=mysql_query($query2);
+	$User_id=mysql_result($query_run2,0,'User_id');
+	$quer2="SELECT Sub_id FROM Event WHERE Ev_id='$id'";
+	$quer_run2=mysql_query($quer2);
+	$Sub_id=mysql_result($quer_run2,0,'Sub_id');
 
-$q="UPDATE Event SET Ev_page_count=Ev_page_count+1 WHERE Ev_id='$id'";
-mysql_query($q);
-$q11="SELECT * FROM Interested_in WHERE User_id='$User_id' AND Sub_id='$Sub_id'";
-$q1="INSERT INTO Interested_in (Sub_id,User_id,Count) VALUES ('{$Sub_id}','{$User_id}',1)";
-$q2="UPDATE Interested_in i,Event e SET i.Count=i.Count+1 WHERE i.User_id='$User_id' AND e.Ev_id='$id' AND e.Sub_id=i.Sub_id";
-if(mysql_num_rows(mysql_query($q11))==0)
-{
-	mysql_query($q1);
-}
-else{
-	mysql_query($q2);
-}
-*/
+	$q="UPDATE Event SET Ev_page_count=Ev_page_count+1 WHERE Ev_id='$id'";
+	mysql_query($q);
+	$q11="SELECT * FROM Interested_in WHERE User_id='$User_id' AND Sub_id='$Sub_id'";
+	$q1="INSERT INTO Interested_in (Sub_id,User_id,Count) VALUES ('{$Sub_id}','{$User_id}',1)";
+	$q2="UPDATE Interested_in i,Event e SET i.Count=i.Count+1 WHERE i.User_id='$User_id' AND e.Ev_id='$id' AND e.Sub_id=i.Sub_id";
+
+	if(mysql_num_rows(mysql_query($q11))==0)
+	{
+		mysql_query($q1);
+	}
+	else{
+		mysql_query($q2);
+	}
+
+
+	$q11="SELECT * FROM Interested_in2 WHERE User_id='$User_id' AND Sub_id='$Sub_id'";
+	$q1="INSERT INTO Interested_in2 (Sub_id,User_id,Count) VALUES ('{$Sub_id}','{$User_id}',1)";
+	$q2="UPDATE Interested_in2 i,Event e SET i.Count=i.Count+1 WHERE i.User_id='$User_id' AND e.Ev_id='$id' AND e.Sub_id=i.Sub_id";
+	
+	if(mysql_num_rows(mysql_query($q11))==0)
+	{
+		mysql_query($q1);
+	}
+	else{
+		mysql_query($q2);
+	}
 
 ?>    
 <head>
@@ -157,15 +148,39 @@ else{
         <div class="panel-body" >
 			 <div class="row">
             
-            <img src="<?php echo $image; ?>" width = 900 height = 300>
-            <form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id; ?>" method="post">
-            <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submit">Attend Event</button>
+            <img src="img/ajay.jpg" width = 900 height = 300>
+            <form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
+            <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
             </form>
             <?php 
-            if(isset($_POST['submit'])){
-             	echo 'hello';
-             	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$Ev_id}','{$User_id}')";
-				 $query_run3=mysql_query($query3);
+            if(isset($_POST['submi'])){
+             	//echo 'hello';
+             	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$id}','{$User_id}')";
+				$query_run3=mysql_query($query3);
+				require_once("PHPMailer_5.2.4/class.phpmailer.php");
+				$mail = new PHPMailer(); // create a new object
+				$mail->IsSMTP(); // enable SMTP
+				$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+				$mail->SMTPAuth = true; // authentication enabled
+				$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+				$mail->Host = "smtp.gmail.com";
+				$mail->Port = 465; // or 587
+				$mail->IsHTML(true);
+				$mail->Username = "eventcompass22@gmail.com";
+				$mail->Password = "eventcom22";
+				$mail->SetFrom("eventcompass22@gmail.com");
+				$mail->Subject = "New Event";
+				$mail->Body = "A new event has been posted which you are following";
+				echo $email;
+				$mail->AddAddress($email);
+				if(!$mail->Send())
+				{
+				   echo "Mailer Error: " . $mail->ErrorInfo;
+				}
+				else
+				{
+				   //echo "Message has been sent";
+				}
              }
             ?>
           </div>
@@ -238,7 +253,12 @@ else{
 
 					    <div class="row">
 					    	<div class="col-md-3 "><strong>Current Rating</strong></div>
-					    	<div class="col-md-9 "> 4.0</div>
+					    	<?php
+					    	$q=mysql_query("SELECT AVG(user_rating) as rating FROM user_event_rating WHERE Ev_id='$id'");
+					    	$rating=mysql_result($q,0,'rating');
+
+					    	?>
+					    	<div class="col-md-9 "> <?php echo $rating; ?></div>
 					    </div>
 
 					    <div class="row">
@@ -251,56 +271,61 @@ else{
 					    	<div class="col-md-9 "></div>
 					    </div>
 					    <div class="row">
-					    	<form role="form" action="user=$username&id=$id">
+					    <!--	<form role="form" action="user=$username&id=$id">
 					    	<div class="col-md-3 "><strong>Your Rating</strong></div>
 					    	<div class="starrr"></div>
 							<div align = "center">&nbsp;
-							<span class='your-choice-was' style='display: none;'>
-							<?php $choice="<span class='choice'></span>"?>
-							<?php
-								//yahan pe event rating ka code aana hai, jo ki charith likhne vaala h. Baaki dekh lenge
-								//echo $Ev_id ;
-								//echo $User_id ;
-								$query6 = mysql_query("SELECT * FROM user_event_rating WHERE (Ev_id = $Ev_id AND User_id = $User_id)");							
-								if(!$query6)
-								{
-										echo mysql_error();
-								}
-								$numrows = mysql_num_rows($query6);
-								//echo $numrows;
-								$row = mysql_fetch_array($query6);
-								//echo empty($row['user_rating']);
-								$rating = $row['user_rating'];
-								$q = "UPDATE user_event_rating SET user_rating = $choice WHERE Ev_id = $Ev_id AND User_id = $User_id";
-								mysql_query($q);
-								//$query7 = mysql_query("UPDATE user_event_rating SET user_rating = '$choice' WHERE (Ev_id = $Ev_id AND User_id = $User_id)");							
-								if(!$q)
-								{
-										echo mysql_error();
-								}
-								
-								//echo $numrows;
-								//$row = mysql_fetch_array($query6);
-								//echo empty($row['user_rating']);
-								//$rating = $row['user_rating'];
-								
-								//echo $rating;
-								//$query5 = mysql_query("INSERT INTO Event Ev_rating VALUES $choice");
-							/*$query5="INSERT INTO user_event_rating (Ev_id,User_id) VALUES ('{$id}','{$User_id}')";
-							$query6="SELECT * FROM user_event_rating WHERE Ev_id='$id' AND User_id='$User_id'";
-							$query_run6=mysql_query($query6);
-							if(mysql_num_rows($query_run6)==0)
-							{
-								$query_run5=mysql_query($query5);
-							}
-							else
-							{
-							echo $choice;
-						    $query4="UPDATE user_event_rating SET user_rating='$choice' WHERE Ev_id='$id' AND User_id='$User_id'";
+							<span class='your-choice-was' style='display: none;'>-->
 
-							$query_run4=mysql_query($query4);
-							}
-							*/
+							<p>
+							<form action="event_page.php?user=<?php echo $username; ?>&id=<?php echo $id;?>" method="post">
+							&nbsp;&nbsp;&nbsp;&nbsp;<strong>Rate this Event:   </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<select name="formGender">
+								  <option value="">Select...</option>
+								  <option value="1">1</option>
+								  <option value="2">2</option>
+								  <option value="3">3</option>
+								  <option value="4">4</option>
+								  <option value="5">5</option>
+								</select>
+								<br >
+								<br >
+								<button type="submit" name="submit" value="submit" class="btn-btn-default col-md-offset-6">Rate</button>
+							</form>
+							</p>
+							<?php //$choice="<span class='choice'></span>"?>
+							<?php
+								if(isset($_POST['formGender']) && isset($_POST['submit']))
+								{
+									$choice = $_POST['formGender'];
+									//echo $choice;
+									if($choice != null)
+									{
+										$query = mysql_query("SELECT * FROM user_event_rating WHERE User_id = $User_id AND Ev_id = $id");
+										if(!$query)
+										{
+												echo mysql_error();
+										}
+										$num = mysql_num_rows($query);
+										$row = mysql_fetch_array($query);
+										if($num == 0)
+										{
+											$query = mysql_query("INSERT INTO user_event_rating (User_id,Ev_id,user_rating) VALUES ('$User_id','$id','$choice')");
+											if(!$query)
+											{
+												echo mysql_error();
+											}
+										}
+										else
+										{
+											$query = mysql_query("UPDATE user_event_rating SET user_rating = '$choice' WHERE User_id = $User_id AND Ev_id = $id");
+											if(!$query)
+											{
+												echo mysql_error();
+											}	
+										}
+									}	
+								}
 							?>
 							
 							</span>
@@ -390,23 +415,82 @@ else{
         <button type="button" class="close" aria-hidden="true">&times;</button>
     </div>
     <div class="actionBox">
-        <ul class="commentList">
+       <!-- <ul class="commentList">
             <li>
                 <div class="commentText">
                     <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
 
                 </div>
             </li>
-        </ul>
-        <form class="form-inline" role="form">
+        </ul>-->
+        <?php
+        	$q=mysql_query("SELECT * FROM user_event_rating WHERE Ev_id='$id'");
+        	if(!$q)
+        	{
+        		echo mysql_error();
+        	}
+        	for ($i=0; $i < mysql_num_rows($q); $i++) 
+        	{ 
+        		$user1=mysql_result($q,$i,'User_id');
+        		$q2=mysql_query("SELECT * FROM User WHERE User_id='$user1'");
+        		$user2=mysql_result($q2,0,'User_username');
+        		$review1=mysql_result($q,$i,'Review');
+        		?>
+        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><?php echo $user2;?></a>;
+        		<?php 
+	        		echo "<br>";
+	        		echo $review1;
+	        		echo "<br>";
+        		?>
+        		<hr>
+        	<?php }
+        	
+
+
+        ?>
+        <form class="form-inline" role="form" action="event_page.php?id=<?php echo $id;?>" method="post">
             <div class="form-group col-md-offset-1">
-                <textarea class="form-control" type="text" placeholder="Your comments"></textarea> 
+                <input class="form-control" placeholder="Your comments" name="review"></input> 
             </div>
             <div class="form-group">
-                <button class="btn btn-default">Add review</button>
+                <button class="btn btn-default" type="submit" name="reviews" value="reviews">Add review</button>
             </div>
         </form>
-    </div>
+        </div>
+        <?php
+								if(isset($_POST['review']) && isset($_POST['reviews']))
+								{
+									$rev = $_POST['review'];
+									//echo $choice;
+									if($rev != null)
+									{
+										$query = mysql_query("SELECT * FROM user_event_rating WHERE User_id = $User_id AND Ev_id = $id");
+										if(!$query)
+										{
+												echo mysql_error();
+										}
+										$num = mysql_num_rows($query);
+										$row = mysql_fetch_array($query);
+										if($num == 0)
+										{
+											$query = mysql_query("INSERT INTO user_event_rating (User_id,Ev_id,Review) VALUES ('$User_id','$id','$rev')");
+											if(!$query)
+											{
+												echo mysql_error();
+											}
+										}
+										else
+										{
+											$query = mysql_query("UPDATE user_event_rating SET Review = '$rev' WHERE User_id = $User_id AND Ev_id = $id");
+											if(!$query)
+											{
+												echo mysql_error();
+											}	
+										}
+									}	
+								}
+							?>
+    
 </div>
 </div>
 </div>

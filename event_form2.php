@@ -38,7 +38,7 @@
         {
             $filePath = $uploadDir . $id . '.jpeg';
         }
-        
+        echo $filePath;
         $result = move_uploaded_file($image_tmp_name, $filePath);
         if (!$result) 
         {
@@ -57,7 +57,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center">EVENT FORM</h1>
+            <h1 class="page-header text-center">Event Form</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -76,8 +76,8 @@
                                     <label><h3>Cover Photo</h3></label>
                                     <input type="file" name="image">          
                                     <br>
-                                    <button type="submit" class="btn btn-" name="submit" value="submit">Proceed to next step</button>
-                                    <button type="submit" class="btn btn-" name="submit" value="submit1">Skip</button>
+                                    <button type="submit" class="btn btn-primary" name="submit" value="submit">Proceed to next step</button>
+                                    <button type="submit" class="btn btn-link" name="submit" value="submit1">Skip</button>
                                 </div>
                             </form>
                         </div>

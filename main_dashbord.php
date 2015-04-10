@@ -19,6 +19,9 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
         $username = $_GET['user'];
     }
 ?>
+
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- Page Content -->
     <div class="container">
 
@@ -26,16 +29,16 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Hi, <?php echo $username;?></h1>
-                <p>The events may interest you.</p>
+                <p>These events may interest you.</p>
             </div>
         </div>
         <div id="wrapper">
 
-        
+
 <!-- ************************Starting here *********************************************** -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Recommended for you</h2>
+                <h2 class="page-header"><span class="fa fa-compass"></span> Recommended for you</h2>
             </div>
 
 <?php
@@ -44,8 +47,8 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
 
 $query2="SELECT User_id FROM User WHERE User_username='$username'";
 $query_run2=mysql_query($query2);
-$User_id=mysql_result($query_run2,0,'User_id');     
-$query="SELECT * FROM Event e,Interested_in i where e.Sub_id=i.Sub_id AND i.User_id=$User_id ORDER BY Count DESC";
+$User_id=mysql_result($query_run2,0,'User_id');    
+$query="SELECT * FROM Event e,Interested_in2 i where e.Sub_id=i.Sub_id AND i.User_id=$User_id ORDER BY Count DESC";
 $query_run=mysql_query($query);
 $mini=min((mysql_num_rows($query_run)),4);
          for ($i = 0; $i <$mini ; $i++)
@@ -55,11 +58,12 @@ $mini=min((mysql_num_rows($query_run)),4);
           $Ev_name=mysql_result($query_run, $i,'Ev_name');
           $Ev_description=mysql_result($query_run, $i,'Ev_description');
           $Sub_id=mysql_result($query_run, $i,'Sub_id');
+          $Ev_img=mysql_result($query_run,$i,'Ev_photo');
 
    ?>     
         
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="img/.jpg" alt=""></a>
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
                     <small><?php echo $Sub_id ?></small>
                 <p><?php echo $Ev_description ?></p>
@@ -73,15 +77,53 @@ $mini=min((mysql_num_rows($query_run)),4);
 <!--   ******************************************************************************************* -->
 
 
+<div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header"><span class="fa fa-sort-amount-desc"> Most Popular</h2>
+            </div>
+
+<?php
+//$query="SELECT Ev_name, Ev_description,Sub_id FROM Event NATURAL JOIN Interested_in WHERE Count IN(SELECT MAX(Count) FROM Interested_in))";
+//$query2="SELECT Ev_name, Ev_description,Sub_id FROM Event NATURAL JOIN Interested_in WHERE User_id=2 ORDER BY Count DESC";
+
+$query2="SELECT User_id FROM User WHERE User_username='$username'";
+$query_run2=mysql_query($query2);
+$User_id=mysql_result($query_run2,0,'User_id');     
+$query="SELECT * FROM Event ORDER BY Ev_page_count DESC";
+$query_run=mysql_query($query);
+$mini=min((mysql_num_rows($query_run)),4);
+         for ($i = 0; $i <$mini ; $i++)
+        {
+          
+          $Ev_id = mysql_result($query_run, $i,'Ev_id');
+          $Ev_name=mysql_result($query_run, $i,'Ev_name');
+          $Ev_description=mysql_result($query_run, $i,'Ev_description');
+          $Sub_id=mysql_result($query_run, $i,'Sub_id');
+          $Ev_img=mysql_result($query_run,$i,'Ev_photo');
+
+   ?>     
+        
+            <div class="col-lg-3 col-sm-6 text-center">
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
+                    <small><?php echo $Sub_id ?></small>
+                <p><?php echo $Ev_description ?></p>
+            </div>
+
+            <?php } ?>
+
+            
+            </div>      
+<!-- ********************************************************************************** --> 
+
+
             <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Near You</h2>
+                <h2 class="page-header"><span class="fa fa-signal"> Near You (Within 100 km radius)</h2>
             </div>
 
 
 <?php
-
-
 
 $query2="SELECT User_address FROM User WHERE User_username = '$username'";
 $query_run2=mysql_query($query2);
@@ -89,7 +131,7 @@ $from=mysql_result($query_run2,0,'User_address');
 
 $qr = "SELECT * FROM Event";
 $qr2=mysql_query($qr);
-$distance=100000000000000000000000;
+$range=400000;
 
 for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++) 
 {
@@ -109,59 +151,38 @@ for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++)
       }
       
 
-      if($distance1<$distance)
+      if($distance1<=$range)
       {
-        $distance=$distance1;
-
+        
+        $Ev_id = mysql_result($qr2, $i,'Ev_id');
+        $Ev_name=mysql_result($qr2,$i,'Ev_name');
+        $Ev_description=mysql_result($qr2, $i,'Ev_description');
+        $Sub_id=mysql_result($qr2, $i,'Sub_id');
+        $Ev_img=mysql_result($query_run,$i,'Ev_photo');
+        $distance1=$distance1/1000;
+        ?>
+        <div class="col-lg-3 col-sm-6 text-center">
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
+                    <small><?php echo $Sub_id ?></small>
+                <p><?php echo $Ev_description ?></p>
+                <p><?php echo "Distance: ".$distance1." KM from you"; ?></p>
+            </div>
+        <?php
       }
     //}
 
 }
 
-/*$from = urlencode($from);
-$to = urlencode($to);
-$data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
-$data = json_decode($data);
-$distance = 0;
-$mini=min((mysql_num_rows($query_run)),4);
-         for ($i = 0; $i <$mini ; $i++)
-        {
-      foreach($data->rows[0]->elements as $road) {
-    $distance += $road->distance->value;
-  }
-}*/
 
-
-echo "Distance: ".$distance." meters";
-
-$query="SELECT * FROM Event where Ev_location ='$from' ";
-$query_run=mysql_query($query);
-$mini=min((mysql_num_rows($query_run)),4);
-         for ($i = 0; $i <$mini ; $i++)
-        {
-          $Ev_id = mysql_result($query_run, $i,'Ev_id');
-          $Ev_name=mysql_result($query_run, $i,'Ev_name');
-          $Ev_description=mysql_result($query_run, $i,'Ev_description');
-          $Sub_id=mysql_result($query_run, $i,'Sub_id');
-
-   ?>     
-        
-            <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="img/.jpg" alt=""></a>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <small><?php echo $Sub_id ?></small>
-                <p><?php echo $Ev_description ?></p>
-            </div>
-
-            <?php } ?>
-
+   ?>
             </div>
 
 <!--  **********************************************************************************8 -->
 
 <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Past Events</h2>
+                <h2 class="page-header"><span class="fa fa-history"> Past Events</h2>
             </div>
 
 
@@ -188,6 +209,7 @@ $numrows = mysql_num_rows($query2);
           $Ev_name = $row2['Ev_name'];
           $Ev_description = $row2['Ev_description'];
           $Sub_id = $row2['Sub_id'];
+          $Ev_img=mysql_result($query_run,$i,'Ev_photo');
           /*$Ev_name=mysql_result($query_run, $i,'Ev_name');
           $Ev_description=mysql_result($query_run, $i,'Ev_description');
           $Sub_id=mysql_result($query_run, $i,'Sub_id');*/
@@ -195,7 +217,7 @@ $numrows = mysql_num_rows($query2);
    ?>     
         
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><img class="img-responsive img-responsive img-center" src="img/.jpg" alt=""></a>
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><h3><?php echo $Ev_name ?></h3></a>
                     <small><?php echo $Sub_id ?></small>
                 <p><?php echo $Ev_description ?></p>
@@ -208,45 +230,7 @@ $numrows = mysql_num_rows($query2);
 
        
 
-<!--************************************************************************************************* -->
-
-<div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Most Popular</h2>
-            </div>
-
-<?php
-//$query="SELECT Ev_name, Ev_description,Sub_id FROM Event NATURAL JOIN Interested_in WHERE Count IN(SELECT MAX(Count) FROM Interested_in))";
-//$query2="SELECT Ev_name, Ev_description,Sub_id FROM Event NATURAL JOIN Interested_in WHERE User_id=2 ORDER BY Count DESC";
-
-$query2="SELECT User_id FROM User WHERE User_username='$username'";
-$query_run2=mysql_query($query2);
-$User_id=mysql_result($query_run2,0,'User_id');     
-$query="SELECT * FROM Event ORDER BY Ev_page_count DESC";
-$query_run=mysql_query($query);
-$mini=min((mysql_num_rows($query_run)),4);
-         for ($i = 0; $i <$mini ; $i++)
-        {
-          
-          $Ev_id = mysql_result($query_run, $i,'Ev_id');
-          $Ev_name=mysql_result($query_run, $i,'Ev_name');
-          $Ev_description=mysql_result($query_run, $i,'Ev_description');
-          $Sub_id=mysql_result($query_run, $i,'Sub_id');
-
-   ?>     
-        
-            <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="img/.jpg" alt=""></a>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <small><?php echo $Sub_id ?></small>
-                <p><?php echo $Ev_description ?></p>
-            </div>
-
-            <?php } ?>
-
-            
-            </div>      
-<!-- ********************************************************************************** -->      
+<!--************************************************************************************************* -->     
             
             </div>
             </div>

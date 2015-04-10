@@ -45,12 +45,13 @@
         {
             echo mysql_error();
         }
+        redirect_to("event_page.php?user=$username&id=$id");
     }
 ?>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center">EVENT FORM</h1>
+            <h1 class="page-header text-center">Event Form</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -69,8 +70,8 @@
                                     <label><h3>MOU</h3></label>
                                     <input type="file" name="image">          
                                     <br>
-                                    <button type="submit" class="btn btn-" name="submit" value="submit">Proceed to next step</button>
-                                    <button type="submit" class="btn btn-" name="submit1" value="submit1">Skip</button>
+                                    <button type="submit" class="btn btn-primary" name="submit" value="submit">Proceed to next step</button>
+                                    <button type="submit" class="btn btn-link" name="submit1" value="submit1">Skip</button>
                                 </div>
                             </form>
                         </div>

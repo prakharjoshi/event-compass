@@ -1,0 +1,6 @@
+Database population
+Problem with Interest settings when new category added.
+Upload images of events in img folder
+User-Event rating and avg event rating
+event form entry into database
+

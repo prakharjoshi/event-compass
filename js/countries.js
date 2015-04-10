@@ -31,15 +31,16 @@
 */
 
 // Countries
-var country_arr = new Array("dance","Music","films and entertainment","visual arts","sports and fitness");
+var country_arr = new Array("Film & Entertainment","Hobbies & Special interest","Music","Visual arts","Science and technology","Sports and fitness");
 // States
 var s_a = new Array();
 s_a[0]="";
-s_a[1]="Fork|contempory|street|hip-hop|classical|western|salsa";
-s_a[2]="Western|classical|rock|jazz|metal|blues";
-s_a[3]="Comedy|love-story|suspence|fun";
-s_a[4]="Hobbies|carrom|group discussion|social work";
-s_a[5]="indoor games|outdoor games|exercise|Yoga";
+s_a[1]="Comedy|Film|TV|Gaming|Comics|Other";
+s_a[2]="Books|Drawing & Painting|Other";
+s_a[3]="Alternative|Blues & Jazz|Classical|EDM|Folk|Hip-Hop & Rap|Indie|Metal|Pop|R&B|Religious|Rock|Other";
+s_a[4]="Comedy|Craft|Fine Arts|Literary Art|Musica|Orchestra|Theatre|Other";
+s_a[5]="Biotech|Coding|Mobile|Robotics|Science|Social Media|Other";
+s_a[6]="Basketball|Cycling|Exercise|Football|Hockey|Motorsports|Running|Swimming|Tennis|Volleyball|Walking|Yoga|Other";
 
 
 
@@ -50,7 +51,7 @@ function populateStates( countryElementId, stateElementId ){
     var stateElement = document.getElementById( stateElementId );
     
     stateElement.length=0;  // Fixed by Julian Woods
-    stateElement.options[0] = new Option('Select State','');
+    stateElement.options[0] = new Option('Select Sub-Category','-1');
     stateElement.selectedIndex = 0;
     
     var state_arr = s_a[selectedCountryIndex].split("|");
@@ -60,21 +61,23 @@ function populateStates( countryElementId, stateElementId ){
     }
 }
 
-function populateCountries(countryElementId, stateElementId){
-    // given the id of the <select> tag as function argument, it inserts <option> tags
-    var countryElement = document.getElementById(countryElementId);
-    countryElement.length=0;
-    countryElement.options[0] = new Option('Select Country','-1');
-    countryElement.selectedIndex = 0;
-    for (var i=0; i<country_arr.length; i++) {
+function populateCountries(countryElementId, stateElementId)
+    {
+        // given the id of the <select> tag as function argument, it inserts <option> tags
+        var countryElement = document.getElementById(countryElementId);
+        countryElement.length=0;
+        countryElement.options[0] = new Option('Select Category','-1');
+        countryElement.selectedIndex = 0;
+        for (var i=0; i<country_arr.length; i++) {
         countryElement.options[countryElement.length] = new Option(country_arr[i],country_arr[i]);
     }
 
     // Assigned all countries. Now assign event listener for the states.
 
-    if( stateElementId ){
+    if( stateElementId )
+    {
         countryElement.onchange = function(){
             populateStates( countryElementId, stateElementId );
-        };
+    };
     }
 }

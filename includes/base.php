@@ -1,5 +1,27 @@
 <!--<?php session_start();?>-->
+<?php
+	ob_start();
+	$username = $_SESSION['currentuser'];
+?>
+<?php require_once("includes/functions.php");?>
+<?php
+//This function will check whether the user is logged in or not. (Security fu)
+if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != '')) 
+{
+    redirect_to("login.php");
+}
 
+$user = $_GET['user'];
+if($user != $username)
+{
+	if($username == null)
+	{
+		redirect_to("login.php");
+	}
+	
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -21,21 +43,26 @@
 		<![endif]-->
 	</head>
 
-	<body>
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 		<!-- Navigation -->
 		<nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/main_dashbord.php"><span class="glyphicon glyphicon-home"></span> Event Compass</a>
+					<!-- <button type="button" id="navbar1" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-side-collapse" style="float: left">
+	                  <span class="sr-only">Toggle navigation</span>
+	                  <span class="icon-bar"></span>
+	                  <span class="icon-bar"></span>
+	                  <span class="icon-bar"></span>
+	                </button> -->
+					<a class="navbar-brand" href="/main_dashbord.php?user=<?php echo $username;?>" style="float:left"><span class="glyphicon glyphicon-home"></span> Event Compass</a>
 				</div>
-				<div class="collapse navbar-collapse navbar-ex1-collapse">
-					<div class="collapse navbar-collapse">
+				<div class="collapse navbar-collapse navbar-main-collapse">
 						<ul class="nav navbar-nav navbar-left">
 							<?php
 								$username = $_SESSION['currentuser'];
@@ -58,7 +85,6 @@
 								</ul>
 							</li>
 						</ul>
-					</div>
 				</div>
 			<!-- /.container -->
 			</div>
@@ -69,6 +95,6 @@
 		<!-- Bootstrap Core JavaScript -->
 		<script src="../js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../js/countries.js"></script>
-
+		
 	</body>
 </html>

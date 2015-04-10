@@ -10,7 +10,7 @@
 <?php require_once("includes/connection.php") ?>
 
 <?php require_once("backend/ifnotlogin.php") ?>
-<?php require_once("backend/event_pagebackend.php") ?>
+<?php require_once("backend/event_formbackend.php") ?>
 <?php
     $username =  $_SESSION['currentuser'];
 ?>
@@ -43,7 +43,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Date and Time</h3></label>
-                                    <input type="text" id="datetimepicker_dark" name = "date"/>
+                                    <input type="text" id="datetimepicker_dark" name = "date">
+                                    
                                 </div>
                                 </div>
                                 <div class="form-group">
@@ -68,10 +69,9 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <th><input placeholder="Ticket Type"></input></th>
-                                                    <th><input placeholder="Ticket Available"></input></th>
-                                                    <th><input placeholder="Price"></input></th>
-                                                    <th><button type="button" class="btn btn-success">Submit</button></th> 
+                                                    <th><input placeholder="Ticket Type" name="ticket_type"></input></th>
+                                                    <th><input placeholder="Ticket Available" name="ticket_available"></input></th>
+                                                    <th><input placeholder="Price" name="ticket_price"></input></th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -89,21 +89,21 @@
                                             <option>Festival, Fair or Exhibition</option>
                                             <option>Game or Competition</option>
                                             <option>Party or Social Gathering</option>
-                                            <option>Rsace or Tournament</option>
+                                            <option>Race or Tournament</option>
                                             <option>Other</option>
                                         </select>
                                     </div>
                                 <div class="form-group">
-                                    Category :   <select class="form-control" id="country" name ="country"></select>
+                                    Category :   <select class="form-control" id="country" name ="category"></select>
                                 </div>
                                 <div class="form-group">
-                                    Sub-category: <select class="form-control" name ="state" id ="state"></select>
+                                    Sub-category: <select class="form-control" name ="subcategory" id ="state"></select>
                                 </div>
                                 <script language="javascript">
                                     populateCountries("country", "state");
                                 </script>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-" name="submit" value="submit">Proceed To Next Step</button>
+                                    <button type="submit" class="btn btn-primary" name="submit" value="submit">Proceed To Next Step</button>
                                 </div>
                             </form>
                         </div>
@@ -127,7 +127,6 @@
 <script src="js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="js/metisMenu.min.js"></script>
