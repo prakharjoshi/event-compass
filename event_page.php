@@ -58,7 +58,7 @@
 	$Ev_time=mysql_result($query_run, 0,'Ev_time');
 	$Ev_date=mysql_result($query_run, 0,'Ev_date');
 	$Ev_description=mysql_result($query_run, 0,'Ev_description');
-
+	$Ev_photo=mysql_result($query_run, 0,'Ev_photo');
 
 	$query2="SELECT User_id FROM User WHERE User_username='$username'";
 	$query_run2=mysql_query($query2);
@@ -148,7 +148,7 @@
         <div class="panel-body" >
 			 <div class="row">
             
-            <img src="img/ajay.jpg" width = 900 height = 300>
+            <img src="<?php echo $Ev_photo;?>" width = 900 height = 300>
             <form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
             <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
             </form>
@@ -448,7 +448,7 @@
 
 
         ?>
-        <form class="form-inline" role="form" action="event_page.php?id=<?php echo $id;?>" method="post">
+        <form class="form-inline" role="form" action="event_page.php?user=<?php echo $username ;?>&id=<?php echo $id;?>" method="post">
             <div class="form-group col-md-offset-1">
                 <input class="form-control" placeholder="Your comments" name="review"></input> 
             </div>
