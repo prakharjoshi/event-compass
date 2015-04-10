@@ -28,6 +28,10 @@
 	$numrows = mysql_num_rows($queryx);
 	$row = mysql_fetch_array($queryx);
 	$User_id = $row['User_id'];
+	$User_address=$row['User_address'];
+
+
+	
 	//echo $User_id;
 ?>
 <?php
@@ -37,7 +41,8 @@
 	{
 		echo mysql_error();
 	}
-	//$numrows = mysql_num_rows($query);
+	
+	
 	$row = mysql_fetch_array($query);
 	$image = $row['Ev_photo'];
 	//$id = $row['Ev_id'];
@@ -45,7 +50,26 @@
 	$Ev_description = $row['Ev_description'];
 	$Ev_date = $row['Ev_date'];
 	$Ev_time = $row['Ev_time'];
+	$owner=$row['User_id'];
+	$q=mysql_query("SELECT * FROM User WHERE User_id='$owner'");
+	$owner_name=mysql_result($q,0,'User_username');
 	//echo $image;
+
+	$to=$User_address;
+	$from=$Ev_location;
+    $from = urlencode($from);
+    $to = urlencode($to);
+    $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
+    $data = json_decode($data);
+    $distance = 0;
+
+      foreach($data->rows[0]->elements as $road)
+      {
+        $distance += $road->distance->value;
+      }
+
+      $distance=$distance/1000;
+
     if(isset($_GET['id']))
     {
         $id = $_GET['id'];
@@ -149,9 +173,18 @@
 			 <div class="row">
             
             <img src="<?php echo $Ev_photo;?>" width = 900 height = 300>
+            <hr>
             <form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
             <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
             </form>
+            <hr>
+            <?php if($owner==$User_id){
+            	?>
+            	<form action="event_form_edit.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
+            <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submit1">Edit Event</button>
+            </form>
+            <?php }
+            ?>
             <?php 
             if(isset($_POST['submi'])){
              	//echo 'hello';
@@ -205,12 +238,32 @@
 					    <div class="row">
 					    	<p> <?php echo $Ev_description ?></p>
 					    </div>
+					    <div class="row">
+					    	<div class="col-md-3 "></div>
+					    	<div class="col-md-9 "></div>
+					    </div>
 
+					    <div class="row">
+					    	<div class="col-md-3 "></div>
+					    	<div class="col-md-9 "></div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-md-3 "><strong>Organizer</strong></div>
+					    	<div class="col-md-9 "> <a href="user_profile_view.php?user=<?php echo $owner_name;?>"><?php echo $owner_name;?></a>;</div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-md-3 "></div>
+					    	<div class="col-md-9 "></div>
+					    </div>
+
+					    <div class="row">
+					    	<div class="col-md-3 "></div>
+					    	<div class="col-md-9 "></div>
+					    </div>
 					    <div class="row">
 					    	<div class="col-md-3 "><strong>Venue</strong></div>
 					    	<div class="col-md-9 "> <?php echo $Ev_location ?></div>
 					    </div>
-
 					    <div class="row">
 					    	<div class="col-md-3 "></div>
 					    	<div class="col-md-9 "></div>
@@ -220,12 +273,11 @@
 					    	<div class="col-md-3 "></div>
 					    	<div class="col-md-9 "></div>
 					    </div>
-
+					    
 					    <div class="row">
 					    	<div class="col-md-3 "><strong>Date</strong></div>
 					    	<div class="col-md-9 "> <?php echo $Ev_date ?></div>
 					    </div>
-
 					    <div class="row">
 					    	<div class="col-md-3 "></div>
 					    	<div class="col-md-9 "></div>
@@ -235,10 +287,24 @@
 					    	<div class="col-md-3 "></div>
 					    	<div class="col-md-9 "></div>
 					    </div>
+					    
 
 					    <div class="row">
 					    	<div class="col-md-3 "><strong>Time</strong></div>
 					    	<div class="col-md-9 "> <?php echo $Ev_time ?></div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-md-3 "></div>
+					    	<div class="col-md-9 "></div>
+					    </div>
+
+					    <div class="row">
+					    	<div class="col-md-3 "></div>
+					    	<div class="col-md-9 "></div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-md-3 "><strong>Distance</strong></div>
+					    	<div class="col-md-9 "> <?php echo $distance ?> KM from you.</div>
 					    </div>
 
 					    <div class="row">
@@ -281,7 +347,7 @@
 							<form action="event_page.php?user=<?php echo $username; ?>&id=<?php echo $id;?>" method="post">
 							&nbsp;&nbsp;&nbsp;&nbsp;<strong>Rate this Event:   </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<select name="formGender">
-								  <option value="">Select...</option>
+								  <option value="">Select Rating</option>
 								  <option value="1">1</option>
 								  <option value="2">2</option>
 								  <option value="3">3</option>
@@ -348,15 +414,8 @@
 						  
 					     </form>
 				    	
-					    <div role="tabpanel" class="tab-pane fade" id="tickets">
-							<div class="col-md-10 col-sm-6 col-xs-12 personal-info">
-				      			<!-- Ticket Info --> 
-				      				<div class="panel panel-default">
-				            			<div class="panel-heading">
-				                			<h4 class="panel-title">
-				                    		
-				                			</h4>
-				            			</div>
+					    
+							
 				                			<div class="panel-body">
 				                				<table class="table table-hover">
 									              <thead>
@@ -364,15 +423,15 @@
 									                  <th>Ticket Type</th>
 									                  <th>Available Tickets</th>
 									                  <th>Price</th>
-									                  <th></th>
+									                  <th>Quantity</th>
 									                  <th></th> 
 									                </tr>
 									              </thead>
 									            <tbody>
 									            	<tr>
-									                  <th>Ticket Type</th>
-									                  <th>Available Tickets</th>
-									                  <th>Price</th>
+									                  <th>Dummy Name</th>
+									                  <th>Dummy Available Tickets</th>
+									                  <th>Dummy Price</th>
 									                  <th><input></input></th>
 									                  <th><button type="button" class="btn btn-success">Buy</button></th> 
 									                </tr>
@@ -380,13 +439,12 @@
 												        
     											</tbody>
     										</table>
-				          						
+				          			
 				        					
 				            			
 				            			</div>
-				       				</div>
-				       			</div>
-				       		</div>
+				       			
+				       		
 
 				      
 					    
