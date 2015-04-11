@@ -3,17 +3,18 @@
     session_start();
 ?>
 
-<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
-
 <?php require_once("includes/base.php") ?>
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
-
 <?php require_once("backend/ifnotlogin.php") ?>
 <?php require_once("backend/event_formbackend.php") ?>
+
 <?php
     $username =  $_SESSION['currentuser'];
 ?>
+
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <div id="page-wrapper">
     <div class="row">
@@ -27,7 +28,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h3>Fill the information in the form to create your own event page.</h3>
+                    <h3>Fill the information in the form to create your own event page</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">
@@ -52,7 +53,7 @@
                                     <textarea class="form-control" rows="3" name="description"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label><h3>Want to sell tickets</h3></label>
+                                    <label><h3>Do you wish to sell tickets</h3></label>
                                     <input class="form-group" type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"/>Yes
                                     <input class="form-group" type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"/>No
                                     <br>
@@ -102,12 +103,12 @@
                                 <script language="javascript">
                                     populateCountries("country", "state");
                                 </script>
-                                <div class="form-group">
+                                <div class="form-group-last">
                                     <button type="submit" class="btn btn-primary" name="submit" value="submit">Proceed To Next Step</button>
                                 </div>
                             </form>
                         </div>
-                        <!-- /.col-lg-6 (nested) -->
+                        <!-- /.col-lg-12 (nested) -->
                     </div>
                     <!-- /.row (nested) -->
                 </div>
@@ -121,8 +122,6 @@
 </div>
 <!-- /#page-wrapper -->
 
-<!-- DateTimePicker -->
-
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>
 
@@ -134,9 +133,11 @@
 <!-- Custom Theme JavaScript -->
 <script src="js/sb-admin-2.js"></script>
 
-<!--<script type= "text/javascript" src = "js/countries.js"></script>!--> 
+<script type= "text/javascript" src = "js/countries.js"></script>
 
 <script src="js/jquery.js"></script>
+
+<!-- DateTimePicker -->
 <script src="js/jquery.datetimepicker.js"></script>
 <script>
     $('#datetimepicker').datetimepicker({
@@ -317,7 +318,5 @@
         }
     }
 </script>
-</body>
-<?php require_once("includes/footer.php") ?>
 
-</html>
+<?php require_once("includes/footer.php") ?>

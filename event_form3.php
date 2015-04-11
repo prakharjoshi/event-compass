@@ -5,9 +5,14 @@
 <?php require_once("includes/base.php") ?>
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+
 <?php
     $username = $_SESSION['currentuser'];
 ?>
+
 <?php
     if(isset($_GET['id']))
     {
@@ -101,8 +106,4 @@
 <!-- Custom Theme JavaScript -->
 <script src="js/sb-admin-2.js"></script>
 
-</body>
-
 <?php require_once("includes/footer.php") ?>
-
-</html>

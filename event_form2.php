@@ -1,12 +1,17 @@
 <?php
     ob_start();
 ?>
+
 <?php require_once("includes/base.php") ?>
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
 <?php
     $username = $_SESSION['currentuser'];
 ?>
+
 <?php
     if(isset($_GET['id']))
     {
@@ -45,7 +50,6 @@
             echo "Error uploading file";
             exit;
         }
-        
         $query = mysql_query("UPDATE Event SET Ev_photo = '$filePath' WHERE Ev_id = '$id'"); 
         if(!$query)
         {
@@ -107,8 +111,4 @@
 <!-- Custom Theme JavaScript -->
 <script src="sb-admin-2.js"></script>
 
-</body>
-
 <?php require_once("includes/footer.php") ?>
-
-</html>
