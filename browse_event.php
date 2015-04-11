@@ -97,10 +97,14 @@ $Cat_id=0;
         <!-- Introduction Row -->
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 class="page-header">Hi, <?php echo $username ?>
-                </h1>
-                <p>Browse through categories of events here</p>
+                <h3>Browse through categories of events here</h3>
             </div>
+          <?php 
+            if($Cat_id < 1)
+            {
+          ?>
+          <img src="image/browse_image.jpeg" class="col-lg-offset-4" style="width:400px;height:400px;">
+          <?php } ?>
             
         </div>
         <div id="wrapper">
@@ -129,7 +133,18 @@ $Cat_id=0;
          /* $Sub_id=mysql_result($query_run, $i,'Sub_id');*/
 
         ?>
-            
+
+        <?php 
+        //echo $Cat_id;
+          if($Cat_id == 0)
+          {?>
+            <div class="col-lg-3 col-sm-6 text-center">
+                <img class="img-responsive img-responsive img-center" src="image/browse_image.jpeg">
+            </div> 
+          <?php }
+          else
+          {
+        ?>
             <div class="col-lg-3 col-sm-6 text-center">
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
@@ -138,7 +153,8 @@ $Cat_id=0;
                 <p><?php echo $Ev_description ?></p>
             </div>
         
-        <?php } ?>
+        <?php }} 
+        ?>
         
             
             

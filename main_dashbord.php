@@ -62,7 +62,23 @@ $mini=min((mysql_num_rows($query_run)),4);
    ?>     
         
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
+                <?php if(!is_null($Ev_img))
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                <?php
+                      }
+                      else
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+
+                <?php 
+                      }
+                ?>
+
+
+                
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
                 <p><?php echo $Ev_description ?></p>
             </div>
@@ -102,7 +118,20 @@ $mini=min((mysql_num_rows($query_run)),4);
    ?>     
         
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
+                <?php if(!is_null($Ev_img))
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                <?php
+                      }
+                      else
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+
+                <?php 
+                      }
+                ?>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
                     
                 <p><?php echo $Ev_description ?></p>
@@ -164,7 +193,20 @@ for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++)
         $distance1=$distance1/1000;
         ?>
         <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
+                <?php if(!is_null($Ev_img))
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                <?php
+                      }
+                      else
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+
+                <?php 
+                      }
+                ?>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
                 <p><?php echo $Ev_description ?></p>
                 <p><?php echo "Distance: ".$distance1." KM from you"; ?></p>
@@ -218,7 +260,20 @@ $numrows = mysql_num_rows($query2);
    ?>     
         
             <div class="col-lg-3 col-sm-6 text-center">
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
+                <?php if(!is_null($Ev_img))
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                <?php
+                      }
+                      else
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+
+                <?php 
+                      }
+                ?>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><h3><?php echo $Ev_name ?></h3></a>
                 <p><?php echo $Ev_description ?></p>
             </div>

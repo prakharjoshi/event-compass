@@ -172,7 +172,20 @@
         <div class="panel-body" >
 			 <div class="row">
             
-            <img src="<?php echo $Ev_photo;?>" width = 900 height = 300>
+            <?php if(!is_null($Ev_photo))
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_photo;?>" alt="" style="width:900px;height:500px;"></a>
+                <?php
+                      }
+                      else
+                      {
+                ?>
+                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+
+                <?php 
+                      }
+                ?>
             <hr>
             <form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
             <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
