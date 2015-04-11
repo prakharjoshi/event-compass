@@ -18,6 +18,8 @@
 		
 	}*/
 ?>
+
+
 <?php
     $username = $_SESSION['currentuser'];
     $queryx = mysql_query("SELECT * FROM User WHERE User_username = '$username'");
@@ -172,208 +174,13 @@
         <div class="panel-body" >
 			 <div class="row">
             
-            <?php if(!is_null($Ev_photo))
-                      {
-                ?>
-                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_photo;?>" alt="" style="width:900px;height:500px;"></a>
-                <?php
-                      }
-                      else
-                      {
-                ?>
-                        <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
-
-                <?php 
-                      }
-                ?>
-            <hr>
+            <img src="<?php echo $Ev_photo;?>" width = 900 height = 300>
             <form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
             <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
             </form>
-            <hr>
-            <?php if($owner==$User_id){
-            	?>
-            	<form action="event_form_edit.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
-            <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submit1">Edit Event</button>
-            </form>
-            <?php }
-            ?>
-            <?php 
-            if(isset($_POST['submi'])){
-             	//echo 'hello';
-             	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$id}','{$User_id}')";
-				$query_run3=mysql_query($query3);
-				require_once("PHPMailer_5.2.4/class.phpmailer.php");
-				$mail = new PHPMailer(); // create a new object
-				$mail->IsSMTP(); // enable SMTP
-				$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-				$mail->SMTPAuth = true; // authentication enabled
-				$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-				$mail->Host = "smtp.gmail.com";
-				$mail->Port = 465; // or 587
-				$mail->IsHTML(true);
-				$mail->Username = "eventcompass22@gmail.com";
-				$mail->Password = "eventcom22";
-				$mail->SetFrom("eventcompass22@gmail.com");
-				$mail->Subject = "New Event";
-				$mail->Body = "A new event has been posted which you are following";
-				echo $email;
-				$mail->AddAddress($email);
-				if(!$mail->Send())
-				{
-				   echo "Mailer Error: " . $mail->ErrorInfo;
-				}
-				else
-				{
-				   //echo "Message has been sent";
-				}
-             }
-            ?>
-          </div>
-			<!-- row -- >
-        </div>
-        <!--/panel-body-->
-      </div>
-      <!--/panel-->
-    </div>
-    <!--/col--> 
-  </div>
-  <!--/row--> 
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-		<div class="well-lg panel panel-default" id="toggable_box">
-			<div class="panel-body" >
-			<!--	<p> here comes the navigation bar</p> -->
-				<div role="tabpanel">
-					<div class="tab-content">
-						<!--About tab-->
-					    <div role="tabpanel" class="tab-pane active" id="about">
-					    <div class="row">
-					    	<p> <?php echo $Ev_description ?></p>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
+            
 
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "><strong>Organizer</strong></div>
-					    	<div class="col-md-9 "> <a href="user_profile_view.php?user=<?php echo $owner_name;?>"><?php echo $owner_name;?></a>;</div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "><strong>Venue</strong></div>
-					    	<div class="col-md-9 "> <?php echo $Ev_location ?></div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-					    
-					    <div class="row">
-					    	<div class="col-md-3 "><strong>Date</strong></div>
-					    	<div class="col-md-9 "> <?php echo $Ev_date ?></div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-					    
-
-					    <div class="row">
-					    	<div class="col-md-3 "><strong>Time</strong></div>
-					    	<div class="col-md-9 "> <?php echo $Ev_time ?></div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-md-3 "><strong>Distance</strong></div>
-					    	<div class="col-md-9 "> <?php echo $distance ?> KM from you.</div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "><strong>Current Rating</strong></div>
-					    	<?php
-					    	$q=mysql_query("SELECT AVG(user_rating) as rating FROM user_event_rating WHERE Ev_id='$id'");
-					    	$rating=mysql_result($q,0,'rating');
-
-					    	?>
-					    	<div class="col-md-9 "> <?php echo $rating; ?></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-
-					    <div class="row">
-					    	<div class="col-md-3 "></div>
-					    	<div class="col-md-9 "></div>
-					    </div>
-					    <div class="row">
-					    <!--	<form role="form" action="user=$username&id=$id">
-					    	<div class="col-md-3 "><strong>Your Rating</strong></div>
-					    	<div class="starrr"></div>
-							<div align = "center">&nbsp;
-							<span class='your-choice-was' style='display: none;'>-->
-
-							<p>
-							<form action="event_page.php?user=<?php echo $username; ?>&id=<?php echo $id;?>" method="post">
-							&nbsp;&nbsp;&nbsp;&nbsp;<strong>Rate this Event:   </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<select name="formGender">
-								  <option value="">Select Rating</option>
-								  <option value="1">1</option>
-								  <option value="2">2</option>
-								  <option value="3">3</option>
-								  <option value="4">4</option>
-								  <option value="5">5</option>
-								</select>
-								<br >
-								<br >
-								<button type="submit" name="submit" value="submit" class="btn-btn-default col-md-offset-6">Rate</button>
-							</form>
-							</p>
-							<?php //$choice="<span class='choice'></span>"?>
-							<?php
+            <?php
 								if(isset($_POST['formGender']) && isset($_POST['submit']))
 								{
 									$choice = $_POST['formGender'];
@@ -407,8 +214,165 @@
 								}
 							?>
 							
-							</span>
-							</div>
+
+
+
+
+            <?php 
+            if(isset($_POST['submi'])){
+             	//echo 'hello';
+             	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$id}','{$User_id}')";
+				$query_run3=mysql_query($query3);
+				require_once("PHPMailer_5.2.4/class.phpmailer.php");
+				$mail = new PHPMailer(); // create a new object
+				$mail->IsSMTP(); // enable SMTP
+				$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+				$mail->SMTPAuth = true; // authentication enabled
+				$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+				$mail->Host = "smtp.gmail.com";
+				$mail->Port = 465; // or 587
+				$mail->IsHTML(true);
+				$mail->Username = "eventcompass22@gmail.com";
+				$mail->Password = "eventcom22";
+				$mail->SetFrom("eventcompass22@gmail.com");
+				$mail->Subject = "New Event";
+				$mail->Body = "A new event has been posted which you are following";
+				echo "A mail has been sent to you";
+				$mail->AddAddress($email);
+				if(!$mail->Send())
+				{
+				   echo "Mailer Error: " . $mail->ErrorInfo;
+				}
+				else
+				{
+				   //echo "Message has been sent";
+				}
+             }
+            ?>
+          </div>
+			<!-- row -- >
+        </div>
+        <!--/panel-body-->
+      </div>
+      <!--/panel-->
+    </div>
+    <!--/col--> 
+  </div>
+  <!--/row--> 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Event details</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                
+                <div class=" col-md-12 col-lg-12 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Event name :</td>
+                        <td><?php echo $Ev_name ?></td>
+                      </tr>
+                      <tr>
+                        <td>Event Description :</td>
+                        <td><?php echo $Ev_description ?></td>
+                      </tr>
+                      <tr>
+                        <td>Organizer :</td>
+                        <td><a href="user_profile_view.php?user=<?php echo $owner_name;?>"><?php echo $owner_name;?></a></td>
+                      </tr>      
+                      <tr>
+                        <td>Location :</td>
+                        <td><?php echo $Ev_location ?></td>
+                      </tr>
+                      <tr>
+                      <td>Distance :</td>
+                        <td><?php echo $distance;?> KM fom you.</td>     
+                      </tr>
+                      <tr>
+                      <td>Date :</td>
+                        <td><?php echo $Ev_date;?></td>     
+                      </tr>
+                      <tr>
+                      <td>Time :</td>
+                        <td><?php echo $Ev_time;?></td>     
+                      </tr>
+					  <tr>
+                      <td>Current rating :</td>
+                        <td>
+                        	<?php
+					    	$q=mysql_query("SELECT AVG(user_rating) as rating FROM user_event_rating WHERE Ev_id='$id'");
+					    	$rating=mysql_result($q,0,'rating');
+					    	$rating=intval($rating);
+					    	?>
+					    	<?php echo $rating;?>/5
+					    </td>     
+                      </tr>                     
+                      <tr>
+                      <td>Your rating :</td>
+                        <td><form action="event_page.php?user=<?php echo $username; ?>&id=<?php echo $id;?>" method="post">
+							
+								<select name="formGender">
+								  <option value="">Select Rating</option>
+								  <option value="1">1</option>
+								  <option value="2">2</option>
+								  <option value="3">3</option>
+								  <option value="4">4</option>
+								  <option value="5">5</option>
+								</select>
+								<br >
+								<br >
+								<button type="submit" name="submit" value="submit" class="btn-btn-default col-md-offset-6">Rate</button>
+							</form></td>     
+                      </tr>
+                     
+
+                    </tbody>
+                  </table>
+                  <?php if($owner==$User_id){
+            	?>
+            	<form action="event_form_edit.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
+            <button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submit1">Edit Event Details</button>
+            </form>
+            <?php }
+            ?>
+                  
+                </div>
+              </div>
+            </div>          
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+		<div class="well-lg panel panel-default" id="toggable_box">
+			<div class="panel-body" >
+			<!--	<p> here comes the navigation bar</p> -->
+				<div role="tabpanel">
+					<div class="tab-content">
+						<!--About tab-->
+					    <div role="tabpanel" class="tab-pane active" id="about">
+					    
 							
 
 							<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -427,8 +391,15 @@
 						  
 					     </form>
 				    	
-					    
-							
+					    <div role="tabpanel" class="tab-pane fade" id="tickets">
+							<div class="col-md-10 col-sm-6 col-xs-12 personal-info">
+				      			<!-- Ticket Info --> 
+				      				<div class="panel panel-default">
+				            			<div class="panel-heading">
+				                			<h4 class="panel-title">
+				                    		
+				                			</h4>
+				            			</div>
 				                			<div class="panel-body">
 				                				<table class="table table-hover">
 									              <thead>
@@ -436,15 +407,15 @@
 									                  <th>Ticket Type</th>
 									                  <th>Available Tickets</th>
 									                  <th>Price</th>
-									                  <th>Quantity</th>
+									                  <th></th>
 									                  <th></th> 
 									                </tr>
 									              </thead>
 									            <tbody>
 									            	<tr>
-									                  <th>Dummy Name</th>
-									                  <th>Dummy Available Tickets</th>
-									                  <th>Dummy Price</th>
+									                  <th>Ticket Type</th>
+									                  <th>Available Tickets</th>
+									                  <th>Price</th>
 									                  <th><input></input></th>
 									                  <th><button type="button" class="btn btn-success">Buy</button></th> 
 									                </tr>
@@ -452,12 +423,13 @@
 												        
     											</tbody>
     										</table>
-				          			
+				          						
 				        					
 				            			
 				            			</div>
-				       			
-				       		
+				       				</div>
+				       			</div>
+				       		</div>
 
 				      
 					    
@@ -505,11 +477,12 @@
         		$user1=mysql_result($q,$i,'User_id');
         		$q2=mysql_query("SELECT * FROM User WHERE User_id='$user1'");
         		$user2=mysql_result($q2,0,'User_username');
+        		$userfname=mysql_result($q2,0,'User_fname');
         		$review1=mysql_result($q,$i,'Review');
         		?>
-        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><?php echo $user2;?></a>;
+        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><b><h4><?php echo $userfname ?></h4></b></a>
         		<?php 
-	        		echo "<br>";
+	        		//echo "<br>";
 	        		echo $review1;
 	        		echo "<br>";
         		?>

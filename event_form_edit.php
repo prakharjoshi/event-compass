@@ -15,21 +15,6 @@
     $username =  $_SESSION['currentuser'];
     
 ?>
-<?php
-$id = $_GET['id'];
-    $query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
-    if(!$query)
-    {
-        echo mysql_error();
-    }
-    $row = mysql_fetch_array($query);
-    $evname = $row['Ev_name'];
-    $evlocation = $row['Ev_location'];
-    $evdesc = $row['Ev_description'];
-    $evdate = $row['Ev_date'];
-    $evtime = $row['Ev_time'];
-
-?>
 
 <div id="page-wrapper">
     <div class="row">
@@ -51,26 +36,26 @@ $id = $_GET['id'];
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form_edit.php?user=<?php echo $username;?>&id=<?php echo $id;?>">
                                 <div class="form-group">
                                     <label><h3>Event Name</h3></label>
-                                    <input class="form-control" name="eventname" placeholder="<?php echo $evname;?>">
+                                    <input class="form-control" name="eventname" placeholder="Enter name of your event">
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Location</h3></label>
-                                    <input class="form-control" placeholder="<?php echo $evlocation;?>" name="eventlocation">
+                                    <input class="form-control" placeholder="Enter location of your event" name="eventlocation">
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Date and Time</h3></label>
-                                    <input type="text" id="datetimepicker_dark" name = "date" placeholder=<?php echo $evdate .  $evtime ;?> >
+                                    <input type="text" id="datetimepicker_dark" name = "date">
                                     
                                 </div>
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Short Description</h3></label>
-                                    <textarea class="form-control" rows="3" name="description" placeholder=<?php echo $evdesc;?> ></textarea>
+                                    <textarea class="form-control" rows="3" name="description"></textarea>
                                 </div>
                                 
                                 <div class="form-group">
                                         <label><h3>Type of Event</h3></label>
-                                        <select class="form-control" name="type[] ">
+                                        <select class="form-control" name="type[]">
                                             <option>Concert or Performance</option>
                                             <option>Festival, Fair or Exhibition</option>
                                             <option>Game or Competition</option>
@@ -79,15 +64,7 @@ $id = $_GET['id'];
                                             <option>Other</option>
                                         </select>
                                     </div>
-                                 <div class="form-group">
-                                    Category :   <select class="form-control" id="country" name ="category"></select>
-                                </div>
-                                <div class="form-group">
-                                    Sub-category: <select class="form-control" name ="subcategory" id ="state"></select>
-                                </div>
-                                <script language="javascript">
-                                    populateCountries("country", "state");
-                                </script>
+                                
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary" name="submit" value="submit">Done</button>
                                 </div>

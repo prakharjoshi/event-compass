@@ -37,7 +37,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
 <!-- ************************Starting here *********************************************** -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header"><span class="fa fa-compass"></span> Recommended for you</h2>
+                <h2 class="page-header"><span class="fa fa-compass"></span> <font face="verdana">Recommended for you</font></h2>
             </div>
 
 <?php
