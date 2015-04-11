@@ -64,7 +64,6 @@ $mini=min((mysql_num_rows($query_run)),4);
             <div class="col-lg-3 col-sm-6 text-center">
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <small><?php echo $Sub_id ?></small>
                 <p><?php echo $Ev_description ?></p>
             </div>
 
@@ -105,7 +104,7 @@ $mini=min((mysql_num_rows($query_run)),4);
             <div class="col-lg-3 col-sm-6 text-center">
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <small><?php echo $Sub_id ?></small>
+                    
                 <p><?php echo $Ev_description ?></p>
             </div>
 
@@ -158,12 +157,15 @@ for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++)
         $Ev_description=mysql_result($qr2, $i,'Ev_description');
         $Sub_id=mysql_result($qr2, $i,'Sub_id');
         $Ev_img=mysql_result($query_run,$i,'Ev_photo');
+        if ($Ev_img == " ")
+        {
+          $Ev_img = "image/imagenotfound.jpg";
+        }
         $distance1=$distance1/1000;
         ?>
         <div class="col-lg-3 col-sm-6 text-center">
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <small><?php echo $Sub_id ?></small>
                 <p><?php echo $Ev_description ?></p>
                 <p><?php echo "Distance: ".$distance1." KM from you"; ?></p>
             </div>
@@ -218,7 +220,6 @@ $numrows = mysql_num_rows($query2);
             <div class="col-lg-3 col-sm-6 text-center">
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <small><?php echo $Sub_id ?></small>
                 <p><?php echo $Ev_description ?></p>
             </div>
 

@@ -133,7 +133,7 @@ $Cat_id=0;
             <div class="col-lg-3 col-sm-6 text-center">
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
                 <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                   <!-- <small><?php echo $Sub_id ?></small>-->
+                   <!-- <small><?php $Sub_id ?></small>-->
                 </h3>
                 <p><?php echo $Ev_description ?></p>
             </div>
