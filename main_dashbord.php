@@ -209,7 +209,7 @@
             </div>
 
             <?php
-                $query2=mysql_query("SELECT Ev_id FROM Past_events WHERE User_id = '$User_id'");
+                $query2=mysql_query("SELECT Ev_id FROM Past_Events WHERE User_id = '$User_id'");
                 if(!$query2)
                 {
                     echo mysql_error();
