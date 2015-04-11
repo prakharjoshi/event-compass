@@ -1,13 +1,14 @@
 <?php
 session_start();
 ?>
+
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
 <?php require_once("backend/loginbackend.php") ?>
 
-
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/login.css" rel="stylesheet">
+
 <body>
     <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
       <ul class="nav navbar-nav">
@@ -24,7 +25,6 @@ session_start();
         <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong class="">Login</strong>
-
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

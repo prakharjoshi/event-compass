@@ -15,6 +15,9 @@ ob_start();
 		{
 			$t = $_POST["username"];
 			$query = mysql_query("SELECT * FROM User WHERE User_username = '$t'");
+			if (!$query) {
+				echo mysql_error();
+			}
 			$numrows = mysql_num_rows($query);
 			if($numrows == 0)
 			{

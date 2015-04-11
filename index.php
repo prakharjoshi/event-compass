@@ -49,7 +49,7 @@
               <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li>
-                        <img src="image/logo.jpg" width="60px" height="60px">
+                        <!-- <img src="image/logo.jpg" width="60px" height="60px"> -->
                   </li>
                 </ul>
             </div>
@@ -100,8 +100,8 @@
                 <h2>About Event Compass</h2>
                 <p>A platform where we can connect users to their interest and help them follow it. The platform will do so by enabling the user to keep track of the events of his or her interest. The platform will also enable organizers to post and promote their events so that it reaches the targeted audience.</p>
                 <a href="#contact" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -148,5 +148,7 @@
     <script src="js/grayscale.js"></script>
 
 </body>
+
 <?php require("includes/footer.php") ?>
+
 </html>

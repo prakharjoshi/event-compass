@@ -3,16 +3,14 @@
 <?php require_once("includes/connection.php") ?>
 <?php require_once("backend/ifnotlogin.php") ?>    
 <?php
-//This function will check whether the user is logged in or not. (Security function)
+    //This function will check whether the user is logged in or not. (Security function)
 
-//session_start();
-if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != '')) 
-{
-    redirect_to("login.php");
-}
-
+    //session_start();
+    if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != '')) 
+    {
+        redirect_to("login.php");
+    }
 ?>
-
 <?php
     if (isset($_GET['user'])) 
     {
@@ -20,6 +18,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
     }
 ?>
 
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Page Content -->
@@ -47,7 +46,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
 $query2="SELECT User_id FROM User WHERE User_username='$username'";
 $query_run2=mysql_query($query2);
 $User_id=mysql_result($query_run2,0,'User_id');    
-$query="SELECT * FROM Event e,Interested_in2 i where e.Sub_id=i.Sub_id AND i.User_id=$User_id ORDER BY Count DESC";
+$query="SELECT * FROM Event e,Interested_in i where e.Sub_id=i.Sub_id AND i.User_id=$User_id ORDER BY Count DESC";
 $query_run=mysql_query($query);
 $mini=min((mysql_num_rows($query_run)),4);
          for ($i = 0; $i <$mini ; $i++)
