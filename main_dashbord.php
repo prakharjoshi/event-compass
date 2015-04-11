@@ -28,8 +28,7 @@ if (!(isset($_SESSION['currentuser']) && $_SESSION['currentuser'] != ''))
         <!-- Introduction Row -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Hi, <?php echo $username;?></h1>
-                <p>These events may interest you.</p>
+                <h3 class="text-center"><font face="Arial">These events may interest you.</font></h3>
             </div>
         </div>
         <div id="wrapper">
