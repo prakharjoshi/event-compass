@@ -85,7 +85,7 @@
                                     // </script> -->      
                                 </div>
                                 <div class="form-group">
-                                        <label><h1><font face="Tangerine">Type of Event</font></h1></label>
+                                        <label><h3> <font face="Montserrat">Type of Event</font></h3></label>
                                         <select class="form-control" name="type[]">
                                             <option><font face="Montserrat">Concert or Performance</font></option>
                                             <option><font face="Montserrat">Festival, Fair or Exhibition</font></option>
@@ -96,10 +96,10 @@
                                         </select>
                                     </div>
                                 <div class="form-group">
-                                    Category :   <select class="form-control" id="country" name ="category"></select>
+                                    <h3><font face="Montserrat">Category : </font></h3>  <select class="form-control" id="country" name ="category"></select>
                                 </div>
                                 <div class="form-group">
-                                    Sub-category: <select class="form-control" name ="subcategory" id ="state"></select>
+                                    <h3><font face="Montserrat">Sub-category:</font></h3> <select class="form-control" name ="subcategory" id ="state"></select>
                                 </div>
                                 <script language="javascript">
                                     populateCountries("country", "state");

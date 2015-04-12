@@ -162,7 +162,7 @@
                     if(!is_null($Ev_photo))
 		                    {
 		                ?>
-		                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" width=900px height=300px src="<?php echo $Ev_photo;?>" alt="" style="width:400px;height:200px;"></a>
+		                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" width="900px" height="300px" src="<?php echo $Ev_photo;?>" alt="" style="width:400px;height:200px;"></a>
 		                <?php
 		                    }
 		                    else
