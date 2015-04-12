@@ -156,8 +156,22 @@
 	      		<div class="well-lg panel panel-default" id="profile_box">
 	        		<div class="panel-body" >
 				 		<div class="row">
-	            			<img src="<?php echo $Ev_photo;?>" width = 900 height = 300>
-	            			<form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
+	            			<?php 
+                    if(!is_null($Ev_photo))
+		                    {
+		                ?>
+		                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" width=900px height=300px src="<?php echo $Ev_photo;?>" alt="" style="width:400px;height:200px;"></a>
+		                <?php
+		                    }
+		                    else
+		                    {
+		                ?>
+		                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+		                <?php 
+		                    }
+		                ?>
+		               </div>
+ 	            			<form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
 	            				<button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
 	            			</form>
             				<?php
@@ -238,7 +252,7 @@
   		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
           	<div class="panel panel-info">
             	<div class="panel-heading">
-              		<h3 class="panel-title">Event details</h3>
+              		<h3 class="panel-title"><font face="Montserrat">Event details</font></h3>
             	</div>
             	<div class="panel-body">
               		<div class="row">
@@ -246,35 +260,35 @@
                   			<table class="table table-user-information">
                     			<tbody>
                       				<tr>
-                        				<td>Event name: </td>
-                        				<td><?php echo $Ev_name ?></td>
+                        				<td><font face="Montserrat">Event name: </font></td>
+                        				<td><font face="Montserrat"><?php echo $Ev_name ?></font></td>
                       				</tr>
                       				<tr>
-                        				<td>Event Description: </td>
-                        				<td><?php echo $Ev_description ?></td>
+                        				<td><font face="Montserrat">Event Description: </font></td>
+                        				<td><font face="Montserrat"><?php echo $Ev_description ?></font></td>
                       				</tr>
                       				<tr>
-                        				<td>Organizer: </td>
-                        				<td><a href="user_profile_view.php?user=<?php echo $owner_name;?>"><?php echo $owner_name;?></a></td>
+                        				<td><font face="Montserrat">Organizer: </font></td>
+                        				<td><a href="user_profile_view.php?user=<?php echo $owner_name;?>"><font face="Montserrat"><?php echo $owner_name;?></font></a></td>
                       				</tr>      
                       				<tr>
-                        				<td>Location: </td>
-                        				<td><?php echo $Ev_location ?></td>
+                        				<td><font face="Montserrat">Location: </font></td>
+                        				<td><font face="Montserrat"><?php echo $Ev_location ?></font></td>
                       				</tr>
                       				<tr>
-                      					<td>Distance: </td>
-                        				<td><?php echo $distance;?> KM fom you.</td>     
+                      					<td><font face="Montserrat">Distance: </font></td>
+                        				<td><font face="Montserrat"><?php echo $distance;?> KM fom you.</font></td>     
                       				</tr>
                   					<tr>
-	                      				<td>Date: </td>
-	                        			<td><?php echo $Ev_date;?></td>     
+	                      				<td><font face="Montserrat">Date: </font></td>
+	                        			<td><font face="Montserrat"><?php echo $Ev_date;?></font></td>     
                       				</tr>
                       				<tr>
-                      					<td>Time: </td>
-                        				<td><?php echo $Ev_time;?></td>     
+                      					<td><font face="Montserrat">Time: </font></td>
+                        				<td><font face="Montserrat"><?php echo $Ev_time;?></font></td>     
                       				</tr>
 					  				<tr>
-                      					<td>Current rating :</td>
+                      					<td><font face="Montserrat">Current rating :</font></td>
                         				<td>
 	                        				<?php
 						    					$q=mysql_query("SELECT AVG(user_rating) as rating FROM user_event_rating WHERE Ev_id='$id'");
@@ -285,7 +299,7 @@
 					    				</td>     
                       				</tr>                     
                       				<tr>
-                      					<td>Your rating :</td>
+                      					<td><font face="Montserrat">Your rating :</font></td>
                     					<td>
                     						<form action="event_page.php?user=<?php echo $username; ?>&id=<?php echo $id;?>" method="post">
 												<select name="formGender">
@@ -358,18 +372,18 @@
 				                				<table class="table table-hover">
 									              	<thead>
 								                		<tr>
-									                  		<th>Ticket Type</th>
-									                  		<th>Available Tickets</th>
-									                  		<th>Price</th>
+									                  		<th><font face="Montserrat">Ticket Type</font></th>
+									                  		<th><font face="Montserrat">Available Tickets</font></th>
+									                  		<th><font face="Montserrat">Price</font></th>
 									                  		<th></th>
 									                  		<th></th> 
 									                	</tr>
 									              	</thead>
 										            <tbody>
 										            	<tr>
-										                  	<th>Ticket Type</th>
-										                  	<th>Available Tickets</th>
-										                  	<th>Price</th>
+										                  	<th><font face="Montserrat">Ticket Type</font></th>
+										                  	<th><font face="Montserrat">Available Tickets</font></th>
+										                  	<th><font face="Montserrat">Price</font></th>
 										                  	<th><input></input></th>
 										                  	<th><button type="button" class="btn btn-success">Buy</button></th> 
 										                </tr>
@@ -426,7 +440,7 @@
 				        		$userfname=mysql_result($q2,0,'User_fname');
 				        		$review1=mysql_result($q,$i,'Review');
 		        		?>
-	        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><b><h4><?php echo $userfname ?></h4></b></a>
+	        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><b><h4><font face="Montserrat"><?php echo $userfname ?></font></h4></b></a>
 		        		<?php 
 			        		//echo "<br>";
 			        		echo $review1;

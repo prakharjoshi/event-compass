@@ -13,7 +13,8 @@
         $Cat_id = $_GET['Cat_id'];
     }
 ?>
-
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/fixed_sidebar.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -76,14 +77,14 @@
 <div class="row-offcanvas row-offcanvas-left">
     <div id="sidebar" class="sidebar-offcanvas">
         <div class="col-md-12">
-            <h3 class="text-center">Categories</h3>
+            <h1 class="text-center"><font face="Tangerine">Categories</font></h1>
             <ul class="nav nav-pills nav-stacked text-center">
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=1"><span class="fa fa-film"></span> Film & Entertainment</a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=2"><span class="fa fa-cube"> Hobbies & Special-Interest</a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=3"><span class="fa fa-music"> Music</a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=4"><span class="fa fa-paint-brush"> Visual Arts</a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=5"><span class="fa fa-flask"> Science & Technology</a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=6"><span class="fa fa-soccer-ball-o"> Sports & Fitness</a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=1"><span class="fa fa-film"></span><font face="Montserrat"> Film & Entertainment</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=2"><span class="fa fa-cube"> <font face="Montserrat">Hobbies & Special-Interest</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=3"><span class="fa fa-music"><font face="Montserrat"> Music</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=4"><span class="fa fa-paint-brush"> <font face="Montserrat">Visual Arts</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=5"><span class="fa fa-flask"><font face="Montserrat"> Science & Technology</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=6"><span class="fa fa-soccer-ball-o"> <font face="Montserrat">Sports & Fitness</font></a></li>
             </ul>
         </div>
     </div>
@@ -92,7 +93,27 @@
             <!-- Introduction Row -->
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>Browse through categories of events here</h3>
+                <?php 
+                    if($Cat_id < 1)
+                    {   
+                ?>
+                    <h3><font face="Montserrat">Browse through categories of events here</font></h3>
+                <?
+                    }
+                    else
+                    { 
+                            $query="SELECT * FROM Category WHERE Cat_id = '$Cat_id'";
+                            $query_run=mysql_query($query);
+                            $row = mysql_fetch_array($query_run);
+                            $cat_name = mysql_result($query_run, 0,'cat_name');
+                    ?>
+
+                        <h1><font face="Tangerine"><?php echo $cat_name ;?></font></h1>
+                        <hr>
+                    <?php 
+                }
+                ?>
+                </div>
                 </div>
                 <?php 
                     if($Cat_id < 1)
@@ -103,7 +124,7 @@
                     } 
                 ?>
             </div>
-            <div id="wrapper">
+            <div id="wrapper" class="row">
                 <?php 
                     $query="SELECT Ev_id,Ev_name, Ev_description,Sub_id,Ev_photo FROM Event NATURAL JOIN Subcategory WHERE Cat_id = '$Cat_id'";
                     $query_run=mysql_query($query);
@@ -139,9 +160,22 @@
                         {
                 ?>
                 <div class="col-lg-3 col-sm-6 text-center">
-                    <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt=""></a>
-                    <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                    <p><?php echo $Ev_description ?></p>
+                    <?php 
+                    if(!is_null($Ev_img))
+                    {
+                ?>
+                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                <?php
+                    }
+                    else
+                    {
+                ?>
+                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+                <?php 
+                    }
+                ?>
+                    <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?><</h3></a>
+                    <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
                 </div>
                 <?php 
                         }

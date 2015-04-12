@@ -8,6 +8,8 @@
 
 <link href="../css/fixed_sidebar.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
 <nav class="navbar-wrapper navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -72,11 +74,11 @@
 <div class="row-offcanvas row-offcanvas-left">
   <div id="sidebar" class="sidebar-offcanvas">
       <div class="col-md-12">
-        <h3 class="text-center">Settings</h3>
+        <h1 class="text-center"><font face="Tangerine">Settings</font></h1>
         <ul class="nav nav-pills nav-stacked text-center">
-          <li><a href="user_profile_view.php?user=<?php echo $username; ?>"><span class="fa fa-child"></span> Profile Settings</a></li>
-          <li><a href="interest_settings_form.php?user=<?php echo $username; ?>"><span class="fa fa-heart"></span> Interest Settings</a></li>
-          <li><a href="notification_settings_form.php?user=<?php echo $username; ?>"><span class="fa fa-bullhorn"></span> Notification Settings</a></li>
+          <li><a href="user_profile_view.php?user=<?php echo $username; ?>"><span class="fa fa-child"></span><font face="Montserrat"> Profile Settings</font></a></li>
+          <li><a href="interest_settings_form.php?user=<?php echo $username; ?>"><span class="fa fa-heart"></span> <font face="Montserrat">Interest Settings</font></a></li>
+          <li><a href="notification_settings_form.php?user=<?php echo $username; ?>"><span class="fa fa-bullhorn"></span><font face="Montserrat"> Notification Settings</font></a></li>
         </ul>
       </div>
   </div> 

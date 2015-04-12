@@ -17,11 +17,10 @@
         $username = $_GET['user'];
     }
 ?>
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
 
 
 <!-- Page Content -->
@@ -76,8 +75,8 @@
                 <?php 
                     }
                 ?>
-                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                <p><?php echo $Ev_description ?></p>
+                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></font></h3></a>
+                <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
             </div>
             <?php 
                 } 
@@ -127,8 +126,8 @@
                 <?php 
                     }
                 ?>
-                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                <p><?php echo $Ev_description ?></p>
+                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></font></h3></a>
+                <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
             </div>
             <?php 
                 } 
@@ -194,9 +193,9 @@
                 <?php 
                         }
                 ?>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                <p><?php echo $Ev_description ?></p>
-                <p><?php echo "Distance: ".$distance1." km from you"; ?></p>
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></font></h3></a>
+                <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
+                <p><font face="Montserrat"><?php echo "Distance: ".$distance1." km from you"; ?></font></p>
             </div>
             <?php
                     }
@@ -253,8 +252,8 @@
                 <?php 
                     }
                 ?>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><h3><?php echo $Ev_name ?></h3></a>
-                <p><?php echo $Ev_description ?></p>
+                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></font></h3></a>
+                <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
             </div>
             <?php 
                 } 

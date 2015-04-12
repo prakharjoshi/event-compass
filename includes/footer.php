@@ -14,7 +14,7 @@
             <div class="col-lg-12">
             <div class="col-md-3">
                 <ul class="nav nav-pills nav-stacked">
-                    <li><strong><span class="fa fa-users"></span> Team</strong></li>
+                    <li><strong><span class="fa fa-users"></span>Team</strong></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="http://technologyforfirsttime.blogspot.in">Blog</a></li>
                 </ul>

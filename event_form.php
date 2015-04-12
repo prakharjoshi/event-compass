@@ -12,14 +12,15 @@
 <?php
     $username =  $_SESSION['currentuser'];
 ?>
-
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center">Event Form</h1>
+            <h1 class="page-header text-center"><font face="Montserrat">Event Form</font></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -28,32 +29,32 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h3>Fill the information in the form to create your own event page</h3>
+                    <h1><font face="Tangerine">Fill the information in the form to create your own event page</font></h1>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">
                         <div class="col-lg-12">
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form.php?user=<?php echo $username;?>">
                                 <div class="form-group">
-                                    <label><h3>Event Name</h3></label>
+                                    <label><h3><font face="Montserrat">Event Name</font></h3></label>
                                     <input class="form-control" name="eventname" placeholder="Enter name of your event">
                                 </div>
                                 <div class="form-group">
-                                    <label><h3>Event Location</h3></label>
+                                    <label><h3><font face="Montserrat">Event Location</font></h3></label>
                                     <input class="form-control" placeholder="Enter location of your event" name="eventlocation">
                                 </div>
                                 <div class="form-group">
-                                    <label><h3>Event Date and Time</h3></label>
+                                    <label><h3><font face="Montserrat">Event Date and Time</font></h3></label>
                                     <input type="text" id="datetimepicker_dark" name = "date">
                                     
                                 </div>
                                 </div>
                                 <div class="form-group">
-                                    <label><h3>Short Description</h3></label>
+                                    <label><h3><font face="Montserrat">Short Description</font></h3></label>
                                     <textarea class="form-control" rows="3" name="description"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label><h3>Do you wish to sell tickets</h3></label>
+                                    <label><h3><font face="Montserrat">Do you wish to sell tickets</font></h3></label>
                                     <input class="form-group" type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck"/>Yes
                                     <input class="form-group" type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="noCheck"/>No
                                     <br>
@@ -61,9 +62,9 @@
                                         <table class="table table-hover" id="ticket-table">
                                             <thead>
                                                 <tr>
-                                                    <th>Ticket Type</th>
-                                                    <th>Available Tickets</th>
-                                                    <th>Price</th>
+                                                    <th><font face="Montserrat">Ticket Type</font></th>
+                                                    <th><font face="Montserrat">Available Tickets</font></th>
+                                                    <th><font face="Montserrat">Price</font></th>
                                                     <th></th>
                                                     <th></th> 
                                                 </tr>
@@ -84,14 +85,14 @@
                                     // </script> -->      
                                 </div>
                                 <div class="form-group">
-                                        <label><h3>Type of Event</h3></label>
+                                        <label><h1><font face="Tangerine">Type of Event</font></h1></label>
                                         <select class="form-control" name="type[]">
-                                            <option>Concert or Performance</option>
-                                            <option>Festival, Fair or Exhibition</option>
-                                            <option>Game or Competition</option>
-                                            <option>Party or Social Gathering</option>
-                                            <option>Race or Tournament</option>
-                                            <option>Other</option>
+                                            <option><font face="Montserrat">Concert or Performance</font></option>
+                                            <option><font face="Montserrat">Festival, Fair or Exhibition</font></option>
+                                            <option><font face="Montserrat">Game or Competition</font></option>
+                                            <option><font face="Montserrat">Party or Social Gathering</font></option>
+                                            <option><font face="Montserrat">Race or Tournament</font></option>
+                                            <option><font face="Montserrat">Other</font></option>
                                         </select>
                                     </div>
                                 <div class="form-group">
@@ -104,7 +105,7 @@
                                     populateCountries("country", "state");
                                 </script>
                                 <div class="form-group-last">
-                                    <button type="submit" class="btn btn-primary" name="submit" value="submit">Proceed To Next Step</button>
+                                    <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Proceed To Next Step</font></button>
                                 </div>
                             </form>
                         </div>

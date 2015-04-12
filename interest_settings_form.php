@@ -11,11 +11,13 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/fixed_sidebar.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 
 <div id="main" class="row">
     <div class="row">
         <div class="col-lg-11">
-            <h1 class="page-header text-center">Interest Settings</h1>
+            <h1 class="page-header text-center"><font face="Tangerine">Interest Settings</font></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -39,7 +41,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP<?php echo $i+1 ?>"><?php echo $Cat_name ?></a>
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseP<?php echo $i+1 ?>"><font face="Montserrat"><?php echo $Cat_name ?></font></a>
                                     </h4>
                                 </div>
                                 <div id="collapseP<?php echo $i+1 ?>" class="panel-collapse collapse out">
@@ -55,7 +57,7 @@
                                         ?>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="" name="<?php echo $Sub_Cat_id; ?>" ><?php echo $Sub_Cat_name; ?>
+                                                <input type="checkbox" value="" name="<?php echo $Sub_Cat_id; ?>" ><font face="Montserrat"><?php echo $Sub_Cat_name; ?></font>
                                             </label>
                                         </div>
                                         <?php 
@@ -67,13 +69,13 @@
                             <?php 
                                 } 
                             ?>
-                            <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Submit</font></button>
                             <?php 
                                 if("$username"=='admin')
                                 { 
                             ?>
                             <form action="admin.php?user=<?php echo $username; ?>" method="post">
-                                <a href="admin.php?user=<?php echo $username; ?>">Add category</button>
+                                <a href="admin.php?user=<?php echo $username; ?>"><font face="Montserrat">Add category</font></button>
                             </form>
                             <?php 
                                 } 

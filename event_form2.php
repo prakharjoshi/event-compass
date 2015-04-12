@@ -6,6 +6,8 @@
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
 
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <?php
@@ -61,7 +63,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header text-center">Event Form</h1>
+            <h1 class="page-header text-center"><font face="Montserrat">Event Form</font></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -70,18 +72,18 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h3>Upload Cover Picture for your event</h3>
+                    <h1><font face="Tangerine">Upload Cover Picture for your event</font></h1>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">
                         <div class="col-lg-12">
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form2.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
                                 <div class="form-group">
-                                    <label><h3>Cover Photo</h3></label>
+                                    <label><h3><font face="Montserrat">Cover Photo</font></h3></label>
                                     <input type="file" name="image">          
                                     <br>
-                                    <button type="submit" class="btn btn-primary" name="submit" value="submit">Proceed to next step</button>
-                                    <button type="submit" class="btn btn-link" name="submit" value="submit1">Skip</button>
+                                    <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Proceed to next step</font></button>
+                                    <button type="submit" class="btn btn-link" name="submit" value="submit1"><font face="Montserrat">Skip</font></button>
                                 </div>
                             </form>
                         </div>
