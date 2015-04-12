@@ -42,7 +42,7 @@
                 ?>
                 <li>
                     <div class="col-sm-12 col-md-12 col-md-offset-4">
-                        <form class="navbar-form" role="search" action="browse_event.php?Cat_id=0" method="post">
+                        <form class="navbar-form" role="search" action="browse_event.php?Cat_id=0&user=<?php echo $username ?>" method="post">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search by Name/Location" name="search">
                                 <div class="input-group-btn">

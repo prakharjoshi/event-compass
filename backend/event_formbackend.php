@@ -95,7 +95,7 @@
             //echo $idew;
 
             //tickets query
-            $query = mysql_query("INSERT INTO Tickets (Ev_id, Tick_type, Tick_price, Tick_qty)
+            $query = mysql_query("INSERT INTO Ticket (Ev_id, Tick_type, Tick_price, Tick_qty)
                            VALUES ('{$idew}','{$ticket_type}','{$ticket_price}','{$ticket_available}')");
 
             redirect_to("event_form2.php?user=$username&id=$idew");

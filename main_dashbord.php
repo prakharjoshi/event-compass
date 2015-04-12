@@ -17,16 +17,19 @@
         $username = $_GET['user'];
     }
 ?>
-
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+
+
 
 <!-- Page Content -->
 <div class="container">
     <!-- Introduction Row -->
     <div class="row">
         <div class="col-lg-12">
-            <h3 class="text-center"><font face="Arial">These events may interest you.</font></h3>
+            <h1 class="text-center"><font face="Montserrat">These events may interest you.</font></h1>
         </div>
     </div>
     <div id="wrapper">
@@ -35,7 +38,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header"><span class="fa fa-compass"></span> <font face="verdana">Recommended for you</font></h2>
+                <h1 class="page-header"><span class="fa fa-compass"></span> <font face="Tangerine">Recommended for you</font></h1>
             </div>
 
             <?php
@@ -85,7 +88,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header"><span class="fa fa-sort-amount-desc"> Most Popular</h2>
+                <h1 class="page-header"><span class="fa fa-sort-amount-desc"><font face="Tangerine"> Most Popular</font></h1>
             </div>
 
             <?php
@@ -136,7 +139,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header"><span class="fa fa-signal"> Near You (Within 100 km radius)</h2>
+                <h1 class="page-header"><span class="fa fa-signal"> <font face="Tangerine">Near You (Within 400 km radius)</font></h1>
             </div>
 
             <?php
@@ -205,7 +208,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header"><span class="fa fa-history"> Past Events</h2>
+                <h1 class="page-header"><span class="fa fa-history"> <font face="Tangerine">Past Events</font></h1>
             </div>
 
             <?php
