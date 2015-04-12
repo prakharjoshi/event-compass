@@ -118,7 +118,9 @@
         <link rel="stylesheet" href="css/starrr.min.css" type="text/css">
         <link href="css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">      
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">   
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">   
 </head>
 
 <body>		
@@ -440,7 +442,7 @@
 				        		$userfname=mysql_result($q2,0,'User_fname');
 				        		$review1=mysql_result($q,$i,'Review');
 		        		?>
-	        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><b><h4><font face="Montserrat"><?php echo $userfname ?></font></h4></b></a>
+	        			<a href="user_profile_view.php?user=<?php echo $user2;?>"><b><h1><font face="Tangerine"><?php echo $username ?></font></h1></b></a>
 		        		<?php 
 			        		//echo "<br>";
 			        		echo $review1;
