@@ -24,19 +24,19 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form role="form" action="profile_settings_form.php?user=<?php echo $username;?>" method="post">
+                                <form role="form" action="user_profile_edit.php?user=<?php echo $username;?>" method="post">
                                     <div class="form-group">
                                         <label for="disabledSelect">Username</label>
                                         <input class="form-control" id="disabledInput" type="text" placeholder= "<?php echo $username;?>" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label> First Name</label>
-                                        <input type="password" id="old_pass" class="form-control" name="old_password" />
+                                        <input type="text" id="old_pass" class="form-control" name="firstname" />
                                       
                                     </div>
                                     <div class="form-group">
                                       <label> Last Name</label>
-                                        <input type="password" id="old_pass" class="form-control" name="old_password" />
+                                        <input type="text" id="old_pass" class="form-control" name="lastname" />
                                     </div>
                                     <div class="form-group">
                                       <label> Old Password</label>
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="form-group">
                                       <label>New Password</label>
-                                        <input type="password" id="pass" class="form-control" name="password" />
+                                        <input type="password" id="pass" class="form-control" name="new_password" />
                                     </div>
                                     <div class="form-group">
                                         <label>Retype password</label>
