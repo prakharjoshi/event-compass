@@ -20,7 +20,42 @@
         $id = $_GET['id'];
     }
     if(isset($_POST['submit1']))
-    {
+    {   
+        $query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
+        $row = mysql_fetch_array($query);
+        $Sub_id = $row['Sub_id'];
+        $query1=mysql_query("SELECT DISTINCT User_id FROM Interested_in WHERE Sub_id='$Sub_id'");
+        while($row=mysql_fetch_array($query1))
+        {
+            $uid=$row['User_id'];
+            $query2=mysql_query("SELECT * FROM User WHERE User_id='$uid'");
+            $row1 = mysql_fetch_array($query2);
+            $uname=$row1['User_username'];
+            $uemail=$row1['User_email'];
+            require_once("PHPMailer_5.2.4/class.phpmailer.php");
+            $mail = new PHPMailer(); // create a new object
+            $mail->IsSMTP(); // enable SMTP
+            $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+            $mail->SMTPAuth = true; // authentication enabled
+            $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465; // or 587
+            $mail->IsHTML(true);
+            $mail->Username = "eventcompass22@gmail.com";
+            $mail->Password = "eventcom22";
+            $mail->SetFrom("eventcompass22@gmail.com");
+            $mail->Subject = "New Event";
+            $mail->Body = "A new event has been posted which you are following.Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id='$id'";
+            $mail->AddAddress($uemail);
+            if(!$mail->Send())
+            {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+            else
+            {
+                //echo "Message has been sent";
+            }
+        }
         redirect_to("event_page.php?user=$username&id=$id");
     }
     elseif (isset($_POST['submit']))

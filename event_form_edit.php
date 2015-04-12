@@ -13,7 +13,20 @@
 <?php require_once("backend/event_form_editbackend.php") ?>
 <?php
     $username =  $_SESSION['currentuser'];
-    
+    $query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
+    if(!$query)
+    {
+        echo mysql_error();
+    }
+    $row = mysql_fetch_array($query);
+    $image = $row['Ev_photo'];
+    //$id = $row['Ev_id'];
+    $Ev_location = $row['Ev_location'];
+    $Ev_description = $row['Ev_description'];
+    $Ev_date = $row['Ev_date'];
+    $Ev_time = $row['Ev_time'];
+    $Ev_name=$row['Ev_name'];
+
 ?>
 
 <div id="page-wrapper">
@@ -36,21 +49,21 @@
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form_edit.php?user=<?php echo $username;?>&id=<?php echo $id;?>">
                                 <div class="form-group">
                                     <label><h3>Event Name</h3></label>
-                                    <input class="form-control" name="eventname" placeholder="Enter name of your event">
+                                    <input class="form-control" name="eventname" placeholder="<?php echo $Ev_name;?>">
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Location</h3></label>
-                                    <input class="form-control" placeholder="Enter location of your event" name="eventlocation">
+                                    <input class="form-control" placeholder="<?php echo $Ev_location;?>" name="eventlocation">
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Date and Time</h3></label>
-                                    <input type="text" id="datetimepicker_dark" name = "date">
+                                    <input type="text" id="datetimepicker_dark" placeholder = "<?php echo $Ev_date." ".$Ev_time;?>"name = "date">
                                     
                                 </div>
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Short Description</h3></label>
-                                    <textarea class="form-control" rows="3" name="description"></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="<?php echo $Ev_description;?>" name="description"></textarea>
                                 </div>
                                 
                                 <div class="form-group">

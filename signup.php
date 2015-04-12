@@ -52,7 +52,7 @@ session_start();
                         <div class="form-group">
                                 <label for="password" class="col-md-3 control-label">Retype Password</label>
                                 <div class="col-md-9">
-                                    <input type="password" id="cpass" class="form-control" name="password" placeholder="Please enter your password again" required>
+                                    <input type="password" id="cpass" class="form-control" name="repassword" placeholder="Please enter your password again" required>
                                 </div>
                             </div>                                
                             <div class="form-group">

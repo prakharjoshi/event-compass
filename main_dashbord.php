@@ -14,8 +14,13 @@
 <?php
     if (isset($_GET['user'])) 
     {
-        $username = $_GET['user'];
+        $u = $_GET['user'];
     }
+    if($u!=$username)
+    {
+        redirect_to("main_dashbord.php?user=$username");
+    }
+
 ?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">

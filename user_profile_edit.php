@@ -4,6 +4,15 @@
 <?php require_once("backend/profile_settings_formbackend.php") ?>
 <?php require_once("backend/ifnotlogin.php") ?>
 <?php $username = $_SESSION['currentuser']?>
+<?php
+    $q=mysql_query("SELECT * FROM User WHERE User_username='$username'");
+    $userid=mysql_result($q,0,'User_id');
+    $fname=mysql_result($q,0,'User_fname');
+    $lname=mysql_result($q,0,'User_lname');
+    $email=mysql_result($q,0,'User_email');
+    $address=mysql_result($q,0,'User_address');
+    $phone=mysql_result($q,0,'User_phone');
+?>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/fixed_sidebar.css" rel="stylesheet">
@@ -33,12 +42,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label> <font face="Montserrat">First Name</font></label>
-                                        <input type="text" id="old_pass" placeholder= "" class="form-control" name="firstname" />
+                                        <input type="text" id="old_pass" placeholder= "<?php echo $fname;?>" class="form-control" name="firstname" />
                                       
                                     </div>
                                     <div class="form-group">
                                       <label> <font face="Montserrat">Last Name</font></label>
-                                        <input type="text" id="old_pass" placeholder= "" class="form-control" name="lastname" />
+                                        <input type="text" id="old_pass" placeholder= "<?php echo $lname;?>" class="form-control" name="lastname" />
                                     </div>
                                     <div class="form-group">
                                       <label> <font face="Montserrat">Old Password</font></label>
@@ -54,11 +63,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label><font face="Montserrat">Email</font></label>
-                                        <input class="form-control" placeholder= "" name="email">
+                                        <input class="form-control" placeholder= "<?php echo $email;?>" name="email">
                                     </div>
                                     <div class="form-group">
                                         <label><font face="Montserrat">Address</font></label>
-                                        <input class="form-control" placeholder= "" name="address">
+                                        <input class="form-control" placeholder= "<?php echo $address;?>" name="address">
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit"><font face="Montserrat">Submit Button</font></button>
                                 </form>

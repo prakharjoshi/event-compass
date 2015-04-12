@@ -115,14 +115,7 @@
                 ?>
                 </div>
                 </div>
-                <?php 
-                    if($Cat_id < 1)
-                    {   
-                ?>
-                <img src="image/browse_image.jpeg" class="col-lg-offset-4" style="width:400px;height:400px;">
-                <?php 
-                    } 
-                ?>
+                
             </div>
             <div id="wrapper" class="row">
                 <?php 
@@ -183,12 +176,7 @@
                 ?>
             </div>
             <!-- /#wrapper -->
-        </div>
-        <!-- /.container -->
-    </div>
-    <!-- /#main -->
-</div>
-<!-- row-offcanvas -->
+        
 
 <?php
     if(isset($_POST['submit']))
@@ -218,7 +206,13 @@
         } 
     }
 ?>
-        
+  
+</div>
+        <!-- /.container -->
+    </div>
+    <!-- /#main -->
+</div>
+<!-- row-off      
 <script type="text/javascript">
     $("#navbar1").click(function() {
         $(".row-offcanvas").toggleClass("active");

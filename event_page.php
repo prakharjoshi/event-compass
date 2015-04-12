@@ -29,6 +29,7 @@
 
 <?php
 	$id = $_GET['id'];
+	
 	$query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
 	if(!$query)
 	{
@@ -41,6 +42,7 @@
 	$Ev_description = $row['Ev_description'];
 	$Ev_date = $row['Ev_date'];
 	$Ev_time = $row['Ev_time'];
+	$Ev_auth = $row['Ev_auth'];
 	$owner=$row['User_id'];
 	$q=mysql_query("SELECT * FROM User WHERE User_id='$owner'");
 	$owner_name=mysql_result($q,0,'User_username');
@@ -152,7 +154,15 @@
 				});
 			});
 		</script>
-		
+	<div class="row">
+		<div class="col-md-offset-9">
+		<?php 
+		if($Ev_auth == 1)
+			{ ?>
+		<span class="glyphicon glyphicon-ok"><h1><font face="Tangerine">Verified</font></h1> </span>
+		<?php } ?>
+		</div>
+	</div>	
 		<div class="row" id="static_profile_box">
 	    	<div class="col-md-10 col-md-offset-1" >
 	      		<div class="well-lg panel panel-default" id="profile_box">
@@ -175,7 +185,18 @@
 		               </div>
  	            			<form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
 	            				<button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
+	            				<hr>
+	            				<?php 
+	            				if($username == 'admin')
+	            					{?>
+	            				<button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="auth">Authorize this event</button>
+	            				<?php } ?>
 	            			</form>
+	            			<?php
+	            			if(isset($_POST['auth'])){
+	            				$query=mysql_query("UPDATE Event SET Ev_auth=1 WHERE Ev_id='$id'");
+	            			}
+	            			?>
             				<?php
 								if(isset($_POST['formGender']) && isset($_POST['submit']))
 								{

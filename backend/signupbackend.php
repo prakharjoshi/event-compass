@@ -6,14 +6,19 @@ ob_start();
 	if(isset($_POST['submit']))
 	{
 		//echo "hello word";
-		if(empty($_POST["username"]))
+		if($_POST['password']!=$_POST['repassword'])
+		{
+			$x=10;
+			
+		}
+		if(empty($_POST['username']))
 		{
 			$usernameErr = "Username is required";
 			$x = 1;
 		}
 		else
 		{
-			$t = $_POST["username"];
+			$t = $_POST['username'];
 			$query = mysql_query("SELECT * FROM User WHERE User_username = '$t'");
 			if (!$query) {
 				echo mysql_error();
@@ -106,6 +111,10 @@ ob_start();
 		{
 			echo "Email aready exists";
 		}
+		if($x==10)
+		{
+			echo "Passwords do not match";
+		}
 		if($x == 0)
 		{
 			//test_input($username);
@@ -119,8 +128,7 @@ ob_start();
 			//echo $email;
 			//echo $password;
 			$hashed_password = md5($password);
-
-			$query = "INSERT INTO User (User_fname, User_lname,User_email, User_username,User_pass) VALUES ('{$firstname}','{$lastname}','{$email}','{$username}','{$hashed_password}')";
+			$query = "INSERT INTO User (User_fname, User_lname,User_email, User_username,User_pass,User_address) VALUES ('{$firstname}','{$lastname}','{$email}','{$username}','{$hashed_password}','DAIICT')";
 			$result = mysql_query($query,$connection);
 			if($result)
 			{
