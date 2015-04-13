@@ -2,6 +2,8 @@
 <?php require_once("includes/functions.php") ?>
 <?php require_once("includes/connection.php") ?>
 
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 <?php 
 	$username = $_SESSION['currentuser'];
 	$query = mysql_query("SELECT * FROM User WHERE User_username = '$username'");
@@ -159,7 +161,7 @@
 		<?php 
 		if($Ev_auth == 1)
 			{ ?>
-		<span class="glyphicon glyphicon-ok"><h1><font face="Tangerine">Verified</font></h1> </span>
+		<h1><font face="Tangerine"><span class="fa fa-check-circle"></span> Verified</font></h1>
 		<?php } ?>
 		</div>
 	</div>	
@@ -184,7 +186,20 @@
 		                ?>
 		               </div>
  	            			<form action="event_page.php?user=<?php echo $username;?>&id=<?php echo $id; ?>" method="post">
+ 	            				<?php 
+ 	            					$query = mysql_query("SELECT * FROM user_event_rating WHERE User_id = $User_id AND Ev_id = $id");
+ 	            					$tup=mysql_fetch_array($query);
+ 	            					$going=$tup['Going'];
+ 	            					if($going!=1){
+ 	            				?>
+
 	            				<button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
+	            				<?php } 
+	            				else
+	            				{
+	            					echo 'You are going';
+	            				}
+	            				?>
 	            				<hr>
 	            				<?php 
 	            				if($username == 'admin')
@@ -236,30 +251,17 @@
 					             	//echo 'hello';
 					             	$query3="INSERT INTO Past_Events (Ev_id,User_id) VALUES ('{$id}','{$User_id}')";
 									$query_run3=mysql_query($query3);
-									require_once("PHPMailer_5.2.4/class.phpmailer.php");
-									$mail = new PHPMailer(); // create a new object
-									$mail->IsSMTP(); // enable SMTP
-									$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-									$mail->SMTPAuth = true; // authentication enabled
-									$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-									$mail->Host = "smtp.gmail.com";
-									$mail->Port = 465; // or 587
-									$mail->IsHTML(true);
-									$mail->Username = "eventcompass22@gmail.com";
-									$mail->Password = "eventcom22";
-									$mail->SetFrom("eventcompass22@gmail.com");
-									$mail->Subject = "New Event";
-									$mail->Body = "A new event has been posted which you are following";
-									echo "A mail has been sent to you";
-									$mail->AddAddress($email);
-									if(!$mail->Send())
+									$q=mysql_query("SELECT * FROM user_event_rating WHERE User_id='$User_id' AND Ev_id='$id'");
+									if(mysql_num_rows($q)==0)
 									{
-									   echo "Mailer Error: " . $mail->ErrorInfo;
+										mysql_query("INSERT INTO user_event_rating (User_id,Ev_id,Going) VALUES ('$User_id','$id','1')");
 									}
 									else
 									{
-									   //echo "Message has been sent";
+										mysql_query("UPDATE user_event_rating SET Going =1 WHERE User_id = $User_id AND Ev_id = $id");
 									}
+
+
 					             }
 				            ?>
           				</div>
@@ -272,6 +274,19 @@
     		<!--/col--> 
   		</div>
   		<!--/row--> 
+  		<?php
+  		$qe=mysql_query("SELECT * FROM user_event_rating WHERE Ev_id='$id'");
+  		if(mysql_num_rows($qe)==0)
+  		{
+  			$attendance=0;
+  		}
+  		else
+  		{
+  		 $q=mysql_query("SELECT COUNT(*) as attendance FROM user_event_rating WHERE Ev_id='$id' AND Going='1'");
+  		 $attendance=mysql_result($q, 0,'attendance');
+  		}
+  		?>
+  		&nbsp;&nbsp;&nbsp;&nbsp;<b><h4><?php echo $attendance;?> people are going</h4></b>
   		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
           	<div class="panel panel-info">
             	<div class="panel-heading">

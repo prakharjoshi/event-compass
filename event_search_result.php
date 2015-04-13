@@ -108,7 +108,7 @@
                             $cat_name = mysql_result($query_run, 0,'cat_name');
                     ?>
 
-                        <h1><font face="Tangerine"><?php echo $cat_name ;?></font></h1>
+                        <!--<h1><font face="Tangerine"><?php echo $cat_name ;?></font></h1>-->
                         <hr>
                     <?php 
                 }

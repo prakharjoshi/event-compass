@@ -19,12 +19,16 @@
     {
         $id = $_GET['id'];
     }
+    $id = $_GET['id'];
     if(isset($_POST['submit1']))
     {   
         $query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
         $row = mysql_fetch_array($query);
         $Sub_id = $row['Sub_id'];
         $query1=mysql_query("SELECT DISTINCT User_id FROM Interested_in WHERE Sub_id='$Sub_id'");
+        $qe=mysql_query("SELECT * FROM Subcategory WHERE Sub_id='$Sub_id'");
+        $tup=mysql_fetch_array($qe);
+        $Sname=$tup['Sub_name'];
         while($row=mysql_fetch_array($query1))
         {
             $uid=$row['User_id'];
@@ -32,6 +36,8 @@
             $row1 = mysql_fetch_array($query2);
             $uname=$row1['User_username'];
             $uemail=$row1['User_email'];
+            $fname=$row1['User_fname'];
+            $lname=$row1['User_lname'];
             require_once("PHPMailer_5.2.4/class.phpmailer.php");
             $mail = new PHPMailer(); // create a new object
             $mail->IsSMTP(); // enable SMTP
@@ -44,8 +50,8 @@
             $mail->Username = "eventcompass22@gmail.com";
             $mail->Password = "eventcom22";
             $mail->SetFrom("eventcompass22@gmail.com");
-            $mail->Subject = "New Event";
-            $mail->Body = "A new event has been posted which you are following.Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id='$id'";
+            $mail->Subject = "New Event Posted";
+            $mail->Body = "Hello Mr.$fname $lname.<br>A new event of '$Sname' has been posted which you are following.<br><br> Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id=$id <br><br> Register for the event to receive further notifications from <b>EVENT COMPASS</b>.";
             $mail->AddAddress($uemail);
             if(!$mail->Send())
             {
@@ -74,17 +80,66 @@
         {
             $filePath = $uploadDir . $id . '.pdf';
         }
+        if($ext == "PDF")
+        {
+            $filePath = $uploadDir . $id . '.PDF';
+        }
         $result = move_uploaded_file($image_tmp_name, $filePath);
         if (!$result) 
         {
             echo "Error uploading file";
             exit;
         }
-        echo "hello world";
+        
         $query = mysql_query("UPDATE Event SET Ev_mou = '$filePath' WHERE Ev_id = '$id'"); 
         if(!$query)
         {
             echo mysql_error();
+        }
+
+
+
+
+        $query = mysql_query("SELECT * FROM Event WHERE Ev_id = '$id'");
+        $row = mysql_fetch_array($query);
+        $Sub_id = $row['Sub_id'];
+        $query1=mysql_query("SELECT DISTINCT User_id FROM Interested_in WHERE Sub_id='$Sub_id'");
+        $qe=mysql_query("SELECT * FROM Subcategory WHERE Sub_id='$Sub_id'");
+        $tup=mysql_fetch_array($qe);
+        $Sname=$tup['Sub_name'];
+        while($row=mysql_fetch_array($query1))
+        {
+            $uid=$row['User_id'];
+            $query2=mysql_query("SELECT * FROM User WHERE User_id='$uid'");
+            $row1 = mysql_fetch_array($query2);
+            $uname=$row1['User_username'];
+            $uemail=$row1['User_email'];
+            $fname=$row1['User_fname'];
+            $lname=$row1['User_lname'];
+            require_once("PHPMailer_5.2.4/class.phpmailer.php");
+            $mail = new PHPMailer(); // create a new object
+            $mail->IsSMTP(); // enable SMTP
+            $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+            $mail->SMTPAuth = true; // authentication enabled
+            $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465; // or 587
+            $mail->IsHTML(true);
+            $mail->Username = "eventcompass22@gmail.com";
+            $mail->Password = "eventcom22";
+            $mail->SetFrom("eventcompass22@gmail.com");
+            $mail->Subject = "New Event Posted";
+            $mail->Body = "Hello Mr.$fname $lname.<br>A new event of '$Sname' has been posted which you are following.<br><br> Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id=$id <br><br> Register for the event to receive further notifications from <b>EVENT COMPASS</b>.";
+
+            $mail->AddAddress($uemail);
+            if(!$mail->Send())
+            {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+            else
+            {
+                //echo "Message has been sent";
+            }
         }
         redirect_to("event_page.php?user=$username&id=$id");
     }
@@ -101,7 +156,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h1><font face="Tangerine">Upload MOU document for your event</font></h1>
+                    <h1><font face="Tangerine">Upload MOU document for your event(.pdf format)</font></h1>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">

@@ -57,7 +57,7 @@
             <ul class="nav pull-right"></ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="navbar-link"  href="browse_event.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-globe"></span> Browse Events</a>
+                    <a class="navbar-link"  href="browse_event.php?user=<?php echo $username ?>&Cat_id=0"><span class="glyphicon glyphicon-globe"></span> Browse Events</a>
                 </li>
                 <li>
                     <a class="navbar-link"  href="event_form.php?user=<?php echo $username ?>"><span class="glyphicon glyphicon-plus"></span> Post Event</a>
@@ -108,7 +108,7 @@
                             $cat_name = mysql_result($query_run, 0,'cat_name');
                     ?>
 
-                        <h1><font face="Tangerine"><?php echo $cat_name ;?></font></h1>
+                        <!--<h1><font face="Tangerine"><?php echo $cat_name ;?></font></h1>-->
                         <hr>
                     <?php 
                 }

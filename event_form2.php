@@ -37,13 +37,25 @@
         {
             $filePath = $uploadDir . $id . '.jpg';
         }
+        if($ext == "JPG")
+        {
+            $filePath = $uploadDir . $id . '.JPG';
+        }
         if($ext == "png")
         {
             $filePath = $uploadDir . $id . '.png';
         }
+        if($ext == "PNG")
+        {
+            $filePath = $uploadDir . $id . '.PNG';
+        }
         if($ext == "jpeg")
         {
             $filePath = $uploadDir . $id . '.jpeg';
+        }
+        if($ext == "JPEG")
+        {
+            $filePath = $uploadDir . $id . '.JPEG';
         }
         echo $filePath;
         $result = move_uploaded_file($image_tmp_name, $filePath);
@@ -58,6 +70,11 @@
             echo mysql_error();
         }
         redirect_to("event_form3.php?user=$username&id=$id");
+    }
+
+    if (isset($_POST['submit1']))
+    {
+        redirect_to("event_form3.php?user=$username&id=$id");   
     }
 ?>
 <div id="page-wrapper">
@@ -79,11 +96,11 @@
                         <div class="col-lg-12">
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form2.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
                                 <div class="form-group">
-                                    <label><h3><font face="Montserrat">Cover Photo</font></h3></label>
+                                    <label><h3><font face="Montserrat">Cover Photo(.jpg,.jpeg,.png only)</font></h3></label>
                                     <input type="file" name="image">          
                                     <br>
                                     <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Proceed to next step</font></button>
-                                    <button type="submit" class="btn btn-link" name="submit" value="submit1"><font face="Montserrat">Skip</font></button>
+                                    <button type="submit" class="btn btn-link" name="submit1" value="submit"><font face="Montserrat">Skip</font></button>
                                 </div>
                             </form>
                         </div>
