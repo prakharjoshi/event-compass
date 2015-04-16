@@ -174,7 +174,7 @@
                 <?php 
                     }
                 ?>
-                    <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?><</h3></a>
+                    <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></h3></a>
                     <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
                 </div>
                 <?php 

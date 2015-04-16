@@ -12,8 +12,6 @@
 	{
 	    redirect_to("login.php");
 	}
-
-	
 	$user = $_GET['user'];
 	if($user != $username)
 	{

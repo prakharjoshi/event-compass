@@ -156,14 +156,14 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h1><font face="Tangerine">Upload MOU document for your event(.pdf format)</font></h1>
+                    <h1><font face="Tangerine">Upload Verification Document for your event (.pdf)</font></h1>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">
                         <div class="col-lg-12">
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form3.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
                                 <div class="form-group">
-                                    <label><h3><font face="Montserrat">MOU</font></h3></label>
+                                    <label><h3><font face="Montserrat">Verification Document</font></h3></label>
                                     <input type="file" name="image">          
                                     <br>
                                     <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Proceed to next step</font></button>

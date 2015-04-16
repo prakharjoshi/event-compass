@@ -46,6 +46,14 @@
 	$Ev_time = $row['Ev_time'];
 	$Ev_auth = $row['Ev_auth'];
 	$owner=$row['User_id'];
+	$datee=$row['Ev_date'];
+	$pieces = explode("-", $datee);
+            $year1=$pieces[0];
+            $year1=intval($year1);
+            $month1=$pieces[1];
+            $month1=intval($month1);
+            $date1=$pieces[2];
+            $date1=intval($date1);
 	$q=mysql_query("SELECT * FROM User WHERE User_id='$owner'");
 	$owner_name=mysql_result($q,0,'User_username');
 	//echo $image;
@@ -139,9 +147,35 @@
 				$result = $year."-".$month."-".$day."T".$time1.":00+0100";
 				//echo $result;
 			?>
-			<!--
-			<time>2015-04-17T14:00:00+0100</time>
-			-->
+			<?php
+			$check=0;
+			$mydate=getdate(date("U"));
+			if($year1<$mydate['year'])
+			{?>
+				<h3>Event is finished.</h3>
+
+			<?php  $check=1;   } 
+			 
+			if($year1==$mydate['year'])
+			{
+				if($month1<$mydate['mon'])
+				{?>
+					<h3>Event has finished.</h3>
+				<?php   
+				$check=1; 
+				} 
+				 if($month1==$mydate['mon'])
+				{
+					if($date1<$mydate['mday'])
+					{?>
+						<h3>Event has finished.</h3>
+					<?php $check=1; } 
+				}
+				
+
+			}
+			
+			if($check==0) { ?>
 			<time><?php echo $result; ?></time>
 		</div>
 
@@ -156,6 +190,7 @@
 				});
 			});
 		</script>
+		<?php } ?>
 	<div class="row">
 		<div class="col-md-offset-9">
 		<?php 
@@ -190,14 +225,25 @@
  	            					$query = mysql_query("SELECT * FROM user_event_rating WHERE User_id = $User_id AND Ev_id = $id");
  	            					$tup=mysql_fetch_array($query);
  	            					$going=$tup['Going'];
- 	            					if($going!=1){
+ 	            					if($check==0&&$going!=1){
  	            				?>
 
 	            				<button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="submi">Attend Event</button>
 	            				<?php } 
 	            				else
 	            				{
-	            					echo 'You are going';
+	            					if($check==0 && $going==1)
+	            					{?>
+	            						<h3> You are going </h3>
+	            					<?php } 
+	            					
+	            					 
+	            					else if($check==1 && $going==1)
+	            					{ ?>
+	            						<h3> You went </h3>
+	            					<?php }  
+	            					
+
 	            				}
 	            				?>
 	            				<hr>
@@ -286,7 +332,12 @@
   		 $attendance=mysql_result($q, 0,'attendance');
   		}
   		?>
+  		<?php if($check==0){?>
   		&nbsp;&nbsp;&nbsp;&nbsp;<b><h4><?php echo $attendance;?> people are going</h4></b>
+  		<?php } ?>
+  		<?php if($check==1){?>
+  		&nbsp;&nbsp;&nbsp;&nbsp;<b><h4><?php echo $attendance;?> people have gone</h4></b>
+  		<?php } ?>
   		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
           	<div class="panel panel-info">
             	<div class="panel-heading">
@@ -333,11 +384,23 @@
 						    					$rating=mysql_result($q,0,'rating');
 						    					$rating=intval($rating);
 					    					?>
-					    					<?php echo $rating;?>/5
+					    					<?php 
+					    					if($check==1)
+					    					echo $rating.'/5';
+					    					?>
+					    					<?php
+					    					if($check==0)
+					    					{
+					    						echo 'Rating will be displayed after the event has finished.';
+					    					} 
+					    					?>
 					    				</td>     
                       				</tr>                     
                       				<tr>
                       					<td><font face="Montserrat">Your rating :</font></td>
+                      					<?php 
+                      						if($check==1){
+                      					?>
                     					<td>
                     						<form action="event_page.php?user=<?php echo $username; ?>&id=<?php echo $id;?>" method="post">
 												<select name="formGender">
@@ -352,7 +415,16 @@
 												<br>
 												<button type="submit" name="submit" value="submit" class="btn-btn-default col-md-offset-6">Rate</button>
 											</form>
-										</td>     
+										</td>   
+										<?php } ?>  
+										<?php 
+										if($check==0)
+										{ ?>
+										<td>
+											<h5>You can rate after the event has finished.</h5>
+										</td>
+										<?php } ?>
+										
                       				</tr>
                     			</tbody>
                   			</table>
@@ -540,4 +612,4 @@
 	<!--/container-->
 </body>
 
-<?php require_once("includes/footer.php") ?>   
+<?php require_once("includes/footer.php") ?>

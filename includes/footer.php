@@ -15,7 +15,7 @@
             <div class="col-md-3">
                 <ul class="nav nav-pills nav-stacked">
                     <li><strong><span class="fa fa-users"></span>Team</strong></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="http://technologyforfirsttime.blogspot.in">Blog</a></li>
                 </ul>
             </div>
@@ -38,7 +38,7 @@
             <div class="col-md-3">
                 <ul class="nav nav-pills nav-stacked">
                     <li><strong><span class="fa fa-support"></span> Support</strong></li>
-                    <li><a href="#">Product Help</a></li>
+                    <li><a href="user_manual.pdf">Product Help</a></li>
                 </ul>
             </div>  
             </div>
@@ -48,8 +48,8 @@
             <div class="col-lg-12">
                 <ul class="nav nav-pills nav-justified">
                     <li><a href="/"><span class="fa fa-copyright"></span> 2015 Event Compass</a></li>
-                    <li><a href="#"><span class="fa fa-legal"></span> Terms of Service</a></li>
-                    <li><a href="#"><span class="fa fa-lock"></span> Privacy</a></li>
+                    <li><a href="tos.php"><span class="fa fa-legal"></span> Terms of Service</a></li>
+                    <li><a href="privacy.php"><span class="fa fa-lock"></span> Privacy</a></li>
                 </ul>
             </div>
         </div>

@@ -195,8 +195,12 @@
             while($row = mysql_fetch_array($query_run))
             {
                 //echo 'hello';
+                $idd=$row['Ev_id'];
+$w=mysql_query("SELECT s.Sub_name as name FROM Subcategory s ,Event e WHERE e.Sub_id=s.Sub_id AND Ev_id='$idd'");
+$name=mysql_result($w,0,'name');
 ?>
-<a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $row['Ev_id'];?>"><h3><?php echo $row['Ev_name'] ?></h3></a>
+
+<a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $row['Ev_id'];?>"><h3><?php echo $row['Ev_name']; ?></h3></a><?php echo '-'.$row['Ev_location'].' ('.$name.')';?>
 <?php
             }
         }
