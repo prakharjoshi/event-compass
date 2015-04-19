@@ -31,16 +31,16 @@
 */
 
 // Countries
-var country_arr = new Array("Film & Entertainment","Hobbies & Special interest","Music","Visual arts","Science and technology","Sports and fitness");
+var country_arr = new Array("Film & Entertainment","Hobbies & Special-Interest","Music","Visual Arts","Science & Technology","Sports & Fitness");
 // States
 var s_a = new Array();
 s_a[0]="";
-s_a[1]="Comedy|Film|TV|Gaming|Comics|Other";
-s_a[2]="Books|Drawing & Painting|Other";
-s_a[3]="Alternative|Blues & Jazz|Classical|EDM|Folk|Hip-Hop & Rap|Indie|Metal|Pop|R&B|Religious|Rock|Other";
-s_a[4]="Comedy|Craft|Fine Arts|Literary Art|Musica|Orchestra|Theatre|Other";
-s_a[5]="Biotech|Coding|Mobile|Robotics|Science|Social Media|Other";
-s_a[6]="Basketball|Cycling|Exercise|Football|Hockey|Motorsports|Running|Swimming|Tennis|Volleyball|Walking|Yoga|Other";
+s_a[1]="Comedy|Film|TV|Gaming";
+s_a[2]="Books|Comics|Drawing & Painting|Gaming";
+s_a[3]="Alternative|Blues & Jazz|Classical|EDM|Folk|Hip-Hop & Rap|Indie|Metal|Pop|R&B|Religious|Rock";
+s_a[4]="Comedy|Craft|Dance|Fine Arts|Literary Art|Musical|Orchestra|Theatre";
+s_a[5]="Biotech|Coding|Mobile|Robotics|Science|Social Media";
+s_a[6]="Basketball|Cycling|Exercise|Football|Hockey|Motorsports|Running|Swimming|Tennis|Volleyball|Walking|Yoga";
 
 
 

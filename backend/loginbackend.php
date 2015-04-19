@@ -19,6 +19,7 @@ ob_start();
         echo $row[0];
         if(empty($row)){
             $msg="wrong username or password";
+            
             // echo $msg;
         }
         else
@@ -31,3 +32,8 @@ ob_start();
         }
     }
 ?>
+<script>
+function myFunction() {
+    alert("Invalid Username and password");
+}
+</script>

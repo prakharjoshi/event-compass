@@ -150,60 +150,66 @@
                 $query2="SELECT User_address FROM User WHERE User_username = '$username'";
                 $query_run2=mysql_query($query2);
                 $from=mysql_result($query_run2,0,'User_address');
-
-                $qr = "SELECT * FROM Event";
-                $qr2=mysql_query($qr);
-                $range=400000;
-
-                for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++) 
+                if(!empty($from))
                 {
-                    $to=mysql_result($qr2,$i,'Ev_location');
-                    $from = urlencode($from);
-                    $to = urlencode($to);
-                    $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
-                    $data = json_decode($data);
-                    $distance1 = 0;
+                    $qr = "SELECT * FROM Event";
+                    $qr2=mysql_query($qr);
+                    $range=400000;
 
-                    foreach($data->rows[0]->elements as $road)
+                    for ($i = 0; $i < 2/*mysql_num_rows($qr2)*/; $i++) 
                     {
-                        $distance1 += $road->distance->value;
-                    }
-                      
+                        $to=mysql_result($qr2,$i,'Ev_location');
+                        $from = urlencode($from);
+                        $to = urlencode($to);
+                        $data = file_get_contents("http://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&language=en-EN&sensor=false");
+                        $data = json_decode($data);
+                        $distance1 = 0;
 
-                    if($distance1<=$range)
-                    {
-                        $Ev_id = mysql_result($qr2, $i,'Ev_id');
-                        $Ev_name=mysql_result($qr2,$i,'Ev_name');
-                        $Ev_description=mysql_result($qr2, $i,'Ev_description');
-                        $Sub_id=mysql_result($qr2, $i,'Sub_id');
-                        $Ev_img=mysql_result($query_run,$i,'Ev_photo');
-                        if ($Ev_img == " ")
+                        foreach($data->rows[0]->elements as $road)
                         {
-                            $Ev_img = "image/imagenotfound.jpg";
+                            $distance1 += $road->distance->value;
                         }
-                        $distance1=$distance1/1000;
-            ?>
-            <div class="col-lg-3 col-sm-6 text-center">
-                <?php 
-                        if(!is_null($Ev_img))
+                          
+
+                        if($distance1<=$range)
                         {
+                            $Ev_id = mysql_result($qr2, $i,'Ev_id');
+                            $Ev_name=mysql_result($qr2,$i,'Ev_name');
+                            $Ev_description=mysql_result($qr2, $i,'Ev_description');
+                            $Sub_id=mysql_result($qr2, $i,'Sub_id');
+                            $Ev_img=mysql_result($query_run,$i,'Ev_photo');
+                            if ($Ev_img == " ")
+                            {
+                                $Ev_img = "image/imagenotfound.jpg";
+                            }
+                            $distance1=$distance1/1000;
                 ?>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                <div class="col-lg-3 col-sm-6 text-center">
+                    <?php 
+                            if(!is_null($Ev_img))
+                            {
+                    ?>
+                    <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="<?php echo $Ev_img;?>" alt="" style="width:400px;height:200px;"></a>
+                    <?php
+                            }
+                            else
+                            {
+                    ?>
+                    <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+                    <?php 
+                            }
+                    ?>
+                    <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></font></h3></a>
+                    <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
+                    <p><font face="Montserrat"><?php echo "Distance: ".$distance1." km from you"; ?></font></p>
+                </div>
                 <?php
                         }
-                        else
-                        {
-                ?>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
-                <?php 
-                        }
-                ?>
-                <a href="/event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><h3><font face="Montserrat"><?php echo $Ev_name ?></font></h3></a>
-                <p><font face="Montserrat"><?php echo $Ev_description ?></font></p>
-                <p><font face="Montserrat"><?php echo "Distance: ".$distance1." km from you"; ?></font></p>
-            </div>
-            <?php
                     }
+                }
+                else
+                {
+                    echo "Update Your profile to use this feature.";
                 }
             ?>
         </div>

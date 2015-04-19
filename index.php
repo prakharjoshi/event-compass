@@ -62,6 +62,9 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#video">Video</a>
                     </li>                    
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -125,7 +128,21 @@
                         <a href="https://plus.google.com/u/0/107984560752107119293/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
                 </ul>
+                <a href="#video" class="btn btn-circle page-scroll">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
             </div>
+        </div>
+    </section>
+
+    <section id="video" class="container content-section text-center">
+        <div class="row">
+                <div class="col-sm-12">Event Compass is a smart filter that lets you keep in touch with your interests in the most elegant way possible!</div>
+                <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
+                <div class="col-sm-12">
+                    <iframe width="600" height="340" src="https://www.youtube.com/embed/S6C-scIPpNs" frameborder="0" allowfullscreen></iframe>                
+                </div>
+                </div>
         </div>
     </section>
 

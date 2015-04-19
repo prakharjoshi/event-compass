@@ -89,14 +89,14 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h1><font face="Tangerine">Upload Cover Picture for your Event</font></h1>
+                    <h1><font face="Tangerine">Upload Cover Picture for your event</font></h1>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">
                         <div class="col-lg-12">
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form2.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
                                 <div class="form-group">
-                                    <label><h3><font face="Montserrat">Cover Photo (.jpg, .jpeg, .png)</font></h3></label>
+                                    <label><h3><font face="Montserrat">Cover Photo(.jpg,.jpeg,.png only)</font></h3></label>
                                     <input type="file" name="image">          
                                     <br>
                                     <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Proceed to next step</font></button>

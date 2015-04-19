@@ -186,6 +186,7 @@
 <!--echo 'Search Results :<br>';
 //echo mysql_real_escape_string($search_key);-->
 <center><h2><b>Search Results:</b></h2></center>
+<div class="col-md-offset-1">
 <?php
         echo '<br>';
         $query = "SELECT * FROM Event WHERE ((Ev_name LIKE '%".mysql_real_escape_string($search_key)."%' ) OR (Ev_location LIKE '%".mysql_real_escape_string($search_key)."%' ))";
@@ -198,9 +199,14 @@
                 $idd=$row['Ev_id'];
 $w=mysql_query("SELECT s.Sub_name as name FROM Subcategory s ,Event e WHERE e.Sub_id=s.Sub_id AND Ev_id='$idd'");
 $name=mysql_result($w,0,'name');
+$r=mysql_fetch_array(mysql_query("SELECT * FROM Event e ,Subcategory s NATURAL JOIN Category c WHERE s.Sub_id=e.Sub_id AND Ev_id='$idd'"));
+$catname=$r['Cat_name'];
 ?>
 
-<a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $row['Ev_id'];?>"><h3><?php echo $row['Ev_name']; ?></h3></a><?php echo '-'.$row['Ev_location'].' ('.$name.')';?>
+<a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $row['Ev_id'];?>">
+<h3><font face="Montserrat"><?php echo $row['Ev_name']; ?></font></h3></a>
+<?php echo $catname.': '.$name.'<br>';
+ echo $row['Ev_location'];?>
 <?php
             }
         }
@@ -210,7 +216,7 @@ $name=mysql_result($w,0,'name');
         } 
     }
 ?>
-  
+</div> 
 </div>
         <!-- /.container -->
     </div>

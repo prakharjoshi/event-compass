@@ -79,12 +79,26 @@
         <div class="col-md-12">
             <h1 class="text-center"><font face="Tangerine">Categories</font></h1>
             <ul class="nav nav-pills nav-stacked text-center">
+            
                 <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=1"><span class="fa fa-film"></span><font face="Montserrat"> Film & Entertainment</font></a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=2"><span class="fa fa-cube"> <font face="Montserrat">Hobbies & Special-Interest</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=2"><span class="fa fa-cube"> <font face="Montserrat"> Hobbies & Special-Interest</font></a></li>
                 <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=3"><span class="fa fa-music"><font face="Montserrat"> Music</font></a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=4"><span class="fa fa-paint-brush"> <font face="Montserrat">Visual Arts</font></a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=5"><span class="fa fa-flask"><font face="Montserrat"> Science & Technology</font></a></li>
-                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=6"><span class="fa fa-soccer-ball-o"> <font face="Montserrat">Sports & Fitness</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=4"><span class="fa fa-paint-brush"> <font face="Montserrat"> Visual Arts</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=8"><span class="fa fa-flask"><font face="Montserrat"> Science & Technology</font></a></li>
+                <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id=43"><span class="fa fa-soccer-ball-o"> <font face="Montserrat"> Sports & Fitness</font></a></li>
+                <?php
+                $sel=mysql_query("SELECT * FROM Category");
+                
+                while($ro=mysql_fetch_array($sel))
+                {
+                    if(!($ro['Cat_id']!=1||$ro['Cat_id']!=2||$ro['Cat_id']!=3||$ro['Cat_id']!=4||$ro['Cat_id']!=8||$ro['Cat_id']!=43))
+                    {
+                    ?>
+                    <li><a href="browse_event.php?user=<?php echo $username;?>&Cat_id='$ro[Cat_id]'"><span class="fa fa-film"></span><font face="Montserrat"> <?php echo $ro['Cat_name']; ?></font></a></li>
+                <?php
+            }
+                 }
+            ?>
             </ul>
         </div>
     </div>
@@ -97,7 +111,7 @@
                     if($Cat_id < 1)
                     {   
                 ?>
-                    <h3><font face="Montserrat">Browse through categories of events here</font></h3>
+                    <h3><font face="Montserrat">Browse through the Events here</font></h3>
                 <?
                     }
                     else
@@ -114,15 +128,15 @@
                 }
                 ?>
                 </div>
-                </div>
-                <?php 
-                    if($Cat_id < 1)
-                    {   
-                ?>
-                <img src="image/browse_image.jpeg" class="col-lg-offset-4" style="width:400px;height:400px;">
-                <?php 
-                    } 
-                ?>
+            </div>
+            <?php 
+                if($Cat_id < 1)
+                {   
+            ?>
+            <img src="image/browse_image.jpeg" class="col-lg-offset-4" style="width:400px;height:400px;">
+            <?php 
+                } 
+            ?>
             </div>
             <div id="wrapper" class="row">
                 <?php 
@@ -197,7 +211,7 @@
 ?>
 <!--echo 'Search Results :<br>';
 //echo mysql_real_escape_string($search_key);-->
-<center><h2><b>Search Results:</b></h2></center>
+<center><h2><b>Search Results</b></h2></center>
 <?php
         echo '<br>';
         $query = "SELECT * FROM Event WHERE ((Ev_name LIKE '%".mysql_real_escape_string($search_key)."%' ) OR (Ev_location LIKE '%".mysql_real_escape_string($search_key)."%' ))";

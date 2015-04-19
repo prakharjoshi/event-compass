@@ -62,6 +62,32 @@
                 //echo "Message has been sent";
             }
         }
+            require_once("PHPMailer_5.2.4/class.phpmailer.php");
+            $mail = new PHPMailer(); // create a new object
+            $mail->IsSMTP(); // enable SMTP
+            $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+            $mail->SMTPAuth = true; // authentication enabled
+            $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465; // or 587
+            $mail->IsHTML(true);
+            $mail->Username = "eventcompass22@gmail.com";
+            $mail->Password = "eventcom22";
+            $mail->SetFrom("eventcompass22@gmail.com");
+            $mail->Subject = "New Event Posted";
+            $mail->Body = "Hello Mr.$fname $lname.<br>A new event of '$Sname' has been posted which you are following.<br><br> Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id=$id <br><br> Register for the event to receive further notifications from <b>EVENT COMPASS</b>.";
+            $qq=mysql_query("SELECT * FROM User WHERE User_username='admin'");
+            $rr=mysql_fetch_array($qq);
+            $mail->AddAddress($rr['User_email']);
+            if(!$mail->Send())
+            {
+                echo "Mailer Error: " . $mail->ErrorInfo;
+            }
+            else
+            {
+                //echo "Message has been sent";
+            }
+
         redirect_to("event_page.php?user=$username&id=$id");
     }
     elseif (isset($_POST['submit']))
@@ -156,14 +182,14 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
-                    <h1><font face="Tangerine">Upload Verification Document for your event (.pdf)</font></h1>
+                    <h1><font face="Tangerine">Upload MOU document for your event(.pdf format)</font></h1>
                 </div>
                 <div class="panel-body">
                     <div class="row col-md-offset-1">
                         <div class="col-lg-12">
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form3.php?user=<?php echo $username;?>&id=<?php echo $id; ?>">
                                 <div class="form-group">
-                                    <label><h3><font face="Montserrat">Verification Document</font></h3></label>
+                                    <label><h3><font face="Montserrat">MOU</font></h3></label>
                                     <input type="file" name="image">          
                                     <br>
                                     <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Proceed to next step</font></button>

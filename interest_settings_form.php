@@ -7,7 +7,10 @@
 ?>
 
 <?php require_once("backend/interest_settings_form_backend.php") ?>
-
+<?php
+$r=mysql_fetch_array(mysql_query("SELECT * FROM User WHERE User_username='$username'"));
+$User_id=$r['User_id'];
+?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/fixed_sidebar.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -57,7 +60,16 @@
                                         ?>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="" name="<?php echo $Sub_Cat_id; ?>" ><font face="Montserrat"><?php echo $Sub_Cat_name; ?></font>
+                                                <input type="checkbox" value="" name="<?php echo $Sub_Cat_id; ?>" 
+                                                <?php
+                                                $qw=mysql_query("SELECT * FROM Interested_in WHERE User_id='$User_id' AND Sub_id='$Sub_Cat_id'");
+                                                if(mysql_num_rows($qw)>0)
+                                                {
+                                                    echo 'checked';
+                                                }
+
+                                                ?>
+                                                ><font face="Montserrat"><?php echo $Sub_Cat_name; ?></font>
                                             </label>
                                         </div>
                                         <?php 

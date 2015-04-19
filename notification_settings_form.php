@@ -7,7 +7,11 @@
 <?php
     $username = $_SESSION['currentuser'];
 ?>
-
+<?php
+$r=mysql_fetch_array(mysql_query("SELECT * FROM User WHERE User_username='$username'"));
+$ne=$r['User_notifyemail'];
+$np=$r['User_notifyphone'];
+?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/fixed_sidebar.css" rel="stylesheet">
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -34,12 +38,21 @@
                                         <label><font face="Montserrat">Modes of Notification</font></label>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="email" name="email"><span class="fa fa-envelope"><font face="Montserrat"> Email</font>
+                                                <input type="checkbox" value="email" name="email"
+                                                <?php
+                                                if($ne==1){echo 'checked';}
+                                                ?>
+
+                                                ><span class="fa fa-envelope"><font face="Montserrat"> Email</font>
                                             </label>
                                         </div>
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" value="text" name="text"><span class="fa fa-mobile-phone"> <font face="Montserrat">Text Message</font>
+                                                <input type="checkbox" value="text" name="text"
+                                                <?php
+                                                if($np==1){echo 'checked';}
+                                                ?>
+                                                ><span class="fa fa-mobile-phone"> <font face="Montserrat">Text Message</font>
                                             </label>
                                         </div>
                                         <button type="submit" class="btn btn-primary" name="submit" value="submit"><font face="Montserrat">Submit</font></button>

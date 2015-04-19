@@ -19,7 +19,7 @@ session_start();
                 </div>     
 
                 <div style="padding-top:30px" class="panel-body" >                            
-                    <form role="form" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                    <form role="form" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" onsubmit="return checkForm(this);">
                             
                             <div id="signupalert" style="display:none" class="alert alert-danger">
                                 <p>Error:</p>
@@ -28,13 +28,13 @@ session_start();
                             <div class="form-group">
                                 <label for="firstname" class="col-md-3 control-label">First Name</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First Name" required>
                                 </div>
                             </div>                                   
                             <div class="form-group">
                                 <label for="lasttname" class="col-md-3 control-label">Last Name</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                    <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>  
                                 </div>
                             </div>
                             <div class="form-group">
@@ -58,13 +58,13 @@ session_start();
                             <div class="form-group">
                                 <label for="email" class="col-md-3 control-label">E-mail</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="email" placeholder="E-mail Address">
+                                    <input type="text" class="form-control" name="email" placeholder="E-mail Address" required>
                                 </div>
                             </div>
                                
                             <div class="form-group-last">
                                 <div class="col-sm-offset-8 col-sm-9">
-                                    <button type="button" class="btn btn-link">Cancel</button>
+                                    <a href="login.php" class="btn btn-link btn"><strong class="">Cancel</strong></a>
                                     <button type="submit" class="btn btn-primary" name="submit">Sign Up</button>
                                 </div>
                             </div>
@@ -95,6 +95,20 @@ session_start();
 </div>
 
 <!-- Script to check password !-->
+
+<script type="text/javascript"> 
+function checkForm(form) 
+{ 
+    if(form.password.value.length < 8) 
+    { 
+        alert("Error: Password must be at least 8 characters long"); 
+        form.password.focus(); return false; 
+    } 
+    
+}
+
+}
+</script>
 <script>
 $('form').on('submit',function(){
    if($('#pass').val()!=$('#cpass').val()){

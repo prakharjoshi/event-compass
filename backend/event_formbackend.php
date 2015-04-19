@@ -32,6 +32,10 @@
            // $radio = $_POST['optionsRadios'];
             $category =  $_POST['category'];
             $subcategory =  $_POST['subcategory'];
+
+            $row = mysql_fetch_array(mysql_query("SELECT * FROM Category WHERE Cat_name = '$category'"));
+            $cat_id = $row['Cat_id'];
+
             /*echo gettype($_POST['category']);
             foreach ($_POST['category'] as $select)
             {
@@ -39,13 +43,15 @@
             }*/
            // echo "<br>" .$desc . "<br>";
             //echo "<br>" .$category . "<br>";
-            $query1 = mysql_query("SELECT * FROM Subcategory WHERE Sub_name = '$subcategory'");
+            $query1 = mysql_query("SELECT * FROM Subcategory WHERE Sub_name = '$subcategory' AND Cat_id = '$cat_id'");
+
             if(!$query1)
             {
                 echo mysql_error();
             }
             $row = mysql_fetch_array($query1);
             $sub_id = $row['Sub_id'];
+
             //echo "<br>";
 
             //echo "<br>" . $sub_id . "<br>";

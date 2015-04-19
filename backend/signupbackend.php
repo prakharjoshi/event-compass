@@ -6,6 +6,10 @@ ob_start();
 	if(isset($_POST['submit']))
 	{
 		//echo "hello word";
+		if(strlen($_POST['password']) < 8)
+		{
+			$x = 11;
+		}
 		if($_POST['password']!=$_POST['repassword'])
 		{
 			$x=10;
@@ -115,6 +119,10 @@ ob_start();
 		{
 			echo "Passwords do not match";
 		}
+		if($x == 11)
+		{
+			echo "Password is short ( >= 8)";
+		}
 		if($x == 0)
 		{
 			//test_input($username);
@@ -128,7 +136,7 @@ ob_start();
 			//echo $email;
 			//echo $password;
 			$hashed_password = md5($password);
-			$query = "INSERT INTO User (User_fname, User_lname,User_email, User_username,User_pass,User_address) VALUES ('{$firstname}','{$lastname}','{$email}','{$username}','{$hashed_password}','DAIICT')";
+			$query = "INSERT INTO User (User_fname, User_lname,User_email, User_username,User_pass) VALUES ('{$firstname}','{$lastname}','{$email}','{$username}','{$hashed_password}')";
 			$result = mysql_query($query,$connection);
 			if($result)
 			{
