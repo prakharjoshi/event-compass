@@ -43,13 +43,9 @@ session_start();
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="reset" class="btn btn-default btn">Reset</button>
-                                <?php
-                                if(empty($row)){ ?>
+                                
                                   <button type="submit" class="btn btn-primary btn" value="submit" name="submit" id="submit" >Sign in</button>
-                                <?php } 
-                                else { ?>
-                                    <button type="submit" class="btn btn-primary btn" value="submit" name="submit" id="submit">Sign in</button>   
-                                <?php } ?>
+                                
                             </div>
                         </div>
                         <div class="form-group last">

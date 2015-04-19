@@ -49,21 +49,21 @@
                             <form enctype="multipart/form-data" role="form" method="post" action="event_form_edit.php?user=<?php echo $username;?>&id=<?php echo $id;?>">
                                 <div class="form-group">
                                     <label><h3>Event Name</h3></label>
-                                    <input class="form-control" name="eventname" placeholder="<?php echo $Ev_name;?>">
+                                    <input class="form-control" name="eventname" value="<?php echo $Ev_name;?>">
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Location</h3></label>
-                                    <input class="form-control" placeholder="<?php echo $Ev_location;?>" name="eventlocation">
+                                    <input class="form-control" value="<?php echo $Ev_location;?>" name="eventlocation">
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Event Date and Time</h3></label>
-                                    <input type="text" id="datetimepicker_dark" placeholder = "<?php echo $Ev_date." ".$Ev_time;?>"name = "date">
+                                    <input type="text" id="datetimepicker_dark" value = "<?php echo $Ev_date." ".$Ev_time;?>"name = "date">
                                     
                                 </div>
                                 </div>
                                 <div class="form-group">
                                     <label><h3>Short Description</h3></label>
-                                    <textarea class="form-control" rows="3" placeholder="<?php echo $Ev_description;?>" name="description"></textarea>
+                                    <textarea class="form-control" rows="3" value="<?php echo $Ev_description;?>" name="description"></textarea>
                                 </div>
                                 
                                 <div class="form-group">

@@ -19,9 +19,11 @@ ob_start();
         echo $row[0];
         if(empty($row)){
             $msg="wrong username or password";
+?>
+            <script>alert('Invalid login details');</script>
             
-            // echo $msg;
-        }
+            
+       <?php }
         else
         {
             $_SESSION['currentuser'] = $username;
@@ -32,8 +34,4 @@ ob_start();
         }
     }
 ?>
-<script>
-function myFunction() {
-    alert("Invalid Username and password");
-}
-</script>
+

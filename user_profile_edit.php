@@ -38,16 +38,16 @@
                                 <form role="form" action="user_profile_edit.php?user=<?php echo $username;?>" method="post">
                                     <div class="form-group">
                                         <label for="disabledSelect"><font face="Montserrat">Username</font></label>
-                                        <input class="form-control" id="disabledInput" type="text" placeholder= "<?php echo $username;?>" disabled>
+                                        <input class="form-control" id="disabledInput" type="text" value= "<?php echo $username;?>" disabled>
                                     </div>
                                     <div class="form-group">
                                         <label> <font face="Montserrat">First Name</font></label>
-                                        <input type="text" id="old_pass" placeholder= "<?php echo $fname;?>" class="form-control" name="firstname" />
+                                        <input type="text" id="old_pass" value= "<?php echo $fname;?>" class="form-control" name="firstname" />
                                       
                                     </div>
                                     <div class="form-group">
                                       <label> <font face="Montserrat">Last Name</font></label>
-                                        <input type="text" id="old_pass" placeholder= "<?php echo $lname;?>" class="form-control" name="lastname" />
+                                        <input type="text" id="old_pass" value= "<?php echo $lname;?>" class="form-control" name="lastname" />
                                     </div>
                                     <div class="form-group">
                                       <label> <font face="Montserrat">Old Password</font></label>
@@ -63,11 +63,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label><font face="Montserrat">Email</font></label>
-                                        <input class="form-control" placeholder= "<?php echo $email;?>" name="email">
+                                        <input class="form-control" value= "<?php echo $email;?>" name="email">
                                     </div>
                                     <div class="form-group">
                                         <label><font face="Montserrat">Address</font></label>
-                                        <input class="form-control" placeholder= "<?php echo $address;?>" name="address">
+                                        <input class="form-control" value= "<?php echo $address;?>" name="address">
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="submit"><font face="Montserrat">Submit Button</font></button>
                                 </form>
