@@ -155,7 +155,7 @@
             $mail->Password = "eventcom22";
             $mail->SetFrom("eventcompass22@gmail.com");
             $mail->Subject = "New Event Posted";
-            $mail->Body = "Hello Mr.$fname $lname.<br>A new event of '$Sname' has been posted which you are following.<br><br> Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id=$id <br><br> Register for the event to receive further notifications from <b>EVENT COMPASS</b>.";
+            $mail->Body = "Hello Admin,<br>A new event of '$Sname' has been posted just now.<br><br> Here is the event link : http://eventcompass.orgfree.com/event_page.php?user=$uname&id=$id <br><br>";
 
             $mail->AddAddress($uemail);
             if(!$mail->Send())

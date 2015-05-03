@@ -2,6 +2,17 @@
 ob_start();
 ?>
 <?php
+ function randomPas() 
+ {
+        $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass); //turn the array into a string
+ }
 	$x = 0;
 	if(isset($_POST['submit']))
 	{
@@ -136,7 +147,8 @@ ob_start();
 			//echo $email;
 			//echo $password;
 			$hashed_password = md5($password);
-			$query = "INSERT INTO User (User_fname, User_lname,User_email, User_username,User_pass) VALUES ('{$firstname}','{$lastname}','{$email}','{$username}','{$hashed_password}')";
+			$randompass=randomPas();
+			$query = "INSERT INTO User (User_fname, User_lname,User_email, User_username,User_pass,User_token) VALUES ('{$firstname}','{$lastname}','{$email}','{$username}','{$hashed_password}','{$randompass}')";
 			$result = mysql_query($query,$connection);
 			if($result)
 			{

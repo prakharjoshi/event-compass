@@ -12,6 +12,7 @@
     $email=mysql_result($q,0,'User_email');
     $address=mysql_result($q,0,'User_address');
     $phone=mysql_result($q,0,'User_phone');
+    $token=mysql_result($q,0,'User_token');
 ?>
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -62,8 +63,17 @@
                                           <input type="password" id="cpass" class="form-control" name="confirmPassword" />
                                     </div>
                                     <div class="form-group">
+                                        <label><font face="Montserrat">Mobile no:</font></label>
+                                        <input class="form-control" value= "<?php echo $phone;?>" name="phone">
+                                    </div>
+                                    <div class="form-group">
                                         <label><font face="Montserrat">Email</font></label>
-                                        <input class="form-control" value= "<?php echo $email;?>" name="email">
+                                        <?php
+                                        if($token!=1){?>
+                                        <a href="verify_email.php?user=<?php echo $username;?>">(Verify your email here  </a>to receive email notifications.)
+                                        
+                                        <?php } ?>
+                                       <input class="form-control" value= "<?php echo $email;?>" name="email">
                                     </div>
                                     <div class="form-group">
                                         <label><font face="Montserrat">Address</font></label>
@@ -93,9 +103,10 @@
 <script>
     $('form').on('submit',function(){
        if($('#pass').val()!=$('#cpass').val()){
-           alert('Password not matches');
+           alert('Passwords do not match');
            return false;
        }
+
        return true;
     });
 </script>

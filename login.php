@@ -25,6 +25,7 @@ session_start();
         <div class="col-md-4 col-md-offset-7">
             <div class="panel panel-default">
                 <div class="panel-heading"><strong class="">Login</strong>
+
                 </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -39,26 +40,26 @@ session_start();
                             <div class="col-sm-9">
                                 <input class="form-control" id="inputPassword3" placeholder="Password" required="" type="password" name='password'>
                             </div>
+                            
+                            
                         </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="reset" class="btn btn-default btn">Reset</button>
                                 
-                                  <button type="submit" class="btn btn-primary btn" value="submit" name="submit" id="submit" >Sign in</button>
-                                
+                                  <button type="submit" class="btn btn-primary btn" value="submit" name="submit" id="submit" >Log in</button>
+                                    
                             </div>
                         </div>
                         <div class="form-group last">
                             <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label class="">
-                                        <input class="" type="checkbox">Remember me</label>
-                                </div>
+                                
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="panel-footer"><strong class="">Not Registered?</strong><a href="signup.php" class="btn btn-link btn"><strong class="">Register Here</strong></a>
+                <div class="panel-footer"><a href="forgot_password.php" class="btn btn-link btn"><strong class="">Forgot password</strong></a>
                 </div>
             </div>
         </div>

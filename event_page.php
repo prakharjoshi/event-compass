@@ -215,13 +215,13 @@
                     if(!is_null($Ev_photo))
 		                    {
 		                ?>
-		                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" width="900px" height="300px" src="<?php echo $Ev_photo;?>" alt="" style="width:400px;height:200px;"></a>
+		                <img class="img-responsive img-responsive img-center" width="900px" height="300px" src="<?php echo $Ev_photo;?>" alt="" style="width:400px;height:200px;"></a>
 		                <?php
 		                    }
 		                    else
 		                    {
 		                ?>
-		                <a href="event_page.php?user=<?php echo $username;?>&id=<?php echo $Ev_id;?>"><img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
+		                <img class="img-responsive img-responsive img-center" src="image/imagenotfound.jpg" alt="" style="width:400px;height:200px;"></a>
 		                <?php 
 		                    }
 		                ?>
@@ -254,9 +254,17 @@
 	            				?>
 	            				<hr>
 	            				<?php 
-	            				if($username == 'admin')
-	            					{?>
-	            				<button type="submit" id="attend_btn" class="btn btn-primary col-md-offset-5" name="auth"><span class="fa fa-check-circle-o"></spam> Authorize this event</button>
+	            				if($username == 'admin'){
+                                    $q=mysql_fetch_array(mysql_query("SELECT * FROM Event WHERE Ev_id='$id'"));
+                                    $aut=$q['Ev_auth'];
+                                    if($aut==1){
+	            					?>
+                                <button type="submit" id="attend_btn" class="btn btn-danger col-md-offset-5" name="unauth"><span class="glyphicon glyphicon-remove"></spam> Unauthorize</button>
+                                <?php }
+                                else{
+                                ?>
+	            				<button type="submit" id="attend_btn" class="btn btn-success col-md-offset-5" name="auth"><span class="fa fa-check-circle-o"></spam> Authorize this event</button>
+                                <?php } ?>
 	            				<a href="/img/<?php echo $id.'.pdf'?>">Link to MOU here</a>
 	            				<?php } ?>
 	            			</form>
@@ -264,6 +272,9 @@
 	            			if(isset($_POST['auth'])){
 	            				$query=mysql_query("UPDATE Event SET Ev_auth=1 WHERE Ev_id='$id'");
 	            			}
+                            else if(isset($_POST['unauth'])){
+                                $query=mysql_query("UPDATE Event SET Ev_auth=0 WHERE Ev_id='$id'");
+                            }
 	            			?>
             				<?php
 								if(isset($_POST['formGender']) && isset($_POST['submit']))

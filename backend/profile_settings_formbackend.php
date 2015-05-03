@@ -1,6 +1,6 @@
 <?php
     if (isset($_POST['submit'])&&!empty($_POST['old_password'])&&!empty($_POST['new_password']) 
-        && !empty($_POST['confirmPassword'])&&!empty($_POST['email'])&&!empty($_POST['address'])) 
+        && !empty($_POST['confirmPassword'])&&!empty($_POST['email'])&&!empty($_POST['address'])&&!empty($_POST['phone'])) 
     {
         $x = 0;
        // echo empty($_POST['password']);
@@ -8,6 +8,7 @@
             $firstname=$_POST['firstname'];
             $lastname=$_POST['lastname'];
             $old_password = $_POST['old_password'];
+            
             $new_password=$_POST['new_password'];
             $confirmPassword=$_POST['confirmPassword'];
             $old_hashed = md5($old_password);
@@ -29,8 +30,15 @@
             {
                 $x=3;
             }
-            
-        
+            $phone=$_POST['phone'];
+            if(ctype_digit($phone) && strlen($phone) == 10)
+            {
+                $phone=$_POST['phone'];
+            }
+            else
+            {
+                $x=20;
+            }
         
             $a = strpos($_POST['email'], '.');
             $b = strpos($_POST['email'], '@');
@@ -60,7 +68,11 @@
         }
         if($x == 3)
         {
-            echo "Passwords do not macth";
+            echo "Passwords do not match";
+        }
+        if($x==20)
+        {
+            echo "    Invalid mobile number";
         }
         if($x==0)
         {
@@ -77,7 +89,7 @@
             if($numrows!=0)
             {
                $query1  = mysql_query("UPDATE User SET User_fname='$firstname',User_lname='$lastname',User_address = '$address', 
-                        User_email = '$email', User_pass = '$hashed_password' WHERE User_id = $ide");
+                        User_email = '$email', User_pass = '$hashed_password' ,User_phone='$phone' WHERE User_id = $ide");
                 if(!$query1)
                 {
                     echo mysql_error();
